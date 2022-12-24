@@ -48,4 +48,4 @@ const burgerLine = document.querySelector('.burger__line'),
     toggleMobileNav = gsap.timeline()
     .from(dropdown, { y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
     .fromTo(navCurtain, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: .3 }, '<')
-    .from(navLinkMobile, { y: '-100%', duration: .5, stagger: .03, ease: 'none' }, '>-.1')
+    .from(navLinkMobile, { y: '100%', duration: .2, stagger: .03, ease: 'none' }, '>-.1')
