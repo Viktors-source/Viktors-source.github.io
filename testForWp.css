@@ -6,49 +6,49 @@ Theme Name: macaron_ingredient
     font-family: "SFProDisplayLight" ;
     font-style: normal;
     font-weight: 300;
-    src: url(/fonts/9206SFProDisplay-Light.woff) format("woff");
+    src: url(fonts/9206SFProDisplay-Light.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplayMedium" ;
     font-style: normal;
     font-weight: 500;
-    src: url(/fonts/SFProDisplay-Medium.woff) format("woff");
+    src: url(fonts/SFProDisplay-Medium.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplayRegular" ;
     font-style: normal;
     font-weight: 400;
-    src: url(/fonts/SFProDisplay-Regular.woff) format("woff");
+    src: url(fonts/SFProDisplay-Regular.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplaySemibold" ;
     font-style: normal;
     font-weight: 600;
-    src: url(/fonts/SFProDisplay-Semibold.woff) format("woff");
+    src: url(fonts/SFProDisplay-Semibold.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplayBold" ;
     font-style: normal;
     font-weight: 700;
-    src: url(/fonts/SFProDisplay-Bold.woff) format("woff");
+    src: url(fonts/SFProDisplay-Bold.woff) format("woff");
 }
 @font-face {
     font-family: 'SFProTextRegular' ;
     font-style: normal;
     font-weight: 400;
-    src: url(/fonts/SF-Pro-Text-Regular.woff) format("woff");
+    src: url(fonts/SF-Pro-Text-Regular.woff) format("woff");
 }
 @font-face {
     font-family: 'SFProTextMedium' ;
     font-style: normal;
     font-weight: 500;
-    src: url(/fonts/SF-Pro-Text-Medium.woff) format("woff");
+    src: url(fonts/SF-Pro-Text-Medium.woff) format("woff");
 }
 @font-face {
     font-family: 'SFProTextSemibold' ;
     font-style: normal;
     font-weight: 600;
-    src: url(/fonts/SF-Pro-Text-Semibold.woff) format("woff");
+    src: url(fonts/SF-Pro-Text-Semibold.woff) format("woff");
 }
 html {
     -moz-osx-font-smoothing: grayscale;
