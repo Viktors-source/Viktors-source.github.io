@@ -241,7 +241,7 @@ body {
     }
         .nav__content {
             width: calc(960px + (1360 - 960) * ((100vW - 960px) / (1360 - 960)));
-            padding: 0 calc(56px + (80 - 56) * ((100vW - 960px) / (1360 - 960)));;
+            padding: 0 calc(56px + (80 - 56) * ((100vW - 960px) / (1360 - 960)));
         }
             .logo_text {
                 font-size: calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
@@ -271,17 +271,17 @@ body {
 }
 @media screen and (max-width: 959px) {
     .local-nav {
-        height: calc(45px + (90 - 45) * ((100vW - 320px) / (960 - 320)));
+        height: calc(45px + (136 - 45) * ((100vW - 320px) / (960 - 320)));
     }
         .nav__content {
             width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
-            padding: 0 calc(15px + (30 - 15) * ((100vW - 320px) / (960 - 320)));
+            padding: 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
         }
             .logo_text {
-                font-size: calc(12px + (24 - 12) * ((100vW - 320px) / (960 - 320)));
+                font-size: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));
             }
             .nav__actions {
-                gap: calc(24px + (47 - 24) * ((100vW - 320px) / (960 - 320)));
+                gap: calc(24px + (70 - 24) * ((100vW - 320px) / (960 - 320)));
             }
                 .nav__links {
                     display: none;
@@ -290,33 +290,245 @@ body {
                     display: none;
                 }
                 .nav__actions_mobile {
-                    gap: calc(12px + (24 - 12) * ((100vW - 320px) / (960 - 320)));
+                    gap: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));
                 }
                     .nav__button_mobile {
-                        padding: calc(4px + (8 - 4) * ((100vW - 320px) / (960 - 320))) calc(8px + (16 - 8) * ((100vW - 320px) / (960 - 320)));;
-                        border-radius: calc(4px + (8 - 4) * ((100vW - 320px) / (960 - 320)));
-                        font-size: calc(11px + (22 - 11) * ((100vW - 320px) / (960 - 320)));
+                        padding: calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320))) calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320)));;
+                        border-radius: calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320)));
+                        font-size: calc(11px + (33 - 11) * ((100vW - 320px) / (960 - 320)));
                     } 
                     .nav__burger {
-                        width: calc(24px + (48 - 24) * ((100vW - 320px) / (960 - 320)));
-                        height: calc(21px + (42 - 21) * ((100vW - 320px) / (960 - 320)));
+                        width: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
+                        height: calc(21px + (64 - 21) * ((100vW - 320px) / (960 - 320)));
                     }
                         .burger__line{
-                            height: calc(2px + (4 - 2) * ((100vW - 320px) / (960 - 320)));
+                            height: calc(2px + (6 - 2) * ((100vW - 320px) / (960 - 320)));
                         }
                     .dropdown {
-                        height: calc(302px + (604 - 302) * ((100vW - 320px) / (960 - 320)));
-                        gap: calc(44px + (88 - 44) * ((100vW - 320px) / (960 - 320)));
-                        padding: calc(69px + (138 - 69) * ((100vW - 320px) / (960 - 320))) calc(35px + (70 - 35) * ((100vW - 320px) / (960 - 320))) calc(24px + (49 - 24) * ((100vW - 320px) / (960 - 320)));
+                        height: calc(302px + (906 - 302) * ((100vW - 320px) / (960 - 320)));
+                        gap: calc(44px + (132 - 44) * ((100vW - 320px) / (960 - 320)));
+                        padding: calc(69px + (207 - 69) * ((100vW - 320px) / (960 - 320))) calc(35px + (70 - 35) * ((100vW - 320px) / (960 - 320))) calc(24px + (49 - 24) * ((100vW - 320px) / (960 - 320)));
                     }
                         .nav__footer {
-                            font-size: calc(12px + (24 - 12) * ((100vW - 320px) / (960 - 320)));
-                            padding: calc(8px + (16 - 8) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+                            font-size: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));
+                            padding: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 0 0;
                         }
                         .nav__links_mobile {
-                            letter-spacing: calc((-0.41px) + ((-0.82) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
-                            font-size: calc(17px + (34 - 17) * ((100vW - 320px) / (960 - 320)));
-                            gap: calc(20px + (40 - 20) * ((100vW - 320px) / (960 - 320)));
+                            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                            font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                            gap: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
                         }
+                    
+}
+/* <----- local-nav -----> */
+
+
+/* <----- first screen -----> */
+
+.first-screen__title {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+}
+    .maintitle {
+        position: relative;
+    }
+        .maintitle > h1 {
+            position: relative;
+            font-family: 'SFProDisplaySemibold';
+            font-weight: 600;
+            letter-spacing: 0;
+            color: #1D1D1F;
+        }
+            .h1_toggles {
+                display: flex;
+                flex-direction: column;
+                font-family: 'SFProDisplayMedium';
+                font-weight: 500;
+                position: relative;
+                overflow: hidden;
+            }
+            .mainimage {
+                position: relative;
+                padding: 0;
+            }
+                .mainimage > img {
+                   position: absolute;
+                   background-position: center center;
+                   background-size: contain;
+                   background-repeat: no-repeat;
+                }
+
+.first-screen__beneffit {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+}
+    .mainbeneffit {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+        .mainbeneffit__icon {
+            position: relative;
+        }
+            .mainbeneffit__icon > img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        .mainbeneffit__text {
+            position: relative;
+        }
+
+@media screen and (min-width: 1360px) {
+    .first-screen__title {
+        width: 1360px;
+        padding: 100px 80px 0;
+    }
+        .maintitle > h1 {
+            width: 600px;
+            font-size: 80px;
+            line-height: 84px;
+            padding: 40px 0 0;
+        }
+            .h1_toggles {
+                height: 84px;
+                color: #8B70F6;
+            }
+        .mainimage {
+            width: 600px;
+            height: 465px;
+        }
+            .mainimage > img {
+                width: 600px;
+                height: 465px;
+                top: 0;
+                left: -41px;
+            }
+    .first-screen__beneffit {
+        width: 1360px;
+        padding: 0 80px;
+        gap: 50px;
+    }
+        .mainbeneffit {
+            flex: 0 0 calc((1200px - 100px) / 3);
+            gap: 26px;
+        }
+            .mainbeneffit__icon {
+                width: 44px;
+                height: 44px;
+            }
+        .mainbeneffit__text {
+            font-size: 21px;
+            font-family: 'SFProDisplayMedium';
+            font-weight: 500;
+            line-height: 27px;
+            letter-spacing: 0.1px;
+        }
+
+
+} 
+@media screen and (min-width: 960px) and (max-width: 1359px) {
+    .first-screen__title {
+        width: calc(960px + (1360 - 960) * ((100vW - 960px) / (1360 - 960)));
+        padding: calc(68px + (100 - 68) * ((100vW - 960px) / (1360 - 960))) calc(56px + (80 - 56) * ((100vW - 960px) / (1360 - 960))) 0;
+    }
+        .maintitle > h1 {
+            width: calc(424px + (600 - 424) * ((100vW - 960px) / (1360 - 960)));
+            font-size: calc(57px + (80 - 57) * ((100vW - 960px) / (1360 - 960)));
+            line-height: calc(60px + (84 - 60) * ((100vW - 960px) / (1360 - 960)));
+            padding: calc(28px + (40 - 28) * ((100vW - 960px) / (1360 - 960))) 0 0;
+        }
+            .h1_toggles {
+                height: calc(60px + (84 - 60) * ((100vW - 960px) / (1360 - 960)));
+                color: #8B70F6;
+            }
+        .mainimage {
+            width: calc(424px + (600 - 424) * ((100vW - 960px) / (1360 - 960)));
+            height: calc(329px + (465 - 329) * ((100vW - 960px) / (1360 - 960)));
+        }
+            .mainimage > img {
+                width: calc(422px + (600 - 422) * ((100vW - 960px) / (1360 - 960)));
+                height: calc(329px + (465 - 329) * ((100vW - 960px) / (1360 - 960)));
+                top: 0;
+                left: calc((-29px) + ((-41) - (-29)) * ((100vW - 960px) / (1360 - 960)));
+            }
+    .first-screen__beneffit {
+        width: calc(960px + (1360 - 960) * ((100vW - 960px) / (1360 - 960)));
+        padding: 0 calc(56px + (80 - 56) * ((100vW - 960px) / (1360 - 960)));
+        gap: calc(34px + (50 - 34) * ((100vW - 960px) / (1360 - 960)));
+    }
+        .mainbeneffit {
+            flex: 0 0 calc(calc((848px - 68px) / 3) + (calc((1200 - 100) / 3) - calc((848 - 68) / 3)) * ((100vW - 960px) / (1360 - 960)));
+            gap: calc(18px + (26 - 18) * ((100vW - 960px) / (1360 - 960)));
+        }
+            .mainbeneffit__icon {
+                width: calc(30px + (44 - 30) * ((100vW - 960px) / (1360 - 960)));
+                height: calc(30px + (44 - 30) * ((100vW - 960px) / (1360 - 960)));
+            }
+        .mainbeneffit__text {
+            font-size: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
+            font-family: 'SFProDisplayMedium';
+            font-weight: 500;
+            line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+            letter-spacing: calc(0.07px + (0.1 - 0.07) * ((100vW - 960px) / (1360 - 960)));
+        }
+
+}
+@media screen and (max-width: 959px) {
+    .first-screen__title {
+        width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+        padding: calc(105px + (315 - 105) * ((100vW - 320px) / (960 - 320))) calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))) 0;
+        flex-direction: column;
+        gap: calc(44px + (132 - 44) * ((100vW - 320px) / (960 - 320)));
+    }
+        .maintitle > h1 {
+            width: calc(290px + (870 - 290) * ((100vW - 320px) / (960 - 320)));
+            font-size: calc(48px + (144 - 48) * ((100vW - 320px) / (960 - 320)));
+            line-height: calc(52px + (156 - 52) * ((100vW - 320px) / (960 - 320)));
+            padding: 0;
+        }
+            .h1_toggles {
+                height: calc(52px + (156 - 52) * ((100vW - 320px) / (960 - 320)));
+                color: #C7B9FE;
+            }
+        .mainimage {
+            width: calc(290px + (870 - 290) * ((100vW - 320px) / (960 - 320)));
+            height: calc(248px + (741 - 248) * ((100vW - 320px) / (960 - 320)));
+        }
+            .mainimage > img {
+                width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+                height: calc(248px + (741 - 248) * ((100vW - 320px) / (960 - 320)));
+                top: 0;
+                left: calc((-15px) + ((-45) - (-15)) * ((100vW - 320px) / (960 - 320)));
+            }
+    .first-screen__beneffit {
+        width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+        padding: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320))) calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320))) 0;
+        flex-direction: column;
+        gap: calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
+    }
+        .mainbeneffit {
+            gap: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
+        }
+            .mainbeneffit__icon {
+                width: calc(36px + (108 - 36) * ((100vW - 320px) / (960 - 320)));
+                height: calc(36px + (108 - 36) * ((100vW - 320px) / (960 - 320)));
+            }
+        .mainbeneffit__text {
+            font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+            font-family: 'SFProTextSemibold';
+            font-weight: 600;
+            color: #86868B;
+            line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+        }
+            .mainbeneffit__text > span {
+                color: #1D1D1F;
+            }
                     
 }

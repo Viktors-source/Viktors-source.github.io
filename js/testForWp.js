@@ -52,7 +52,7 @@ const burgerLine = document.querySelector('.burger__line'),
     .fromTo(navCurtain, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: .3 }, '<')
     .from(navLinkMobile, { y: '100%', duration: .3, stagger: .03, ease: 'none' }, '>-.1')
     .fromTo(navFooter, { '--navFooterLineScaleX': 0 }, { '--navFooterLineScaleX': 1, ease: 'al_slide', duration: .2 }, '>-.1') 
-    .from(navFooterTexts, { y: -45, duration: .2, stagger: .02, ease: 'none' }, '>-.1')
+    .from(navFooterTexts, { y: '-160%', duration: .2, stagger: .02, ease: 'none' }, '>-.1')
     .reverse()
 
     const navLink = gsap.utils.toArray('.nav__link')
@@ -66,3 +66,13 @@ const burgerLine = document.querySelector('.burger__line'),
             tl.restart()
         })
     })
+
+    const h1Toggles = gsap.utils.toArray('.h1_toggle'),
+    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .3, ease: 'none', delay: 1.5, } })
+    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
+    .set(h1Toggles[0], { y: '100%', delay: 0 })
+    .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
+    .set(h1Toggles[1], { y: '0%', delay: 0  })
+    .to(h1Toggles[2], { y: '-300%' })
+    .to(h1Toggles[0], { y: '0%', delay: 0  }, '<')
+    .set(h1Toggles[2], { y: '200%', delay: 0  })
