@@ -155,8 +155,8 @@ body {
                     font-weight: 400;
                     line-height: 130%;
                     letter-spacing: -1%;
-                    color: #86868B;
-                    opacity: .7;
+                    color: rgba(134, 134, 139, 0.7);
+                    overflow: hidden;
                 }
                 .nav__footer::after {
                     content: '';

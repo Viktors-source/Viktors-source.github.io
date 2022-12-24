@@ -41,11 +41,15 @@ const burgerLine = document.querySelector('.burger__line'),
     const navLinkMobile = document.querySelectorAll('.nav__link_mobile'),
     dropdown = document.querySelector('.dropdown'),
     navFooter = document.querySelector('.nav__footer'),
+    navFooterTexts = navFooter.querySelectorAll('p'),
     navContent = document.querySelector('.nav__content'),
     dropdownHeight = dropdown.offsetHeight,
     navContentHeight = navContent.offsetHeight,
     navCurtain =document.querySelector('.nav__curtain'),
+    
     toggleMobileNav = gsap.timeline()
-    .from(dropdown, { y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
+    .from(dropdown, { autoAlpha: 0, y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
     .fromTo(navCurtain, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: .3 }, '<')
-    .from(navLinkMobile, { y: '100%', duration: .2, stagger: .03, ease: 'none' }, '>-.1')
+    .from(navLinkMobile, { y: '100%', duration: .3, stagger: .03, ease: 'none' }, '>-.1')
+    .fromTo(navFooter, { '--navFooterLineScaleX': 0 }, { '--navFooterLineScaleX': 1, ease: 'al_slide', duration: .2 }, '>-.1') 
+    .from(navFooterTexts, { y: -45, duration: .2, stagger: .02, ease: 'none' }, '>-.1')
