@@ -383,6 +383,18 @@ body {
         .mainbeneffit__text {
             position: relative;
         }
+.mainbutton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'SFProDisplaySemibold';
+    font-weight: 600;
+    color: #FFFFFF;
+    background: #C7B9FE;
+}
 
 @media screen and (min-width: 1360px) {
     .first-screen__title {
@@ -429,6 +441,15 @@ body {
             line-height: 27px;
             letter-spacing: 0.1px;
         }
+    .mainbutton {
+        width: 1200px;
+        height: 60px;
+        margin: 70px auto 0;
+        border-radius: 5px;
+        font-size: 21px;
+        line-height: 27px;
+        letter-spacing: 0.2em;
+    }
 
 
 } 
@@ -477,6 +498,15 @@ body {
             line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
             letter-spacing: calc(0.07px + (0.1 - 0.07) * ((100vW - 960px) / (1360 - 960)));
         }
+    .mainbutton {
+        width: calc(848px + (1200 - 848) * ((100vW - 960px) / (1360 - 960)));
+        height: calc(42px + (60 - 42) * ((100vW - 960px) / (1360 - 960)));
+        margin: calc(50px + (70 - 50) * ((100vW - 960px) / (1360 - 960))) auto 0;
+        border-radius: calc(3px + (5 - 3) * ((100vW - 960px) / (1360 - 960)));
+        font-size: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
+        line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+        letter-spacing: 0.2em;
+    }
 
 }
 @media screen and (max-width: 959px) {
@@ -530,5 +560,175 @@ body {
             .mainbeneffit__text > span {
                 color: #1D1D1F;
             }
+    .mainbutton {
+        display: none;
+    }
                     
+}
+
+/* <----- first screen -----> */
+
+
+/* <----- beneffits -----> */
+
+.dryflour {
+    position: relative;
+    display: flex;
+    background: #FBFBFD;
+}
+    .dryflour__media {
+        position: relative;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .dryflour__description {
+        position: relative;
+    }
+        .dryflour__points { 
+            position: relative;
+            display: flex;
+        }
+            .dryflour__point {
+                font-family: 'SFProTextRegular';
+                font-weight: 400;
+                color: #7B00F5;
+            }
+    .dryflour__title {
+        position: relative;
+        font-family: "SFProDisplaySemibold" ;
+        font-weight: 600;
+        color: #1D1D1F;
+    }
+    .dryflour__text {
+        position: relative;
+        color: #86868B;
+    }
+
+@media screen and (min-width: 1360px) {
+    .dryflour {
+        width: 1200px;
+        margin: 200px auto 50px;
+        border-radius: 16px;
+    }
+        .dryflour__media {
+            flex: 0 0 600px;
+            height: 518px;
+            background-image: url('img/Flour pouring in.png');
+        }
+        .dryflour__description {
+            padding: 72px 50px 0 0;
+        }
+            .dryflour__points { 
+                gap: 24px;
+            }
+                .dryflour__point {
+                    font-size: 17px;
+                    line-height: 20px;
+                    letter-spacing: -0.4px;
+                    padding: 7px 18px;
+                    border: 1px solid #7B00F5;
+                    border-radius: 16px;
+                }
+        .dryflour__title {
+            font-size: 56px;
+            line-height: 60px;
+            letter-spacing: -0.016em;
+            margin: 48px 0 24px;
+        }
+        .dryflour__text {
+            font-family: 'SFProDisplayMedium';
+            font-weight: 500;
+            font-size: 19px;
+            line-height: 27px;
+            letter-spacing: 0.2px;
+        }
+} 
+@media screen and (min-width: 960px) and (max-width: 1359px) {
+    .dryflour {
+        width: calc(848px + (1200 - 848) * ((100vW - 960px) / (1360 - 960)));
+        margin: calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) auto calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960)));
+        border-radius: calc(12px + (16 - 12) * ((100vW - 960px) / (1360 - 960)));
+    }
+        .dryflour__media {
+            flex: 0 0 calc(424px + (600 - 424) * ((100vW - 960px) / (1360 - 960)));
+            height: calc(366px + (518 - 366) * ((100vW - 960px) / (1360 - 960)));
+            background-image: url('img/Flour pouring in.png');
+        }
+        .dryflour__description {
+            padding: calc(50px + (72 - 50) * ((100vW - 960px) / (1360 - 960))) calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960))) 0 0;
+        }
+            .dryflour__points { 
+                gap: calc(18px + (24 - 18) * ((100vW - 960px) / (1360 - 960)));
+            }
+                .dryflour__point {
+                    font-size: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
+                    line-height: calc(14px + (20 - 14) * ((100vW - 960px) / (1360 - 960)));
+                    letter-spacing: calc((-0.28px) + ((-0.4) - (-0.28)) * ((100vW - 960px) / (1360 - 960)));
+                    padding: calc(5px + (7 - 5) * ((100vW - 960px) / (1360 - 960))) calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
+                    border: 1px solid #7B00F5;
+                    border-radius: calc(12px + (16 - 12) * ((100vW - 960px) / (1360 - 960)));
+                }
+        .dryflour__title {
+            font-size: calc(40px + (56 - 40) * ((100vW - 960px) / (1360 - 960)));
+            line-height: calc(42px + (60 - 42) * ((100vW - 960px) / (1360 - 960)));
+            letter-spacing: -0.016em;
+            margin: calc(33px + (48 - 33) * ((100vW - 960px) / (1360 - 960))) 0 calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)))
+        }
+        .dryflour__text {
+            font-family: 'SFProDisplayMedium';
+            font-weight: 500;
+            font-size: calc(14px + (19 - 14) * ((100vW - 960px) / (1360 - 960)));
+            line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+            letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+        }
+}
+@media screen and (max-width: 959px) {
+    .dryflour {
+        width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+        margin: calc(60px + (180 - 60) * ((100vW - 320px) / (960 - 320))) 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
+        padding: calc(34px + (102 - 34) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) 0;
+        flex-direction: column-reverse;     
+    }
+        .dryflour__media {
+            flex: 0 0 calc(310px + (930 - 310) * ((100vW - 320px) / (960 - 320)));
+            width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+        }
+            .dryflour__media > div {
+                position: absolute;
+                background-image: url('img/Flour\ pouring\ in\ mobile.png');
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+        .dryflour__points { 
+            gap: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
+        }
+            .dryflour__point {
+                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 960px) / (1360 - 960)));
+                padding: calc(7px + (21 - 7) * ((100vW - 320px) / (960 - 320))) calc(18px + (54 - 18) * ((100vW - 320px) / (960 - 320)));
+                border: calc(1px + (2 - 1) * ((100vW - 320px) / (960 - 320))) solid #7B00F5;
+                border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                white-space: nowrap;
+            }
+        .dryflour__title {
+            font-size: calc(40px + (120 - 40) * ((100vW - 320px) / (960 - 320)));
+            line-height: calc(48px + (144 - 48) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: 0;
+            margin: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320))) 0 calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320)));
+        }
+        .dryflour__text {
+            font-family: 'SFProTextMedium';
+            font-weight: 500;
+            font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+            line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+        }
+
 }
