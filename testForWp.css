@@ -713,7 +713,7 @@ body {
             .dryflour__point {
                 font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
                 line-height: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 960px) / (1360 - 960)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
                 padding: calc(7px + (21 - 7) * ((100vW - 320px) / (960 - 320))) calc(18px + (54 - 18) * ((100vW - 320px) / (960 - 320)));
                 border: calc(1px + (2 - 1) * ((100vW - 320px) / (960 - 320))) solid #7B00F5;
                 border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
