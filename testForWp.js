@@ -41,8 +41,11 @@ const burgerLine = document.querySelector('.burger__line'),
     const navLinkMobile = document.querySelectorAll('.nav__link_mobile'),
     dropdown = document.querySelector('.dropdown'),
     navFooter = document.querySelector('.nav__footer'),
+    navContent = document.querySelector('.nav__content'),
+    dropdownHeight = dropdown.offsetHeight,
+    navContentHeight = navContent.offsetHeight,
     navCurtain =document.querySelector('.nav__curtain'),
     toggleMobileNav = gsap.timeline()
-    .from(dropdown, { y: '-100%', duration: .3, ease: 'al_slide' })
+    .from(dropdown, { y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
     .fromTo(navCurtain, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: .3 }, '<')
-    .from(navLinkMobile, { y: '-100%', duration: .2, stagger: .03, ease: 'ease' })
+    .from(navLinkMobile, { y: '-100%', duration: .3, stagger: .03, ease: 'none' }, '>-.1')
