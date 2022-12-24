@@ -104,13 +104,17 @@ body {
             .nav__links {
                 position: relative;
                 display: flex;
-                align-items: center;
                 color: #1D1D1F;
                 font-family: 'SFProDisplayRegular';
                 font-weight: 400;
                 line-height: 123%;
                 letter-spacing: 0;
+                overflow: hidden;
             }
+                .nav__link {
+                    display: flex;
+                    flex-direction: column;
+                }
             .nav__button, .nav__button_mobile {
                 position: relative;
                 padding: 8px 16px;
@@ -214,6 +218,7 @@ body {
                 .nav__links {
                     gap: 16px;
                     font-size: 15px;
+                    height: 19px;
                 }
                 .nav__actions_mobile {
                     display: none;
@@ -247,6 +252,7 @@ body {
                     .nav__links {
                         gap: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
                         font-size: calc(11px + (15 - 11) * ((100vW - 960px) / (1360 - 960)));
+                        height: calc(14px + (19 - 14) * ((100vW - 960px) / (1360 - 960)));
                     }
                     .nav__actions_mobile {
                         display: none;

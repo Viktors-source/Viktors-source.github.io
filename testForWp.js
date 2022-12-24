@@ -46,10 +46,23 @@ const burgerLine = document.querySelector('.burger__line'),
     dropdownHeight = dropdown.offsetHeight,
     navContentHeight = navContent.offsetHeight,
     navCurtain =document.querySelector('.nav__curtain'),
-    
+
     toggleMobileNav = gsap.timeline()
     .from(dropdown, { autoAlpha: 0, y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
     .fromTo(navCurtain, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: .3 }, '<')
     .from(navLinkMobile, { y: '100%', duration: .3, stagger: .03, ease: 'none' }, '>-.1')
     .fromTo(navFooter, { '--navFooterLineScaleX': 0 }, { '--navFooterLineScaleX': 1, ease: 'al_slide', duration: .2 }, '>-.1') 
     .from(navFooterTexts, { y: -45, duration: .2, stagger: .02, ease: 'none' }, '>-.1')
+    .reverse()
+
+    const navLink = gsap.utils.toArray('.nav__link')
+    navLink.forEach(link => {
+        innerText = link.querySelectorAll('span')
+        const tl = gsap.timeline()
+        .to(innerText, { y: '-100%', ease: 'al_slide', duration: .3 })
+        .reverse()
+
+        link.addEventListener('mouseenter', () => {
+            tl.restart()
+        })
+    })
