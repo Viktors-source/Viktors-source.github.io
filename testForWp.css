@@ -686,6 +686,7 @@ body {
 @media screen and (max-width: 959px) {
     .dryflour {
         width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+        max-width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
         margin: calc(60px + (180 - 60) * ((100vW - 320px) / (960 - 320))) 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
         padding: calc(34px + (102 - 34) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) 0;
         flex-direction: column-reverse;     
