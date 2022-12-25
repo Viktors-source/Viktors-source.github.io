@@ -76,3 +76,6 @@ const burgerLine = document.querySelector('.burger__line'),
     .to(h1Toggles[2], { y: '-300%' })
     .to(h1Toggles[0], { y: '0%', delay: 0  }, '<')
     .set(h1Toggles[2], { y: '200%', delay: 0  })
+
+    const dryTextBeneffit = document.querySelector('.drytextbeneffit')
+    gsap.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 5, ease: 'none', repeat: -1, yoyo: true })
