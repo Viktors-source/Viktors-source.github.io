@@ -99,7 +99,6 @@ const burgerLine = document.querySelector('.burger__line'),
         start: `bottom center+=${aboutusTitleHeight}`,
         end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
         scrub: true,
-        markers: true,
         }
     })
     .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
