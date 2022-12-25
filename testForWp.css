@@ -866,21 +866,24 @@ body {
         font-family: 'SFProDisplaySemibold';
         font-weight: 600;
         color: #1D1D1F;
+        background: #FFFFFF;
     }
     .aboutus__subtitles {
         position: relative;
     }
         .aboutus__subtitles_small {
-            position: absolute;
+            position: relative;
             font-family: 'SFProDisplaySemibold';
             font-weight: 600;
             color: #86868B;
+            z-index: -1;
         }
         .aboutus__subtitles_large {
             position: relative;
             font-family: 'SFProDisplaySemibold';
             font-weight: 600;
             color: #1D1D1F;
+            /* opacity: 0; */
         } 
 
 @media screen and (min-width: 1360px) {

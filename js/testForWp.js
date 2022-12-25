@@ -82,8 +82,12 @@ const burgerLine = document.querySelector('.burger__line'),
 
     const aboutus = document.querySelector('.aboutus'),
     drytextbeneffit = document.querySelector('.drytextbeneffit'),
+    aboutusSubtitlesSmall = document.querySelector('.aboutus__subtitles_small'),
+    aboutusSubtitlesLarge = document.querySelector('.aboutus__subtitles_large'),
     aboutusTitle = document.querySelector('.aboutus__title'),
     aboutusTitleHeight = aboutusTitle.offsetHeight,
+    aboutusSubtitlesSmallHeight = aboutusSubtitlesSmall.offsetHeight,
+    aboutusSubtitlesLargeHeight = aboutusSubtitlesLarge.offsetHeight,
     aboutusHeight = aboutus.offsetHeight,
     aboutusPadding = gsap.getProperty(aboutus, "padding-top"),
     aboutusTitleSpan = aboutusTitle.querySelector('span'),
@@ -93,15 +97,14 @@ const burgerLine = document.querySelector('.burger__line'),
         scrollTrigger: {
         trigger: drytextbeneffit,
         start: `bottom center+=${aboutusTitleHeight}`,
-        end: `+=${aboutusPadding + aboutusTitleHeight}`,
+        end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
         scrub: true,
         markers: true,
         }
     })
     .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
     .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
-    // .from(scrollingTitle, { delay: 1 })
-    // .to(scrollingSubitle, { duration: .5, y: -83, ease: 'none' }, '<.5')
-    // .to(scrollingSubitle, { autoAlpha: 0, duration: .2, ease: 'none' }, '<')
-    // .fromTo(scrollingText, { y: 80 }, { duration: .5, y: 0, ease: 'none' }, '<')
-    // .fromTo(scrollingText, { autoAlpha: 0 }, { autoAlpha: 1, duration: .2, ease: 'none' }, '<.2')
+    .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
+    .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
+    .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
+
