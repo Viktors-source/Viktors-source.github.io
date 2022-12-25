@@ -78,4 +78,30 @@ const burgerLine = document.querySelector('.burger__line'),
     .set(h1Toggles[2], { y: '200%', delay: 0  })
 
     const dryTextBeneffit = document.querySelector('.drytextbeneffit')
-    gsap.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 5, ease: 'none', repeat: -1, yoyo: true })
+    gsap.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 2, ease: 'none', repeat: -1, yoyo: true })
+
+    const aboutus = document.querySelector('.aboutus'),
+    drytextbeneffit = document.querySelector('.drytextbeneffit'),
+    aboutusTitle = document.querySelector('.aboutus__title'),
+    aboutusTitleHeight = aboutusTitle.offsetHeight,
+    aboutusHeight = aboutus.offsetHeight,
+    aboutusPadding = gsap.getProperty(aboutus, "padding-top"),
+    aboutusTitleSpan = aboutusTitle.querySelector('span'),
+
+
+    srollingTextAnimation = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusPadding + aboutusTitleHeight}`,
+        scrub: true,
+        markers: true,
+        }
+    })
+    .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
+    .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
+    // .from(scrollingTitle, { delay: 1 })
+    // .to(scrollingSubitle, { duration: .5, y: -83, ease: 'none' }, '<.5')
+    // .to(scrollingSubitle, { autoAlpha: 0, duration: .2, ease: 'none' }, '<')
+    // .fromTo(scrollingText, { y: 80 }, { duration: .5, y: 0, ease: 'none' }, '<')
+    // .fromTo(scrollingText, { autoAlpha: 0 }, { autoAlpha: 1, duration: .2, ease: 'none' }, '<.2')

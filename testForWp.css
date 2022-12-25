@@ -586,6 +586,9 @@ body {
     align-items: center;
     background: linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%);
 }
+.drytextbeneffitBox {
+    background: #FFFFFF;
+}
     .drytextbeneffit__title {
         color: #FFFFFF;
         text-align: center;
@@ -639,6 +642,9 @@ body {
         padding: 125px 50px;
         gap: 50px;
         border-radius: 16px;
+    }
+    .drytextbeneffitBox {
+        background: #FFFFFF;
     }
         .drytextbeneffit__title {
             font-family: 'SFProDisplayBold';
@@ -840,5 +846,108 @@ body {
             line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
             letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
         }
+
+}
+
+/* <----- beneffits -----> */
+
+
+/* <----- about us -----> */
+
+.aboutus {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+}
+    .aboutus__title {
+        position: relative;
+        font-family: 'SFProDisplaySemibold';
+        font-weight: 600;
+        color: #1D1D1F;
+    }
+    .aboutus__subtitles {
+        position: relative;
+    }
+        .aboutus__subtitles_small {
+            position: absolute;
+            font-family: 'SFProDisplaySemibold';
+            font-weight: 600;
+            color: #86868B;
+        }
+        .aboutus__subtitles_large {
+            position: relative;
+            font-family: 'SFProDisplaySemibold';
+            font-weight: 600;
+            color: #1D1D1F;
+        } 
+
+@media screen and (min-width: 1360px) {
+    .aboutus {
+        width: 850px;
+        padding: 200px 0;
+        gap: 64px;
+    }
+        .aboutus__title {
+            font-size: 140px;
+            line-height: 114px;
+            letter-spacing: -1.1px;
+        }
+            .aboutus__subtitles_small {
+                font-size: 24px;
+                line-height: 28px;
+                letter-spacing: 0.2px;
+            } 
+            .aboutus__subtitles_large {
+                font-size: 40px;
+                line-height: 44px;
+                letter-spacing: 0;
+            }   
+        
+} 
+@media screen and (min-width: 960px) and (max-width: 1359px) {
+    .aboutus {
+        width: calc(600px + (850 - 600) * ((100vW - 960px) / (1360 - 960)));
+        padding: calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) 0;
+        gap: calc(45px + (64 - 45) * ((100vW - 960px) / (1360 - 960)));
+    }
+        .aboutus__title {
+            font-size: calc(99px + (140 - 99) * ((100vW - 960px) / (1360 - 960)));
+            line-height: calc(80px + (114 - 80) * ((100vW - 960px) / (1360 - 960)));
+            letter-spacing: calc((-0.78px) + ((-1.1) - (-0.78)) * ((100vW - 960px) / (1360 - 960)));
+        }
+            .aboutus__subtitles_small {
+                font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
+                line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
+                letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+            }
+            .aboutus__subtitles_large {
+                font-size: calc(28px + (40 - 28) * ((100vW - 960px) / (1360 - 960)));
+                line-height: calc(31px + (44 - 31) * ((100vW - 960px) / (1360 - 960)));
+                letter-spacing: 0;
+            } 
+    
+}
+@media screen and (max-width: 959px) {
+    .aboutus {
+        padding: calc(120px + (360 - 120) * ((100vW - 320px) / (960 - 320))) calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
+        gap: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
+    }
+        .aboutus__title {
+            font-size: calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320)));
+            line-height: calc(66px + (198 - 66) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: 0;
+        }
+            .aboutus__subtitles_small {
+                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(21px + (63 - 21) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+            }
+            .aboutus__subtitles_large {
+                font-size: calc(21px + (63 - 21) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc(0.2px + (0.6 - 0.2) * ((100vW - 320px) / (960 - 320)));
+            }
 
 }
