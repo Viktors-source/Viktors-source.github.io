@@ -192,19 +192,55 @@ const burgerLine = document.querySelector('.burger__line'),
   
         })
     //   console.log( loop.getChildren( true, true, true ) )
+
         var proxy = document.createElement('div')
+
+        let mm = gsap.matchMedia()
+
+        mm.add("(max-width: 959pxx)", () => {
+
         gsap.registerPlugin(Observer) 
         Observer.create({ 
         target: targets_main_wrapper, 
         type: 'wheel, scroll', 
-        
-        onChangeY: (self) => { 
-          ignore: targets_main_wrapper
-        },
+        // onChangeY: (self) => { 
+        //   window.scrollTop += self.deltaY
+        //   targets_main_wrapper.scrollTop += 0
+        // }, 
+        onWheel: (self) => { 
+          window.scrollTop += self.deltaY
+          targets_main_wrapper.scrollTop += 0
+        }, 
+        onUp: (self) => { 
+          window.scrollTop += self.deltaY
+          targets_main_wrapper.scrollTop += 0
+        }, 
+        onDown: (self) => { 
+          window.scrollTop += self.deltaY
+          targets_main_wrapper.scrollTop += 0
+        }, 
+        onChange: (self) => { 
+          window.scrollTop += self.deltaY
+          targets_main_wrapper.scrollTop += 0
+        }, 
+        })
+
+        })
+
+        mm.add("(min-width: 960pxx)", () => {
+
+        gsap.registerPlugin(Observer) 
+        Observer.create({ 
+        target: targets_main_wrapper, 
+        type: 'wheel, scroll', 
         onChangeX: (self) => { 
           targets_main_wrapper.scrollTop += self.deltaX
         }, 
         })
+
+        })
+
+        
       
         let dur_time = loop.duration()
       
