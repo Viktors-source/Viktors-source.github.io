@@ -197,6 +197,10 @@ const burgerLine = document.querySelector('.burger__line'),
         Observer.create({ 
         target: targets_main_wrapper, 
         type: 'wheel, scroll', 
+        
+        onChangeY: (self) => { 
+          ignore: targets_main_wrapper
+        },
         onChangeX: (self) => { 
           targets_main_wrapper.scrollTop += self.deltaX
         }, 
