@@ -1269,3 +1269,89 @@ body {
                 }
 
 }
+
+.mkreviews {
+    position: relative;
+    width: 100%;
+    background: #FBFBFD;
+    display: flex;
+}
+    .mkreviewscontent {
+        position: relative;
+    }
+        .mkreviews__description {
+            position: relative;
+        }
+            .mkreview__text {
+                position: relative;
+                font-weight: 700;
+            }
+        .mkreviewactions {
+            position: relative;
+            display: flex;
+        }
+            .mkreviewcontrolls {
+                
+            }
+
+@media screen and (min-width: 1360px) {
+    .mkreviews {
+        padding: 0 0 48px;
+    }
+        .mkreviewscontent {
+            flex: 0 0 50%;
+            padding: 87px 0 0 calc((100% - 1200px) / 2);
+        }
+            .mkreview__text {
+                font-family: "SFProDisplaySemibold" ;
+                color: #1D1D1F;
+                font-size: 28px;
+                line-height: 32px;
+                letter-spacing: 0.2px;
+                margin: 0 0 64px 0;
+            }
+        .mkreviewactions {
+            gap: 32px;
+        }
+    
+} 
+@media screen and (min-width: 960px) and (max-width: 1359px) {
+    .mkreviews {
+        padding: 0 0 calc(34px + (48 - 34) * ((100vW - 960px) / (1360 - 960)));
+    }
+        .mkreviewscontent {
+            flex: 0 0 50%;
+            padding: calc(62px + (87 - 62) * ((100vW - 960px) / (1360 - 960))) 0 0 calc((100% - calc(848px + (1200 - 848) * ((100vW - 960px) / (1360 - 960)))) / 2);
+        }
+            .mkreview__text {
+                font-family: "SFProDisplaySemibold" ;
+                color: #1D1D1F;
+                font-size: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
+                line-height: calc(23px + (32 - 23) * ((100vW - 960px) / (1360 - 960)));
+                letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+                margin: 0 0 calc(46px + (64 - 46) * ((100vW - 960px) / (1360 - 960))) 0;
+            }
+            .mkreviewactions {
+                gap: calc(22px + (32 - 22) * ((100vW - 960px) / (1360 - 960)));
+            }
+
+}
+@media screen and (max-width: 959px) {
+    .mkreviews {
+        flex-direction: column;
+        padding: 0 calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
+        gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320)));
+    }
+            .mkreview__text {
+                font-family: "SFProTextSemibold" ;
+                color: #86868B;
+                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                margin: 0;
+            }
+        .mkreviewactions {
+            display: none;
+        }
+
+}

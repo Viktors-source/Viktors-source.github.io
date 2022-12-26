@@ -193,13 +193,45 @@ const burgerLine = document.querySelector('.burger__line'),
         })
     //   console.log( loop.getChildren( true, true, true ) )
         var proxy = document.createElement('div')
-        gsap.registerPlugin(Observer) 
-        Observer.create({ 
-        target: targets_main_wrapper, 
-        type: 'wheel, scroll', 
-        onChangeX: (self) => { 
-          targets_main_wrapper.scrollTop += self.deltaX
-        }, 
+
+        let mm = gsap.matchMedia()
+        const shopreviews = document.querySelector('.shopreviews')
+
+        mm.add('(max-width: 959px)', () => {
+
+            gsap.registerPlugin(Observer) 
+            Observer.create({ 
+                target: targets_main_wrapper, 
+                type: 'wheel, scroll, touch', 
+                // onChangeY: (self) => { 
+                //     console.log('onChangeY:', self.deltaY, 'Y:', self.y, 'target element:', self.target)
+                //     document.body.scrollTop += -self.deltaY
+                //     targets_main_wrapper.scrollTop += 0
+                // }, 
+                // onWheel: (self) => { 
+        
+                // },
+                // onDrag: (self) => {
+                // },
+                // onUp: (self) => { 
+                // },
+                // onDown: (self) => { 
+                // },
+            })
+
+        })
+
+        mm.add('(min-width: 960px)', () => {
+
+            gsap.registerPlugin(Observer) 
+            Observer.create({ 
+                target: targets_main_wrapper, 
+                type: 'wheel, scroll', 
+                onChangeX: (self) => { 
+                    targets_main_wrapper.scrollTop += self.deltaX
+                }, 
+            })
+
         })
       
         let dur_time = loop.duration()
@@ -271,6 +303,8 @@ const burgerLine = document.querySelector('.burger__line'),
             trigger: targets_main_wrapper, 
             cursor: config.cursor, 
             activeCursor: 'grabbing',
+            allowNativeTouchScrolling: false,
+            lockAxis: true,
             onPress() { 
             this.startOffset = scrub.vars.position; 
             }, 
