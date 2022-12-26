@@ -1037,9 +1037,8 @@ body {
         position: relative;
     }
         .shopreviewslist {
-             position: absolute;
-             width: 100%;
-             height: 100%;       
+             position: absolute; 
+             height: 100%;     
         }
             .shopreview {
                 position: absolute;
@@ -1052,10 +1051,18 @@ body {
                 }
                     .screendisplay {
                         position: absolute;
+                        width: 100%;
+                        height: 100%;
                         top: 0;
                         left: 0;
                         z-index: 2;
-                        background-image: url('img/Volume\ button\ On.svg');
+                        background-image: url('img/PhoneDisplay.svg');
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat; 
+                    }
+                    .shopreview__review {
+                        position: relative;
                         background-position: center center;
                         background-size: contain;
                         background-repeat: no-repeat; 
@@ -1110,14 +1117,23 @@ body {
             height: 772px;
             padding: 0 0 0 50px;
         }
-            .shopreview {
-                width: 404px;
-                height: 772px;
+            .shopreviewslist {
+                width: calc(100% - 50px);      
             }
-                .shopreviewcontent {
+                .shopreview {
                     width: 404px;
                     height: 772px;
                 }
+                    .shopreviewcontent {
+                        width: 404px;
+                        height: 772px;
+                    }
+                    .shopreview__review {
+                        width: 360px;
+                        height: 752px;
+                        border-radius: 55px;
+                    }
+
 
 } 
 @media screen and (min-width: 960px) and (max-width: 1359px) {
@@ -1168,14 +1184,22 @@ body {
             height: calc(545px + (772 - 545) * ((100vW - 960px) / (1360 - 960)));
             padding: 0 0 0 calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960)));
         }
-            .shopreview {
-                width: calc(284px + (404 - 284) * ((100vW - 960px) / (1360 - 960)));
-                height: calc(545px + (772 - 545) * ((100vW - 960px) / (1360 - 960)));
+            .shopreviewslist {
+                width: calc(100% - calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960))));      
             }
-                .shopreviewcontent {
+                .shopreview {
                     width: calc(284px + (404 - 284) * ((100vW - 960px) / (1360 - 960)));
                     height: calc(545px + (772 - 545) * ((100vW - 960px) / (1360 - 960)));
                 }
+                    .shopreviewcontent {
+                        width: calc(284px + (404 - 284) * ((100vW - 960px) / (1360 - 960)));
+                        height: calc(545px + (772 - 545) * ((100vW - 960px) / (1360 - 960)));
+                    }
+                    .shopreview__review {
+                        width: calc(254px + (360 - 254) * ((100vW - 960px) / (1360 - 960)));
+                        height: calc(530px + (752 - 530) * ((100vW - 960px) / (1360 - 960)));
+                        border-radius: calc(39px + (55 - 39) * ((100vW - 960px) / (1360 - 960)));
+                    }
 
 }
 @media screen and (max-width: 959px) {
@@ -1222,17 +1246,25 @@ body {
                 width: calc(200px + (595 - 200) * ((100vW - 320px) / (960 - 320)));  
             }
     .shopreviewmedia {
-        width: calc(100% - calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320)))); 
+        width: calc(100% + calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)))); 
         height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
         padding: 0 0 0 calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320)));
     }
-        .shopreview {
-            height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
-            width: calc(229px + (689 - 229) * ((100vW - 320px) / (960 - 320)));
+        .shopreviewslist {
+            width: calc(100% - calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320))));
         }
-            .shopreviewcontent {
+            .shopreview {
                 height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
                 width: calc(229px + (689 - 229) * ((100vW - 320px) / (960 - 320)));
             }
+                .shopreviewcontent {
+                    height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
+                    width: calc(229px + (689 - 229) * ((100vW - 320px) / (960 - 320)));
+                }
+                .shopreview__review {
+                    width: calc(197px + (591 - 197) * ((100vW - 320px) / (960 - 320)));
+                    height: calc(415px + (1245 - 415) * ((100vW - 320px) / (960 - 320)));
+                    border-radius: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                }
 
 }
