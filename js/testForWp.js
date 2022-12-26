@@ -325,13 +325,8 @@ const burgerLine = document.querySelector('.burger__line'),
         
         const next = () => { 
             
-            if( targets_array.length > 25 ) {
-                scrollToPosition(scrub.vars.position + (( 1 / snap_point ) / 2))
-                leftButtonTl.tweenTo('.1', { ease: 'al_out' })
-            } else {
-                scrollToPosition(scrub.vars.position + ( 1 / snap_point ))
-                leftButtonTl.tweenTo('.1', { ease: 'al_out' })
-            }
+            scrollToPosition(scrub.vars.position + ( 1 / snap_point ))
+            leftButtonTl.tweenTo('.1', { ease: 'al_out' })
             
             
             
@@ -360,13 +355,10 @@ const burgerLine = document.querySelector('.burger__line'),
         }
         const prev = () => {
             
-            if( targets_array.length > 25 ) {
-                scrollToPosition(scrub.vars.position - (( 1 / snap_point ) / 2))
-                rightButtonTl.tweenTo('.1', { ease: 'al_out' })
-            } else {
-                scrollToPosition(scrub.vars.position - ( 1 / snap_point ))
-                rightButtonTl.tweenTo('.1', { ease: 'al_out' })
-            }
+
+            scrollToPosition(scrub.vars.position - ( 1 / snap_point ))
+            rightButtonTl.tweenTo('.1', { ease: 'al_out' })
+
             
             
             if ( leftButtonBoxTl.duration() === leftButtonBoxTl.time() ) {
@@ -409,18 +401,17 @@ const burgerLine = document.querySelector('.burger__line'),
           const shadowBoxes = gsap.utils.toArray('.shadow')
           
           shadowBoxes.forEach((shadow, i) => {
-                gsap.set(shadow, { left: `+=${i * widths[1]}` })
+                gsap.set(shadow, { top: `+=${i * widths[1]}` })
           })
           
               
           shadowBoxes.forEach((element, i) => {
               if( targets_array[i].querySelectorAll('video').length > 0 ) {
                   ScrollTrigger.create({
-                      horizontal: true,
                       scroller: targets_main_wrapper,
                       trigger: element,
-                      start: `left left+=${widths[1] - 1}`,
-                      end: 'left left-=1',
+                      start: `top top+=${widths[1] - 1}`,
+                      end: 'top top-=1',
                       onEnter: () => {
                           targets_array[i].querySelector('video').play()
                       },
@@ -449,7 +440,7 @@ const burgerLine = document.querySelector('.burger__line'),
         })
         
           const reviewSlider = gsap.effects.draggable_scroll('.shopreview', { 
-            cursor: 'pointer',
+            cursor: 'grab',
             stagger: .5,  
             duration: 1,  
             scene_duration: .5,
