@@ -263,7 +263,7 @@ const burgerLine = document.querySelector('.burger__line'),
       
         let trigger = ScrollTrigger.create({ 
           scroller: targets_main_wrapper,  
-        //   horizontal: true, 
+          horizontal: true, 
           start: 0, 
           end: '+=' + scrollnd,  
           pin: targets_wrapper, 
