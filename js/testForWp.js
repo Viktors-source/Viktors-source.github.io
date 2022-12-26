@@ -193,14 +193,14 @@ const burgerLine = document.querySelector('.burger__line'),
         })
     //   console.log( loop.getChildren( true, true, true ) )
         var proxy = document.createElement('div')
-      //   gsap.registerPlugin(Observer) 
-      //   Observer.create({ 
-      //   target: targets_main_wrapper, 
-      //   type: 'wheel, scroll', 
-      //   onChangeX: (self) => { 
-      //     targets_main_wrapper.scrollTop += self.deltaX
-      //   }, 
-      //   })
+        gsap.registerPlugin(Observer) 
+        Observer.create({ 
+        target: targets_main_wrapper, 
+        type: 'wheel, scroll', 
+        onChangeX: (self) => { 
+          targets_main_wrapper.scrollTop += self.deltaX
+        }, 
+        })
       
         let dur_time = loop.duration()
       
@@ -230,12 +230,11 @@ const burgerLine = document.querySelector('.burger__line'),
       
         let trigger = ScrollTrigger.create({ 
           scroller: targets_main_wrapper,  
-          horizontal: true, 
+        //   horizontal: true, 
           start: 0, 
           end: '+=' + scrollnd,  
           pin: targets_wrapper, 
           onUpdate: self => { 
-              console.log(scrub.vars.position)
             let scroll = self.scroll() 
             if( scroll > scrollnd ) { 
               wrap( scrollnd ) 
@@ -276,7 +275,7 @@ const burgerLine = document.querySelector('.burger__line'),
             this.startOffset = scrub.vars.position; 
             }, 
             onDrag() { 
-            scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.001) )
+            scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.003) )
             scrub.invalidate().restart()
             }, 
             onDragEnd() { 
@@ -323,7 +322,6 @@ const burgerLine = document.querySelector('.burger__line'),
         rightButton.addEventListener('mouseleave', () => rightButtonBoxHoverTl.tweenTo(0))
         leftButton.addEventListener('mouseenter', () => leftButtonBoxHoverTl.tweenTo(.1))
         leftButton.addEventListener('mouseleave', () => leftButtonBoxHoverTl.tweenTo(0))
-        console.log()
         
         const next = () => { 
             

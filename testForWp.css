@@ -1035,6 +1035,7 @@ body {
                 }
     .shopreviewmedia {
         position: relative;
+        overflow: hidden;
     }
         .shopreviewslist {
              position: absolute; 
