@@ -204,6 +204,9 @@ const burgerLine = document.querySelector('.burger__line'),
             Observer.create({ 
                 target: targets_main_wrapper, 
                 type: 'wheel, scroll, touch', 
+                onChangeX: (self) => { 
+                    targets_main_wrapper.scrollTop += self.deltaX
+                }, 
                 // onChangeY: (self) => { 
                 //     console.log('onChangeY:', self.deltaY, 'Y:', self.y, 'target element:', self.target)
                 //     document.body.scrollTop += -self.deltaY
@@ -263,7 +266,7 @@ const burgerLine = document.querySelector('.burger__line'),
       
         let trigger = ScrollTrigger.create({ 
           scroller: targets_main_wrapper,  
-          horizontal: true, 
+        //   horizontal: true, 
           start: 0, 
           end: '+=' + scrollnd,  
           pin: targets_wrapper, 
