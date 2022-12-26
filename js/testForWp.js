@@ -207,16 +207,18 @@ const burgerLine = document.querySelector('.burger__line'),
                 onChangeX: (self) => { 
                     targets_main_wrapper.scrollTop += self.deltaX
                 }, 
-                // onChangeY: (self) => { 
-                //     console.log('onChangeY:', self.deltaY, 'Y:', self.y, 'target element:', self.target)
-                //     document.body.scrollTop += -self.deltaY
-                //     targets_main_wrapper.scrollTop += 0
-                // }, 
+                onChangeY: (self) => { 
+                    console.log('onChangeY:', self.deltaY, 'Y:', self.y, 'target element:', self.target)
+                    // window.scrollBy(0, self.deltaY)
+                    targets_main_wrapper.scrollTop += 0
+                }, 
                 // onWheel: (self) => { 
         
                 // },
-                // onDrag: (self) => {
-                // },
+                onDrag: (self) => {
+                    window.scrollBy(0, -self.deltaY)
+                    targets_main_wrapper.scrollTop += 0
+                },
                 // onUp: (self) => { 
                 // },
                 // onDown: (self) => { 
