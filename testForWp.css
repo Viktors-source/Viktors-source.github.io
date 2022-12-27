@@ -1037,6 +1037,9 @@ body {
         position: relative;
         overflow: hidden;
     }
+    .shopreviewmediaBox {
+        position: relative;
+    }
         .shopreviewslist {
              position: absolute; 
              height: 100%;     
@@ -1114,6 +1117,11 @@ body {
                         width: 200px;   
                     }
         .shopreviewmedia {
+            width: 100%;
+            height: 772px;
+            padding: 0 0 0 50px;
+        }
+        .shopreviewmediaBox {
             width: calc(100% - 50px);
             height: 772px;
             padding: 0 0 0 50px;
@@ -1181,6 +1189,10 @@ body {
                     width: calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960)));  
                 }
         .shopreviewmedia {
+            width: 100%; 
+            height: 100%;
+        }
+        .shopreviewmediaBox {
             width: calc(100% - calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960)))); 
             height: calc(545px + (772 - 545) * ((100vW - 960px) / (1360 - 960)));
             padding: 0 0 0 calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960)));
@@ -1291,7 +1303,7 @@ body {
             display: flex;
         }
             .mkreviewcontrolls {
-                
+
             }
 
 @media screen and (min-width: 1360px) {

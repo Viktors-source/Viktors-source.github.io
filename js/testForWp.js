@@ -208,34 +208,8 @@ const burgerLine = document.querySelector('.burger__line'),
                 type: 'wheel, scroll, touch', 
                 lockAxis: true,
                 // onChangeX: (self) => { 
+                //     targets_main_wrapper.scrollTop += self.deltaX
                 // }, 
-                // onLockAxis: (self) => {
-                // },
-                onChangeY: (self) => { 
-                    // console.log('onChangeX:', self.deltaX, 'onChangeY:', self.deltaY)
-                }, 
-                // onWheel: (self) => { 
-                // },
-                onDrag: (self) => {
-                    touchAxisY = -self.deltaY
-                    console.log(touchAxisY)
-                    if(self.axis === 'y') {
-                        window.scrollBy(0, -self.deltaY)
-                        targets_main_wrapper.scrollBy(0, 0)
-                    } else {
-                        window.scrollBy(0, 0)
-                    }
-                },
-                // onDragEnd: (self) => {
-                //     touchAxisY = 0
-                // },
-                onRelease: (self) => {
-                    touchAxisY = 0
-                }
-                // onUp: (self) => { 
-                // },
-                // onDown: (self) => { 
-                // },
             })
 
         })
@@ -246,6 +220,7 @@ const burgerLine = document.querySelector('.burger__line'),
             Observer.create({ 
                 target: targets_main_wrapper, 
                 type: 'wheel, scroll', 
+                lockAxis: true,
                 onChangeX: (self) => { 
                     targets_main_wrapper.scrollTop += self.deltaX
                 }, 
@@ -316,29 +291,52 @@ const burgerLine = document.querySelector('.burger__line'),
         } 
         ScrollTrigger.addEventListener('scrollEnd', () => scrollToPosition( scrub.vars.position )) 
         
-        let drggable =  Draggable.create(proxy, { 
-            type: 'x',
-            trigger: targets_main_wrapper, 
-            cursor: config.cursor, 
-            activeCursor: 'grabbing',
-            allowNativeTouchScrolling: false,
-            lockAxis: true,
-            minimumMovement: 30,
-            onPress() { 
-            this.startOffset = scrub.vars.position; 
-            }, 
-            onDrag(self) { 
-                if (touchAxisY !== 0) {
 
-                } else {
+        mm.add('(max-width: 959px)', () => {
+
+            gsap.set(targets_main_wrapper, { pointerEvents: 'none'})
+            let targets_main_wrapperBox = targets_main_wrapper.parentNode
+
+            let drggable =  Draggable.create(proxy, { 
+                type: 'x',
+                trigger: targets_main_wrapperBox, 
+                cursor: config.cursor, 
+                activeCursor: 'grabbing',
+                onPress() { 
+                    this.startOffset = scrub.vars.position; 
+                }, 
+                onDrag(self) { 
                     scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.003) )
                     scrub.invalidate().restart()
-                }
-            }, 
-            onDragEnd() { 
-            scrollToPosition( scrub.vars.position )
-            } 
-          })
+                }, 
+                onDragEnd() { 
+                    scrollToPosition( scrub.vars.position )
+                } 
+              })
+
+        })
+
+        mm.add('(min-width: 960px)', () => {
+
+            let drggable =  Draggable.create(proxy, { 
+                type: 'x',
+                trigger: targets_main_wrapper, 
+                cursor: config.cursor, 
+                activeCursor: 'grabbing',
+                onPress() { 
+                    this.startOffset = scrub.vars.position; 
+                }, 
+                onDrag(self) { 
+                    scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.003) )
+                    scrub.invalidate().restart()
+                }, 
+                    onDragEnd() { 
+                    scrollToPosition( scrub.vars.position )
+                } 
+              })
+
+        })
+        
           
         let exitTime, exitTime2,
         curentSlide = 0
