@@ -198,6 +198,8 @@ const burgerLine = document.querySelector('.burger__line'),
         let mm = gsap.matchMedia()
         const shopreviews = document.querySelector('.shopreviews')
 
+        let touchAxisY = 0
+
         mm.add('(max-width: 959px)', () => {
 
             gsap.registerPlugin(Observer) 
@@ -206,25 +208,17 @@ const burgerLine = document.querySelector('.burger__line'),
                 type: 'wheel, scroll, touch', 
                 lockAxis: true,
                 // onChangeX: (self) => { 
-                //     targets_main_wrapper.scrollTop += self.deltaX
                 // }, 
                 // onLockAxis: (self) => {
-                //     if(self.axis === 'y') {
-                //         window.scrollBy(0, self.deltaY)
-                //     } else {
-
-                //     }
-
                 // },
                 onChangeY: (self) => { 
-                    console.log('onChangeX:', self.deltaX, 'onChangeY:', self.deltaY)
-                    // window.scrollBy(0, self.deltaY)
-                    // targets_main_wrapper.scrollTop += 0
+                    // console.log('onChangeX:', self.deltaX, 'onChangeY:', self.deltaY)
                 }, 
                 // onWheel: (self) => { 
-        
                 // },
                 onDrag: (self) => {
+                    touchAxisY = -self.deltaY
+                    console.log(touchAxisY)
                     if(self.axis === 'y') {
                         window.scrollBy(0, -self.deltaY)
                         targets_main_wrapper.scrollBy(0, 0)
@@ -232,11 +226,12 @@ const burgerLine = document.querySelector('.burger__line'),
                         window.scrollBy(0, 0)
                     }
                 },
+                onDragEnd: (self) => {
+                    touchAxisY = 0
+                }
                 // onUp: (self) => { 
-                    
                 // },
                 // onDown: (self) => { 
-                //     window.scrollBy(0, -self.deltaY)
                 // },
             })
 
@@ -283,7 +278,6 @@ const burgerLine = document.querySelector('.burger__line'),
       
         let trigger = ScrollTrigger.create({ 
           scroller: targets_main_wrapper,  
-        //   horizontal: true, 
           start: 0, 
           end: '+=' + scrollnd,  
           pin: targets_wrapper, 
@@ -329,9 +323,13 @@ const burgerLine = document.querySelector('.burger__line'),
             onPress() { 
             this.startOffset = scrub.vars.position; 
             }, 
-            onDrag() { 
-            scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.003) )
-            scrub.invalidate().restart()
+            onDrag(self) { 
+                if (touchAxisY !== 0) {
+
+                } else {
+                    scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.003) )
+                    scrub.invalidate().restart()
+                }
             }, 
             onDragEnd() { 
             scrollToPosition( scrub.vars.position )
