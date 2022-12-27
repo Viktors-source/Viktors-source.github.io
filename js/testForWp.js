@@ -208,19 +208,16 @@ const burgerLine = document.querySelector('.burger__line'),
                 // onChangeX: (self) => { 
                 //     targets_main_wrapper.scrollTop += self.deltaX
                 // }, 
-                onLockAxis: (self) => {
-                    if (self.event.cancelable) {
-                        self.event.preventDefault();
-                    }
-                    if(self.axis === 'y') {
-                        window.scrollBy(0, self.deltaY)
-                    } else {
+                // onLockAxis: (self) => {
+                //     if(self.axis === 'y') {
+                //         window.scrollBy(0, self.deltaY)
+                //     } else {
 
-                    }
+                //     }
 
-                },
+                // },
                 onChangeY: (self) => { 
-                    console.log('onChangeX:', self.deltaX)
+                    console.log('onChangeX:', self.deltaX, 'onChangeY:', self.deltaY)
                     // window.scrollBy(0, self.deltaY)
                     // targets_main_wrapper.scrollTop += 0
                 }, 
@@ -228,11 +225,11 @@ const burgerLine = document.querySelector('.burger__line'),
         
                 // },
                 onDrag: (self) => {
-                    // window.scrollBy(0, -self.deltaY)
                     if(self.axis === 'y') {
                         window.scrollBy(0, -self.deltaY)
+                        targets_main_wrapper.scrollBy(0, 0)
                     } else {
-                        targets_main_wrapper.scrollTop += -self.deltaX
+                        window.scrollBy(0, 0)
                     }
                 },
                 // onUp: (self) => { 
