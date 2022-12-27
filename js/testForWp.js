@@ -204,6 +204,7 @@ const burgerLine = document.querySelector('.burger__line'),
             Observer.create({ 
                 target: targets_main_wrapper, 
                 type: 'wheel, scroll, touch', 
+                lockAxis: true,
                 // onChangeX: (self) => { 
                 //     targets_main_wrapper.scrollTop += self.deltaX
                 // }, 
@@ -222,8 +223,9 @@ const burgerLine = document.querySelector('.burger__line'),
                 onUp: (self) => { 
                     window.scrollBy(0, -self.deltaY)
                 },
-                // onDown: (self) => { 
-                // },
+                onDown: (self) => { 
+                    window.scrollBy(0, -self.deltaY)
+                },
             })
 
         })
