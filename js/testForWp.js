@@ -208,6 +208,17 @@ const burgerLine = document.querySelector('.burger__line'),
                 // onChangeX: (self) => { 
                 //     targets_main_wrapper.scrollTop += self.deltaX
                 // }, 
+                onLockAxis: (self) => {
+                    if (self.event.cancelable) {
+                        self.event.preventDefault();
+                    }
+                    if(self.axis === 'y') {
+                        window.scrollBy(0, self.deltaY)
+                    } else {
+
+                    }
+
+                },
                 onChangeY: (self) => { 
                     console.log('onChangeX:', self.deltaX)
                     // window.scrollBy(0, self.deltaY)
@@ -216,16 +227,20 @@ const burgerLine = document.querySelector('.burger__line'),
                 // onWheel: (self) => { 
         
                 // },
-                // onDrag: (self) => {
-                //     window.scrollBy(0, -self.deltaY)
-                //     // targets_main_wrapper.scrollTop += 0
+                onDrag: (self) => {
+                    // window.scrollBy(0, -self.deltaY)
+                    if(self.axis === 'y') {
+                        window.scrollBy(0, -self.deltaY)
+                    } else {
+                        targets_main_wrapper.scrollTop += -self.deltaX
+                    }
+                },
+                // onUp: (self) => { 
+                    
                 // },
-                onUp: (self) => { 
-                    window.scrollBy(0, -self.deltaY)
-                },
-                onDown: (self) => { 
-                    window.scrollBy(0, -self.deltaY)
-                },
+                // onDown: (self) => { 
+                //     window.scrollBy(0, -self.deltaY)
+                // },
             })
 
         })
