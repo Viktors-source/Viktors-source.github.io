@@ -323,7 +323,7 @@ const burgerLine = document.querySelector('.burger__line'),
             activeCursor: 'grabbing',
             allowNativeTouchScrolling: false,
             lockAxis: true,
-            minimumMovement: 40,
+            minimumMovement: 30,
             onPress() { 
             this.startOffset = scrub.vars.position; 
             }, 
