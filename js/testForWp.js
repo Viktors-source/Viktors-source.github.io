@@ -204,23 +204,24 @@ const burgerLine = document.querySelector('.burger__line'),
             Observer.create({ 
                 target: targets_main_wrapper, 
                 type: 'wheel, scroll, touch', 
-                onChangeX: (self) => { 
-                    targets_main_wrapper.scrollTop += self.deltaX
-                }, 
+                // onChangeX: (self) => { 
+                //     targets_main_wrapper.scrollTop += self.deltaX
+                // }, 
                 onChangeY: (self) => { 
-                    console.log('onChangeY:', self.deltaY, 'Y:', self.y, 'target element:', self.target)
+                    console.log('onChangeX:', self.deltaX)
                     // window.scrollBy(0, self.deltaY)
-                    targets_main_wrapper.scrollTop += 0
+                    // targets_main_wrapper.scrollTop += 0
                 }, 
                 // onWheel: (self) => { 
         
                 // },
-                onDrag: (self) => {
-                    window.scrollBy(0, -self.deltaY)
-                    targets_main_wrapper.scrollTop += 0
-                },
-                // onUp: (self) => { 
+                // onDrag: (self) => {
+                //     window.scrollBy(0, -self.deltaY)
+                //     // targets_main_wrapper.scrollTop += 0
                 // },
+                onUp: (self) => { 
+                    window.scrollBy(0, -self.deltaY)
+                },
                 // onDown: (self) => { 
                 // },
             })
