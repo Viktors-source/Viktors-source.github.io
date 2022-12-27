@@ -226,7 +226,10 @@ const burgerLine = document.querySelector('.burger__line'),
                         window.scrollBy(0, 0)
                     }
                 },
-                onDragEnd: (self) => {
+                // onDragEnd: (self) => {
+                //     touchAxisY = 0
+                // },
+                onRelease: (self) => {
                     touchAxisY = 0
                 }
                 // onUp: (self) => { 
