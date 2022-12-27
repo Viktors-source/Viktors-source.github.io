@@ -511,3 +511,96 @@ const burgerLine = document.querySelector('.burger__line'),
             prev: '.mkcontrollleftarrow',
           })
 
+
+
+        const sliderMainReview = document.querySelector('.shopreviews'),
+            reviewsVideos = gsap.utils.toArray(sliderMainReview.querySelectorAll('video')),
+            shopreviewactionsMobile = document.querySelector('.shopreviewactions_mobile')
+
+        let mm = gsap.matchMedia()
+
+        mm.add('(max-width: 959px)', () => {
+
+            const switchVolumeOffBox = shopreviewactionsMobile.querySelector('.volumetoggleOffbutton'),
+                switchVolumeOnBox = shopreviewactionsMobile.querySelector('.volumetoggleOnbutton')
+
+                function volumeVideoSwitchOn() {
+                    reviewsVideos.forEach((video) => video.muted = false)
+                }
+                function volumeVideoSwitchOff() {
+                    reviewsVideos.forEach((video) => video.muted = true)
+                }
+                
+                const volumeVideoSwitchOnHover = gsap.timeline()
+                .fromTo(switchVolumeOnBox, { '--switchVolumeOpacity': 1, }, { '--switchVolumeOpacity': 0, duration: .15, ease: 'al_out', })
+                
+                const volumeVideoSwitchOffHover = gsap.timeline()
+                .fromTo(switchVolumeOffBox, { '--switchVolumeOpacity': 1, }, { '--switchVolumeOpacity': 0, duration: .15, ease: 'al_out', })
+                
+                switchVolumeOffBox.addEventListener('mouseenter', () => volumeVideoSwitchOffHover.tweenTo(0))
+                switchVolumeOffBox.addEventListener('mouseleave', () => volumeVideoSwitchOffHover.tweenTo(.15))
+                
+                switchVolumeOnBox.addEventListener('mouseenter', () => volumeVideoSwitchOnHover.tweenTo(0))
+                switchVolumeOnBox.addEventListener('mouseleave', () => volumeVideoSwitchOnHover.tweenTo(.15))
+                
+                
+                const volumeVideoSwitchClick = gsap.timeline()
+                    .fromTo(switchVolumeOnBox, { scale: 1, autoAlpha: 1, zIndex: 10, }, { scale: .7, autoAlpha: 0, ease: 'none', duration: .1, zIndex: 1, })
+                    .fromTo(switchVolumeOffBox, { scale: .7, autoAlpha: 0, zIndex: 1, }, { scale: 1, autoAlpha: 1, ease: 'none', duration: .1, zIndex: 10, })
+                    .reverse()
+                    
+                    switchVolumeOnBox.addEventListener('click', () => {
+                    volumeVideoSwitchClick.tweenTo(.2)
+                    volumeVideoSwitchOn()
+                })
+                switchVolumeOffBox.addEventListener('click', () => {
+                    volumeVideoSwitchClick.tweenTo(0)
+                    volumeVideoSwitchOff()
+                })
+
+        })
+
+        mm.add('(min-width: 960px)', () => {
+
+            const switchVolumeOffBox = sliderMainReview.querySelector('.volumetoggleOffbutton'),
+                switchVolumeOnBox = sliderMainReview.querySelector('.volumetoggleOnbutton')
+
+                function volumeVideoSwitchOn() {
+                    reviewsVideos.forEach((video) => video.muted = false)
+                }
+                function volumeVideoSwitchOff() {
+                    reviewsVideos.forEach((video) => video.muted = true)
+                }
+                
+                const volumeVideoSwitchOnHover = gsap.timeline()
+                .fromTo(switchVolumeOnBox, { '--switchVolumeOpacity': 1, }, { '--switchVolumeOpacity': 0, duration: .15, ease: 'al_out', })
+                
+                const volumeVideoSwitchOffHover = gsap.timeline()
+                .fromTo(switchVolumeOffBox, { '--switchVolumeOpacity': 1, }, { '--switchVolumeOpacity': 0, duration: .15, ease: 'al_out', })
+                
+                switchVolumeOffBox.addEventListener('mouseenter', () => volumeVideoSwitchOffHover.tweenTo(0))
+                switchVolumeOffBox.addEventListener('mouseleave', () => volumeVideoSwitchOffHover.tweenTo(.15))
+                
+                switchVolumeOnBox.addEventListener('mouseenter', () => volumeVideoSwitchOnHover.tweenTo(0))
+                switchVolumeOnBox.addEventListener('mouseleave', () => volumeVideoSwitchOnHover.tweenTo(.15))
+                
+                
+                const volumeVideoSwitchClick = gsap.timeline()
+                    .fromTo(switchVolumeOnBox, { scale: 1, autoAlpha: 1, zIndex: 10, }, { scale: .7, autoAlpha: 0, ease: 'none', duration: .1, zIndex: 1, })
+                    .fromTo(switchVolumeOffBox, { scale: .7, autoAlpha: 0, zIndex: 1, }, { scale: 1, autoAlpha: 1, ease: 'none', duration: .1, zIndex: 10, })
+                    .reverse()
+                    
+                    switchVolumeOnBox.addEventListener('click', () => {
+                    volumeVideoSwitchClick.tweenTo(.2)
+                    volumeVideoSwitchOn()
+                })
+                switchVolumeOffBox.addEventListener('click', () => {
+                    volumeVideoSwitchClick.tweenTo(0)
+                    volumeVideoSwitchOff()
+                })
+
+        })
+            
+        
+        
+
