@@ -207,9 +207,6 @@ const burgerLine = document.querySelector('.burger__line'),
                 target: targets_main_wrapper, 
                 type: 'wheel, scroll, touch', 
                 lockAxis: true,
-                // onChangeX: (self) => { 
-                //     targets_main_wrapper.scrollTop += self.deltaX
-                // }, 
             })
 
         })
@@ -502,5 +499,15 @@ const burgerLine = document.querySelector('.burger__line'),
             end_count: 1,
             next: '.controllrightarrow',
             prev: '.controllleftarrow',
+          })
+
+          const mkreviewSlider = gsap.effects.draggable_scroll('.mkreview', { 
+            cursor: 'grab',
+            stagger: .5,  
+            duration: 1,  
+            scene_duration: .5,
+            end_count: 1,
+            next: '.mkcontrollrightarrow',
+            prev: '.mkcontrollleftarrow',
           })
 
