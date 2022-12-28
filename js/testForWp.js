@@ -904,7 +904,25 @@ document.addEventListener('click', (e) => {
     }
 
   }
-            
+
+  /* <----- card cart -----> */
+
+
+  /* <----- qa -----> */
+          
+  
+
+  const qaLInk = gsap.utils.toArray('.qa__action')
+  qaLInk.forEach(link => {
+        innerText = link.querySelectorAll('span')
+        const tl = gsap.timeline()
+        .to(innerText, { y: '-100%', ease: 'al_slide', duration: .3 })
+        .reverse()
+
+        link.addEventListener('mouseenter', () => {
+            tl.restart()
+        })
+    })
         
         
 

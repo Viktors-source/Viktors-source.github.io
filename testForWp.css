@@ -2323,8 +2323,17 @@ body {
                 font-weight: 600;
             }
             .qa_text {
-
+                position: relative;
             }
+        .qa__action {
+            display: flex;
+            flex-direction: column;
+            font-family: 'SFProDisplaySemibold';
+            font-weight: 600;
+            color: #0066CC;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
 @media screen and (min-width: 1360px) {
     .qa {
@@ -2343,6 +2352,24 @@ body {
                     line-height: 32px;
                     letter-spacing: -0.15px;
                 }
+                .qa_text {
+                    position: relative;
+                    font-family: 'SFProDisplayRegular';
+                    font-weight: 400;
+                    color: #1D1D1F;
+                    font-size: 19px;
+                    line-height: 27px;
+                    letter-spacing: 0.14px;
+                }
+                .qa_text > p:not(:first-child) {
+                    margin: 14px 0 0 0;
+                }
+            .qa__action {
+                height: 27px;
+                font-size: 19px;
+                line-height: 27px;
+                letter-spacing: 0.14px;
+            }
 } 
 @media screen and (min-width: 960px) and (max-width: 1359px) {
     .qa {
@@ -2361,6 +2388,24 @@ body {
                     line-height: calc(23px + (32 - 23) * ((100vW - 960px) / (1360 - 960)));
                     letter-spacing: calc((-0.11px) + ((-0.15) - (-0.11)) * ((100vW - 960px) / (1360 - 960)));
                 }
+                .qa_text {
+                    position: relative;
+                    font-family: 'SFProDisplayRegular';
+                    font-weight: 400;
+                    color: #1D1D1F;
+                    font-size: calc(14px + (19 - 14) * ((100vW - 960px) / (1360 - 960)));
+                    line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+                    letter-spacing: calc(0.1px + (0.14 - 0.1) * ((100vW - 960px) / (1360 - 960)));
+                }
+                .qa_text > p:not(:first-child) {
+                    margin: calc(10px + (14 - 10) * ((100vW - 960px) / (1360 - 960))) 0 0 0;
+                }
+            .qa__action {
+                height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+                font-size: calc(14px + (19 - 14) * ((100vW - 960px) / (1360 - 960)));
+                line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+                letter-spacing: calc(0.1px + (0.14 - 0.1) * ((100vW - 960px) / (1360 - 960)));
+            }
 }
 @media screen and (max-width: 959px) {
     .qa {
@@ -2378,4 +2423,22 @@ body {
                 line-height: calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320)));
                 letter-spacing: 0;
             }
+            .qa_text {
+                position: relative;
+                font-family: 'SFProTextMedium';
+                font-weight: 500;
+                color: #86868B;
+                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+            }
+            .qa_text > p:not(:first-child) {
+                margin: calc(10px + (27 - 10) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+            }
+        .qa__action {
+            height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+            font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+            line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+        }
 }
