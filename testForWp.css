@@ -1739,6 +1739,36 @@ body {
                 color: #06c;
                 cursor: pointer;
             }
+    .cardcartgallery {
+        position: relative;
+    }
+        .cardcartimagelist {
+            position: relative;
+            width: 875px;
+            height: 100%;
+        }
+            .cardcartimage {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        .imagepreviewlist {
+            position: absolute;
+            z-index: 21;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(229, 229, 229, 0.7);
+            border-radius: 200px;
+        }
+            .cardcartimagepreview {
+                position: relative;
+                border-radius: 300px;
+                background: #FBFBFD;
+            }
 
 
 
@@ -1768,137 +1798,156 @@ body {
                     outline: 1px solid #6E6E73;
                     margin: 1px 0 0 1px;
                 }
-        .cardcart__price {
-            margin: 0 0 90px;
-        }
-            .cardcartdisplay {
-                flex: 0 0 100%;
-                order: -1;
-                margin: 0 0 26px;
-                font-family: 'SFProDisplayBold';
-                font-weight: 700;
-                font-size: 24px;
-                line-height: 28px;
-                letter-spacing: 0.2px;
+            .cardcart__price {
+                margin: 0 0 90px;
             }
-            .changecountbutton {
-                order: 0;
-                width: 99px;
-                height: 51px;
-                padding: 11px 0 12px 24px;
-                margin: 0 18px 0 0;
-                border-radius: 16px;
-            }
-            .changecountbutton::after {
-                top: 21px;
-                right: 9px;
-                width: 21px;
-                height: 12px;
-            }
-            .changecountbutton::before {
-                top: -2px;
-                left: -2px;
-                border: 2px #C7B9FE solid;
-                border-radius: 16px;
-            }
-                .counter {
-                    font-family: 'SFProDisplayMedium';
-                    font-weight: 500;
+                .cardcartdisplay {
+                    flex: 0 0 100%;
+                    order: -1;
+                    margin: 0 0 26px;
+                    font-family: 'SFProDisplayBold';
+                    font-weight: 700;
                     font-size: 24px;
                     line-height: 28px;
                     letter-spacing: 0.2px;
                 }
-            .changecountmodal {
-                padding: 4px 8px;
-                border: 1px solid #D2D2D7;
-                box-shadow: 2px 4px 16px rgb(0 0 0 / 16%);
-                border-radius: 16px;
-                left: 0%;
-                top: 54px;
-            }
-                .countmodallist {
-                    font-size: 26px;
-                }
-                    .modaltab {
-                        padding: 4px 16px;
-                        border-radius: 8px;
-                    }
-                    .modaltab:not(:last-child)::before {
-                        top: 11px;
-                        right: 10px;
-                        width: 18px;
-                        height: 18px;
-                    }
-                    .modaltab::after {
-                        border-radius: 8px;
-                    }
-            .inputcountbox {
-                top: 54px;
-                width: 99px;
-                height: 51px;
-            }
-                .inputcount {
-                    padding: 16px 0;
+                .changecountbutton {
+                    order: 0;
+                    width: 99px;
+                    height: 51px;
+                    padding: 11px 0 12px 24px;
+                    margin: 0 18px 0 0;
                     border-radius: 16px;
-                    font-size: 24px;
-                    line-height: 28px;
-                    letter-spacing: 0.2px;
                 }
-                .lableforinputcount {
-                    font-size: 24px;
-                    line-height: 28px;
-                    letter-spacing: 0.2px;
-                    transform: translate(-63px, 12px);
+                .changecountbutton::after {
+                    top: 21px;
+                    right: 9px;
+                    width: 21px;
+                    height: 12px;
                 }
-            .cardcart__buton {
-                flex: 1 0 auto;
-                height: 51px;
-                border-radius: 16px;
-                font-family: 'SFProDisplaySemibold';
-                font-weight: 600;
-                font-size: 21px;
-                line-height: 27px;
-                letter-spacing: 0.1px;
+                .changecountbutton::before {
+                    top: -2px;
+                    left: -2px;
+                    border: 2px #C7B9FE solid;
+                    border-radius: 16px;
+                }
+                    .counter {
+                        font-family: 'SFProDisplayMedium';
+                        font-weight: 500;
+                        font-size: 24px;
+                        line-height: 28px;
+                        letter-spacing: 0.2px;
+                    }
+                .changecountmodal {
+                    padding: 4px 8px;
+                    border: 1px solid #D2D2D7;
+                    box-shadow: 2px 4px 16px rgb(0 0 0 / 16%);
+                    border-radius: 16px;
+                    left: 0%;
+                    top: 54px;
+                }
+                    .countmodallist {
+                        font-size: 26px;
+                    }
+                        .modaltab {
+                            padding: 4px 16px;
+                            border-radius: 8px;
+                        }
+                        .modaltab:not(:last-child)::before {
+                            top: 11px;
+                            right: 10px;
+                            width: 18px;
+                            height: 18px;
+                        }
+                        .modaltab::after {
+                            border-radius: 8px;
+                        }
+                .inputcountbox {
+                    top: 54px;
+                    width: 99px;
+                    height: 51px;
+                }
+                    .inputcount {
+                        padding: 16px 0;
+                        border-radius: 16px;
+                        font-size: 24px;
+                        line-height: 28px;
+                        letter-spacing: 0.2px;
+                    }
+                    .lableforinputcount {
+                        font-size: 24px;
+                        line-height: 28px;
+                        letter-spacing: 0.2px;
+                        transform: translate(-63px, 12px);
+                    }
+                .cardcart__buton {
+                    flex: 1 0 auto;
+                    height: 51px;
+                    border-radius: 16px;
+                    font-family: 'SFProDisplaySemibold';
+                    font-weight: 600;
+                    font-size: 21px;
+                    line-height: 27px;
+                    letter-spacing: 0.1px;
+                }
+            .cardcart__slider {
+                margin: 88px 0 200px 0;
+                gap: 26px;
             }
-        .cardcart__slider {
-            margin: 88px 0 200px 0;
-            gap: 26px;
-        }
-            .slidertabs {
-                font-size: 17px;
-                line-height: 17px;
-                letter-spacing: -0.36px;
-            }
-            .slidertabs::after {
-                height: 1px;
-            }
-                .slidertab {
-                    padding: 0 0 16px 0;
-                }
-                .slidertab::before {
-                    height: 1px;
-                }
-                .slidertab::after {
+                .slidertabs {
                     font-size: 17px;
                     line-height: 17px;
                     letter-spacing: -0.36px;
                 }
-            .slidertexts {
-                font-family: 'SFProDisplayRegular';
-                font-size: 19px;
-                line-height: 27px;
-                letter-spacing: 0.2px;
+                .slidertabs::after {
+                    height: 1px;
+                }
+                    .slidertab {
+                        padding: 0 0 16px 0;
+                    }
+                    .slidertab::before {
+                        height: 1px;
+                    }
+                    .slidertab::after {
+                        font-size: 17px;
+                        line-height: 17px;
+                        letter-spacing: -0.36px;
+                    }
+                .slidertexts {
+                    font-family: 'SFProDisplayRegular';
+                    font-size: 19px;
+                    line-height: 27px;
+                    letter-spacing: 0.2px;
+                }
+                    .slidertext > p:not(:first-child) {
+                        margin: 11px 0 0 0;
+                    }
+                    .slidersertificate {
+                        width: 120px;
+                        height: 170px;
+                        margin: 0 16px 0 0;
+                        border-radius: 16px;
+                        border: 1px solid #D2D2D7;
+                    }
+        .cardcartgallery {
+            width: calc(100% - 50px);
+            height: 921px;
+            padding: 0 0 0 50px;
+        }
+            .cardcartimagelist {
+                width: 875px;
             }
-                .slidertext > p:not(:first-child) {
-                    margin: 11px 0 0 0;
-                }
-                .slidersertificate {
-                    width: 120px;
-                    height: 170px;
-                    margin: 0 16px 0 0;
-                    border-radius: 16px;
-                    border: 1px solid #D2D2D7;
-                }
+        .imagepreviewlist {
+            left: 186px;
+            padding: 15px 10px;
+            gap: 10px;
+            width: 74px;
+            height: 212px;
+        }
+            .cardcartimagepreview {
+                flex: 0 0 54px;
+                width: 54px;
+            }
 
 
 } 
@@ -1928,137 +1977,157 @@ body {
                     outline: 1px solid #6E6E73;
                     margin: 1px 0 0 1px;
                 }
-        .cardcart__price {
-            margin: 0 0 calc(60px + (90 - 60) * ((100vW - 960px) / (1360 - 960)));
-        }
-            .cardcartdisplay {
-                flex: 0 0 100%;
-                order: -1;
-                margin: 0 0 calc(17px + (26 - 17) * ((100vW - 960px) / (1360 - 960)));
-                font-family: 'SFProDisplaySemibold';
-                font-weight: 700;
-                font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
-                line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
-                letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+            .cardcart__price {
+                margin: 0 0 calc(60px + (90 - 60) * ((100vW - 960px) / (1360 - 960)));
             }
-            .changecountbutton {
-                order: 0;
-                width: calc(70px + (99 - 70) * ((100vW - 960px) / (1360 - 960)));
-                height: calc(36px + (51 - 36) * ((100vW - 960px) / (1360 - 960)));
-                padding: calc(8px + (11 - 8) * ((100vW - 960px) / (1360 - 960))) 0 calc(8px + (12 - 8) * ((100vW - 960px) / (1360 - 960))) calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
-                margin: 0 calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960))) 0 0;
-                border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
-            }
-            .changecountbutton::after {
-                top: calc(14px + (21 - 14) * ((100vW - 960px) / (1360 - 960)));
-                right: calc(6px + (9 - 6) * ((100vW - 960px) / (1360 - 960)));
-                width: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
-                height: calc(9px + (12 - 9) * ((100vW - 960px) / (1360 - 960)));
-            }
-            .changecountbutton::before {
-                top: -2px;
-                left: -2px;
-                border: 2px #C7B9FE solid;
-                border-radius: 16px;
-            }
-                .counter {
-                    font-family: 'SFProDisplayMedium';
-                    font-weight: 500;
+                .cardcartdisplay {
+                    flex: 0 0 100%;
+                    order: -1;
+                    margin: 0 0 calc(17px + (26 - 17) * ((100vW - 960px) / (1360 - 960)));
+                    font-family: 'SFProDisplaySemibold';
+                    font-weight: 700;
                     font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
                     line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
                     letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
                 }
-            .changecountmodal {
-                padding: calc(3px + (4 - 3) * ((100vW - 960px) / (1360 - 960))) calc(6px + (8 - 6) * ((100vW - 960px) / (1360 - 960)));
-                border: 1px solid #D2D2D7;
-                box-shadow: calc(1.4px + (2 - 1.4) * ((100vW - 960px) / (1360 - 960))) calc(2.8px + (4 - 2.8) * ((100vW - 960px) / (1360 - 960))) calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) rgb(0 0 0 / 16%);
-                border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
-                left: 0%;
-                top: calc(37px + (54 - 37) * ((100vW - 960px) / (1360 - 960)));
-            }
-                .countmodallist {
-                    font-size: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
-                }
-                    .modaltab {
-                        padding: calc(3px + (4 - 3) * ((100vW - 960px) / (1360 - 960))) calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));;
-                        border-radius: calc(6px + (8 - 6) * ((100vW - 960px) / (1360 - 960)));
-                    }
-                    .modaltab:not(:last-child)::before {
-                        top: calc(7px + (11 - 7) * ((100vW - 960px) / (1360 - 960)));
-                        right: calc(7px + (10 - 7) * ((100vW - 960px) / (1360 - 960)));
-                        width: calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
-                        height: calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
-                    }
-                    .modaltab::after {
-                        border-radius: calc(6px + (8 - 6) * ((100vW - 960px) / (1360 - 960)));
-                    }
-            .inputcountbox {
-                top: calc(37px + (54 - 37) * ((100vW - 960px) / (1360 - 960)));
-                width: calc(70px + (99 - 70) * ((100vW - 960px) / (1360 - 960)));
-                height: calc(36px + (51 - 36) * ((100vW - 960px) / (1360 - 960)));
-            }
-                .inputcount {
-                    padding: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) 0;
+                .changecountbutton {
+                    order: 0;
+                    width: calc(70px + (99 - 70) * ((100vW - 960px) / (1360 - 960)));
+                    height: calc(36px + (51 - 36) * ((100vW - 960px) / (1360 - 960)));
+                    padding: calc(8px + (11 - 8) * ((100vW - 960px) / (1360 - 960))) 0 calc(8px + (12 - 8) * ((100vW - 960px) / (1360 - 960))) calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
+                    margin: 0 calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960))) 0 0;
                     border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
-                    font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
-                    line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
-                    letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
                 }
-                .lableforinputcount {
-                    font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
-                    line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
-                    letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
-                    transform: translate(calc((-44px) + ((-63) - (-44)) * ((100vW - 960px) / (1360 - 960))), calc(8px + (12 - 8) * ((100vW - 960px) / (1360 - 960))));
+                .changecountbutton::after {
+                    top: calc(14px + (21 - 14) * ((100vW - 960px) / (1360 - 960)));
+                    right: calc(6px + (9 - 6) * ((100vW - 960px) / (1360 - 960)));
+                    width: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
+                    height: calc(9px + (12 - 9) * ((100vW - 960px) / (1360 - 960)));
                 }
-            .cardcart__buton {
-                flex: 1 0 auto;
-                height: calc(36px + (51 - 36) * ((100vW - 960px) / (1360 - 960)));
-                border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
-                font-family: 'SFProDisplaySemibold';
-                font-weight: 600;
-                font-size: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
-                line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
-                letter-spacing: calc(0.07px + (0.1 - 0.07) * ((100vW - 960px) / (1360 - 960)));
+                .changecountbutton::before {
+                    top: -2px;
+                    left: -2px;
+                    border: 2px #C7B9FE solid;
+                    border-radius: 16px;
+                }
+                    .counter {
+                        font-family: 'SFProDisplayMedium';
+                        font-weight: 500;
+                        font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
+                        line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
+                        letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+                    }
+                .changecountmodal {
+                    padding: calc(3px + (4 - 3) * ((100vW - 960px) / (1360 - 960))) calc(6px + (8 - 6) * ((100vW - 960px) / (1360 - 960)));
+                    border: 1px solid #D2D2D7;
+                    box-shadow: calc(1.4px + (2 - 1.4) * ((100vW - 960px) / (1360 - 960))) calc(2.8px + (4 - 2.8) * ((100vW - 960px) / (1360 - 960))) calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) rgb(0 0 0 / 16%);
+                    border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
+                    left: 0%;
+                    top: calc(37px + (54 - 37) * ((100vW - 960px) / (1360 - 960)));
+                }
+                    .countmodallist {
+                        font-size: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
+                    }
+                        .modaltab {
+                            padding: calc(3px + (4 - 3) * ((100vW - 960px) / (1360 - 960))) calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));;
+                            border-radius: calc(6px + (8 - 6) * ((100vW - 960px) / (1360 - 960)));
+                        }
+                        .modaltab:not(:last-child)::before {
+                            top: calc(7px + (11 - 7) * ((100vW - 960px) / (1360 - 960)));
+                            right: calc(7px + (10 - 7) * ((100vW - 960px) / (1360 - 960)));
+                            width: calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
+                            height: calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
+                        }
+                        .modaltab::after {
+                            border-radius: calc(6px + (8 - 6) * ((100vW - 960px) / (1360 - 960)));
+                        }
+                .inputcountbox {
+                    top: calc(37px + (54 - 37) * ((100vW - 960px) / (1360 - 960)));
+                    width: calc(70px + (99 - 70) * ((100vW - 960px) / (1360 - 960)));
+                    height: calc(36px + (51 - 36) * ((100vW - 960px) / (1360 - 960)));
+                }
+                    .inputcount {
+                        padding: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) 0;
+                        border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
+                        font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
+                        line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
+                        letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+                    }
+                    .lableforinputcount {
+                        font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
+                        line-height: calc(20px + (28 - 20) * ((100vW - 960px) / (1360 - 960)));
+                        letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+                        transform: translate(calc((-44px) + ((-63) - (-44)) * ((100vW - 960px) / (1360 - 960))), calc(8px + (12 - 8) * ((100vW - 960px) / (1360 - 960))));
+                    }
+                .cardcart__buton {
+                    flex: 1 0 auto;
+                    height: calc(36px + (51 - 36) * ((100vW - 960px) / (1360 - 960)));
+                    border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
+                    font-family: 'SFProDisplaySemibold';
+                    font-weight: 600;
+                    font-size: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
+                    line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+                    letter-spacing: calc(0.07px + (0.1 - 0.07) * ((100vW - 960px) / (1360 - 960)));
+                }
+            .cardcart__slider {
+                margin: calc(54px + (88 - 54) * ((100vW - 960px) / (1360 - 960))) 0 calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) 0;
+                gap: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
             }
-        .cardcart__slider {
-            margin: calc(54px + (88 - 54) * ((100vW - 960px) / (1360 - 960))) 0 calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) 0;
-            gap: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
-        }
-            .slidertabs {
-                font-size: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
-                line-height: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
-                letter-spacing:calc((-0.25px) + ((-0.36) - (-0.25)) * ((100vW - 960px) / (1360 - 960)));
-            }
-            .slidertabs::after {
-                height: 1px;
-            }
-                .slidertab {
-                    padding: 0 0 calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) 0;
-                }
-                .slidertab::before {
-                    height: 1px;
-                }
-                .slidertab::after {
+                .slidertabs {
                     font-size: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
                     line-height: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
                     letter-spacing:calc((-0.25px) + ((-0.36) - (-0.25)) * ((100vW - 960px) / (1360 - 960)));
                 }
-            .slidertexts {
-                font-family: 'SFProDisplayRegular';
-                font-size: calc(13px + (19 - 13) * ((100vW - 960px) / (1360 - 960)));
-                line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
-                letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+                .slidertabs::after {
+                    height: 1px;
+                }
+                    .slidertab {
+                        padding: 0 0 calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) 0;
+                    }
+                    .slidertab::before {
+                        height: 1px;
+                    }
+                    .slidertab::after {
+                        font-size: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
+                        line-height: calc(12px + (17 - 12) * ((100vW - 960px) / (1360 - 960)));
+                        letter-spacing:calc((-0.25px) + ((-0.36) - (-0.25)) * ((100vW - 960px) / (1360 - 960)));
+                    }
+                .slidertexts {
+                    font-family: 'SFProDisplayRegular';
+                    font-size: calc(13px + (19 - 13) * ((100vW - 960px) / (1360 - 960)));
+                    line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
+                    letter-spacing: calc(0.14px + (0.2 - 0.14) * ((100vW - 960px) / (1360 - 960)));
+                }
+                    .slidertext > p:not(:first-child) {
+                        margin: calc(8px + (11 - 8) * ((100vW - 960px) / (1360 - 960))) 0 0 0;
+                    }
+                    .slidersertificate {
+                        width: calc(85px + (120 - 85) * ((100vW - 960px) / (1360 - 960)));
+                        height: calc(120px + (170 - 120) * ((100vW - 960px) / (1360 - 960)));
+                        margin: 0 calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) 0 0;
+                        border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
+                        border: 1px solid #D2D2D7;
+                    }
+        .cardcartgallery {
+            width: calc(100% - calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960))));
+            height: calc(650px + (921 - 650) * ((100vW - 960px) / (1360 - 960)));
+            padding:  0 0 0 calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960)));
+        }
+            .cardcartimagelist {
+                width: calc(617px + (875 - 617) * ((100vW - 960px) / (1360 - 960)));
             }
-                .slidertext > p:not(:first-child) {
-                    margin: calc(8px + (11 - 8) * ((100vW - 960px) / (1360 - 960))) 0 0 0;
-                }
-                .slidersertificate {
-                    width: calc(85px + (120 - 85) * ((100vW - 960px) / (1360 - 960)));
-                    height: calc(120px + (170 - 120) * ((100vW - 960px) / (1360 - 960)));
-                    margin: 0 calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960))) 0 0;
-                    border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
-                    border: 1px solid #D2D2D7;
-                }
+        .imagepreviewlist {
+            left: calc(131px + (180 - 131) * ((100vW - 960px) / (1360 - 960)));
+            padding: calc(11px + (15 - 11) * ((100vW - 960px) / (1360 - 960))) calc(7px + (10 - 7) * ((100vW - 960px) / (1360 - 960)));
+            gap: calc(7px + (10 - 7) * ((100vW - 960px) / (1360 - 960)));
+            width: calc(52px + (74 - 52) * ((100vW - 960px) / (1360 - 960)));
+            height: calc(150px + (212 - 150) * ((100vW - 960px) / (1360 - 960)));
+        }
+            .cardcartimagepreview {
+                flex: 0 0 calc(38px + (54 - 38) * ((100vW - 960px) / (1360 - 960)));
+                width: calc(38px + (54 - 38) * ((100vW - 960px) / (1360 - 960)));
+            }
+                
         
 
 }
@@ -2091,120 +2160,140 @@ body {
                     outline: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320))) solid #6E6E73;
                     margin: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320))) 0 0 calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320)));
                 }
-        .cardcart__price {
-            margin: 0 0 calc(80px + (240 - 80) * ((100vW - 320px) / (960 - 320)));
-        }
-            .cardcartdisplay {
-                order: 0;
-                margin: auto 0 auto auto;
-                font-family: 'SFProTextSemibold';
-                font-weight: 600;
-                font-size: calc(19px + (57 - 19) * ((100vW - 320px) / (960 - 320)));
-                line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
+            .cardcart__price {
+                margin: 0 0 calc(80px + (240 - 80) * ((100vW - 320px) / (960 - 320)));
             }
-            .changecountbutton {
-                order: -1;
-                width: calc(87px + (261 - 87) * ((100vW - 320px) / (960 - 320)));
-                height: calc(37px + (111 - 37) * ((100vW - 320px) / (960 - 320)));
-                padding: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320))) 0 calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320))) calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
-                border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
-            }
-            .changecountbutton::after {
-                top: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320)));
-                right: calc(6px + (30 - 6) * ((100vW - 320px) / (960 - 320)));
-                width: calc(15px + (50 - 15) * ((100vW - 320px) / (960 - 320)));
-                height: calc(9px + (30 - 9) * ((100vW - 320px) / (960 - 320)));
-            }
-                .counter {
+                .cardcartdisplay {
+                    order: 0;
+                    margin: auto 0 auto auto;
                     font-family: 'SFProTextSemibold';
                     font-weight: 600;
                     font-size: calc(19px + (57 - 19) * ((100vW - 320px) / (960 - 320)));
                     line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
                     letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
                 }
-            .changecountmodal {
-                padding: calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
-                border: calc(0.8px + (2.4 - 0.8) * ((100vW - 320px) / (960 - 320))) solid #D2D2D7;
-                box-shadow: calc(1.5px + (4.5 - 1.5) * ((100vW - 320px) / (960 - 320))) calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(35px + (16 - 35) * ((100vW - 320px) / (960 - 320))) rgb(0 0 0 / 16%);
-                border-radius: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));
-                left: 0%;
-                top: 0%;
-            }
-                .countmodallist {
-                    font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                .changecountbutton {
+                    order: -1;
+                    width: calc(87px + (261 - 87) * ((100vW - 320px) / (960 - 320)));
+                    height: calc(37px + (111 - 37) * ((100vW - 320px) / (960 - 320)));
+                    padding: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320))) 0 calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320))) calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                    border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
                 }
-                    .modaltab {
-                        padding: calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));;
-                        border-radius: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
-                    }
-                    .modaltab::before {
-                        top: calc(8px + (25 - 8) * ((100vW - 320px) / (960 - 320)));
-                        right: calc(8px + (25 - 8) * ((100vW - 320px) / (960 - 320)));
-                        width: calc(15px + (42 - 15) * ((100vW - 320px) / (960 - 320)));
-                        height: calc(15px + (40 - 15) * ((100vW - 320px) / (960 - 320)));
-                    }
-                    .modaltab::after {
-                        border-radius: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
-                    }
-            .inputcountbox {
-                display: none;
-            }
-            .cardcart__buton {
-                flex: 0 0 100%;
-                order: 2;
-                margin: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 0 0;
-                height: calc(36px + (108 - 36) * ((100vW - 320px) / (960 - 320)));
-                border-radius: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320)));
-                font-family: 'SFProTextRegular';
-                font-weight: 400;
-                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
-                line-height: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.4px) + ((-1.2) - (-0.4)) * ((100vW - 320px) / (960 - 320)));
-            }
-        .cardcart__slider {
-            margin: calc(80px + (160 - 80) * ((100vW - 320px) / (960 - 320))) 0 0 0;
-            gap: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
-        }
-            .slidertabs {
-                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
-                width: calc(530px + (1590 - 530) * ((100vW - 320px) / (960 - 320)));
-                line-height: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.4px) + ((-1.2) - (-0.4)) * ((100vW - 320px) / (960 - 320)));
-                white-space: nowrap;
-            }
-            .slidertabs::after {
-                height: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320)));
-            }
-                .slidertab {
-                    padding: 0 0 calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0;
+                .changecountbutton::after {
+                    top: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320)));
+                    right: calc(6px + (30 - 6) * ((100vW - 320px) / (960 - 320)));
+                    width: calc(15px + (50 - 15) * ((100vW - 320px) / (960 - 320)));
+                    height: calc(9px + (30 - 9) * ((100vW - 320px) / (960 - 320)));
                 }
-                .slidertab::before {
-                    height: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320)));
+                    .counter {
+                        font-family: 'SFProTextSemibold';
+                        font-weight: 600;
+                        font-size: calc(19px + (57 - 19) * ((100vW - 320px) / (960 - 320)));
+                        line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                        letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
+                    }
+                .changecountmodal {
+                    padding: calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
+                    border: calc(0.8px + (2.4 - 0.8) * ((100vW - 320px) / (960 - 320))) solid #D2D2D7;
+                    box-shadow: calc(1.5px + (4.5 - 1.5) * ((100vW - 320px) / (960 - 320))) calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(35px + (16 - 35) * ((100vW - 320px) / (960 - 320))) rgb(0 0 0 / 16%);
+                    border-radius: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));
+                    left: 0%;
+                    top: 0%;
                 }
-                .slidertab::after {
+                    .countmodallist {
+                        font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                    }
+                        .modaltab {
+                            padding: calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));;
+                            border-radius: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
+                        }
+                        .modaltab::before {
+                            top: calc(8px + (25 - 8) * ((100vW - 320px) / (960 - 320)));
+                            right: calc(8px + (25 - 8) * ((100vW - 320px) / (960 - 320)));
+                            width: calc(15px + (42 - 15) * ((100vW - 320px) / (960 - 320)));
+                            height: calc(15px + (40 - 15) * ((100vW - 320px) / (960 - 320)));
+                        }
+                        .modaltab::after {
+                            border-radius: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
+                        }
+                .inputcountbox {
+                    display: none;
+                }
+                .cardcart__buton {
+                    flex: 0 0 100%;
+                    order: 2;
+                    margin: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+                    height: calc(36px + (108 - 36) * ((100vW - 320px) / (960 - 320)));
+                    border-radius: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320)));
+                    font-family: 'SFProTextRegular';
+                    font-weight: 400;
                     font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                    line-height: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                    letter-spacing: calc((-0.4px) + ((-1.2) - (-0.4)) * ((100vW - 320px) / (960 - 320)));
+                }
+            .cardcart__slider {
+                margin: calc(80px + (160 - 80) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+                gap: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+            }
+                .slidertabs {
+                    font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                    width: calc(530px + (1590 - 530) * ((100vW - 320px) / (960 - 320)));
                     line-height: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
                     letter-spacing: calc((-0.4px) + ((-1.2) - (-0.4)) * ((100vW - 320px) / (960 - 320)));
                     white-space: nowrap;
                 }
-            .slidertexts {
-                font-family: 'SFProTextRegular';
-                font-size: calc(19px + (57 - 19) * ((100vW - 320px) / (960 - 320)));
-                line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
+                .slidertabs::after {
+                    height: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320)));
+                }
+                    .slidertab {
+                        padding: 0 0 calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0;
+                    }
+                    .slidertab::before {
+                        height: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320)));
+                    }
+                    .slidertab::after {
+                        font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                        line-height: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                        letter-spacing: calc((-0.4px) + ((-1.2) - (-0.4)) * ((100vW - 320px) / (960 - 320)));
+                        white-space: nowrap;
+                    }
+                .slidertexts {
+                    font-family: 'SFProTextRegular';
+                    font-size: calc(19px + (57 - 19) * ((100vW - 320px) / (960 - 320)));
+                    line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                    letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
+                }
+                    .slidertext > p:not(:first-child) {
+                        margin: calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+                    }
+                    .slidersertificate {
+                        width: calc(130px + (390 - 130) * ((100vW - 320px) / (960 - 320)));
+                        height: calc(176px + (528 - 176) * ((100vW - 320px) / (960 - 320)));
+                        border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                        border: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320))) solid #D2D2D7;
+                    }
+                    .slidertext > img:not(:last-child) {
+                        margin: 0 calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320))) 0 0;
+                    }
+        .cardcartgallery {
+            width: 100%;
+            height: calc(440px + (1320 - 440) * ((100vW - 320px) / (960 - 320)));
+        }
+            .cardcartimagelist {
+                width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
+                height: 100%;
+                left: calc((-25px) + ((-75) - (-25)) * ((100vW - 320px) / (960 - 320)));
             }
-                .slidertext > p:not(:first-child) {
-                    margin: calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))) 0 0 0;
-                }
-                .slidersertificate {
-                    width: calc(130px + (390 - 130) * ((100vW - 320px) / (960 - 320)));
-                    height: calc(176px + (528 - 176) * ((100vW - 320px) / (960 - 320)));
-                    border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
-                    border: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320))) solid #D2D2D7;
-                }
-                .slidertext > img:not(:last-child) {
-                    margin: 0 calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320))) 0 0;
-                }
+        .imagepreviewlist {
+            left: 0;
+            padding: calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))) calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320)));
+            gap: calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320)));
+            width: calc(74px + (222 - 74) * ((100vW - 320px) / (960 - 320)));
+            height: calc(212px + (636 - 212) * ((100vW - 320px) / (960 - 320)));
+        }
+            .cardcartimagepreview {
+                flex: 0 0 calc(54px + (162 - 54) * ((100vW - 320px) / (960 - 320)));
+                width: calc(54px + (162 - 54) * ((100vW - 320px) / (960 - 320)));
+            }
 
 }

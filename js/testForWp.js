@@ -823,87 +823,87 @@ document.addEventListener('click', (e) => {
 
 
 
-//     const saleImage = gsap.utils.toArray('.sellImg'),
-//     saleImageMin = gsap.utils.toArray('.sellImgControls'),
-//     imageSaleClickAnimation = saleImageMin.map(createClickimageSaleAnimation),
-//     imageSaleMinClickAnimation = saleImageMin.map(createSaleImageMinAnimation)
-//     currentImage = {
-//         value: 0,
-//     }
+    const saleImage = gsap.utils.toArray('.cardcartimage'),
+    saleImageMin = gsap.utils.toArray('.cardcartimagepreview'),
+    imageSaleClickAnimation = saleImageMin.map(createClickimageSaleAnimation),
+    imageSaleMinClickAnimation = saleImageMin.map(createSaleImageMinAnimation)
+    currentImage = {
+        value: 0,
+    }
     
-//     const imageSaleAnimation = saleImage.map(createImageSaleAnimation)
+    const imageSaleAnimation = saleImage.map(createImageSaleAnimation)
     
-//     function createImageSaleAnimation(image) {
+    function createImageSaleAnimation(image) {
         
-//          const tl = gsap.timeline()
-//         .addLabel('hideScaleStart')
-//         .fromTo(image, { zIndex: 2, scale: 1, }, { zIndex: 2, scale: .9, duration: .36, ease: 'gg_scale_out', immediateRender: false })
-//         .fromTo(image, { zIndex: 2, opacity: 1, }, { zIndex: 2, opacity: 0, duration: .36, ease: 'gg_scale_clip_in', immediateRender: false }, '<')
+         const tl = gsap.timeline()
+        .addLabel('hideScaleStart')
+        .fromTo(image, { zIndex: 2, scale: 1, }, { zIndex: 2, scale: .9, duration: .36, ease: 'gg_scale_out', immediateRender: false })
+        .fromTo(image, { zIndex: 2, opacity: 1, }, { zIndex: 2, opacity: 0, duration: .36, ease: 'gg_scale_clip_in', immediateRender: false }, '<')
     
-//         .addPause()
-//         .addLabel('showFromRightSideStart')
-//         .fromTo(image, { zIndex: 3, opacity: 1, clipPath: 'inset(0 0 0 100%)', scale: 1.2, }, { zIndex: 3, clipPath: 'inset(0px 0px 0px 0px)', scale: 1, opacity: 1, duration: .6, ease: 'gg_scale_clip_in', immediateRender: false })
+        .addPause()
+        .addLabel('showFromRightSideStart')
+        .fromTo(image, { zIndex: 3, opacity: 1, clipPath: 'inset(0 0 0 100%)', scale: 1.2, }, { zIndex: 3, clipPath: 'inset(0px 0px 0px 0px)', scale: 1, opacity: 1, duration: .6, ease: 'gg_scale_clip_in', immediateRender: false })
 
-//         return tl
+        return tl
   
-//     }
+    }
     
-//     function createSaleImageMinAnimation(image) {
+    function createSaleImageMinAnimation(image) {
 
-//         gsap.set(image, { opacity: 1, pointerEvents: 'auto', })
-//         const tl = gsap.timeline()
-//             .to(image, { opacity: 0.7, pointerEvents: 'none', border: '2px solid #8B70F6', duration: .1, ease: 'none' })
-//             .reverse()
-//         return tl
+        gsap.set(image, { opacity: 1, pointerEvents: 'auto', })
+        const tl = gsap.timeline()
+            .to(image, { opacity: 0.7, pointerEvents: 'none', border: '2px solid #8B70F6', duration: .1, ease: 'none' })
+            .reverse()
+        return tl
     
-//     }
+    }
     
 
     
     
-//     saleImageMin.forEach((image) => {
-//         image.addEventListener('click', () => conectImageSaleAnimation(image))
+    saleImageMin.forEach((image) => {
+        image.addEventListener('click', () => conectImageSaleAnimation(image))
         
-//         const img = image.querySelector('.tn-atom')
-//         const tl = gsap.timeline()
-//         .to(img, { scale: 1.1, duration: .2, ease: 'al_out' })
-//         .reverse()
+        const img = image.querySelector('.tn-atom')
+        const tl = gsap.timeline()
+        .to(img, { scale: 1.1, duration: .2, ease: 'al_out' })
+        .reverse()
         
-//         image.addEventListener('mouseenter', () => tl.play())
-//         image.addEventListener('mouseleave', () => tl.reverse())
-//     })
+        image.addEventListener('mouseenter', () => tl.play())
+        image.addEventListener('mouseleave', () => tl.reverse())
+    })
 
-//     function conectImageSaleAnimation(image) {
-//         imageSaleClickAnimation.forEach((fn) => fn(image))
-//     }
+    function conectImageSaleAnimation(image) {
+        imageSaleClickAnimation.forEach((fn) => fn(image))
+    }
 
-//     function createClickimageSaleAnimation(element, i) {
+    function createClickimageSaleAnimation(element, i) {
 
-//     return function (target) {
-//       if (target === element) {
+    return function (target) {
+      if (target === element) {
           
-//           if (Number.isInteger(currentImage.value) ) {
-//             imageSaleMinClickAnimation[i].play()              
-//           }
+          if (Number.isInteger(currentImage.value) ) {
+            imageSaleMinClickAnimation[i].play()              
+          }
           
-//         if (i !== currentImage.value) {
+        if (i !== currentImage.value) {
 
-//           if (Number.isInteger(currentImage.value)) {
-//             gsap.to(currentImage, { value: i, duration: .6 })
-//             imageSaleAnimation[i].play("showFromRightSideStart")
-//           }
+          if (Number.isInteger(currentImage.value)) {
+            gsap.to(currentImage, { value: i, duration: .6 })
+            imageSaleAnimation[i].play("showFromRightSideStart")
+          }
 
-//         } 
-//       } else {
+        } 
+      } else {
 
-//         imageSaleAnimation[currentImage.value].play("hideScaleStart")
-//         imageSaleMinClickAnimation[i].reverse()
+        imageSaleAnimation[currentImage.value].play("hideScaleStart")
+        imageSaleMinClickAnimation[i].reverse()
 
-//       }
+      }
 
-//     }
+    }
 
-//   }
+  }
             
         
         
