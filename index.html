@@ -299,12 +299,12 @@
 <!----- reviews ----->
 
 
-<!----- cardcart ----->
+<!----- card cart ----->
 
     <section class="cardcart">
         <div class="cardcartcontent">
             <div class="cardcart__discription">
-                <h3 class="cardcart__title">Мигдалеве борошно</h3>
+                <h2 class="cardcart__title">Мигдалеве борошно</h2>
                 <div class="cardcart__points">
                     <p class="cardcart__point">100% мигдалю Nonpareil (США)</p>
                     <p class="cardcart__point">з бланшированого мигдалю</p>
@@ -316,34 +316,72 @@
                 </div>
             </div>
             <div class="cardcart__price">
-                <p class="cardcartdisplay">1 кг - 410 грн</p>
-                <div class="cardcart__calculator">
+                    <p class="cardcartdisplay">1 кг - 410 грн</p>
                     <div class="changecountbutton">
                         <p class="counter">1</p>
                     </div>
                     <div class="changecountmodal">
                         <ul class="countmodallist">
-                            <li class="modaltab"><span class="modaltabvalue">1</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">2</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">3</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">4</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">5</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">6</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">7</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">8</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">9</span></li>
-                            <li class="modaltab"><span class="modaltabvalue">10+</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="1">1</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="2">2</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="3">3</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="4">4</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="5">5</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="6">6</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="7">7</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="8">8</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="9">9</span></li>
+                            <li class="modaltab"><span class="modaltabvalue" data-value="10+">10+</span></li>
                         </ul>
                     </div>
                     <div class="inputcountbox">
                         <input type="tel" maxlength="2" class="inputcount">
-                        <label for="tel" class="lableforinputcount"></label>
+                        <label for="tel" class="lableforinputcount">10</label>
                     </div>
                     <div class="cardcart__buton">Отпримати реквізити в мессенджер</div>
+            </div>
+            <div class="cardcart__slider">
+                <div class="slidertabs">
+                    <div class="slidertab" data-value="Доставка">Доставка</div>
+                    <div class="slidertab" data-value="Оплата">Оплата</div>
+                    <div class="slidertab" data-value="Сертифікат">Сертифікат</div>
+                    <div class="slidertab" data-value="Оформлення замовлення">Оформлення замовлення</div>
+                </div>
+                <div class="slidertexts">
+                    <div class="slidertext">
+                        <p>Відправляємо замовлення на наступний день після оплати, з понеділка по пятницю</p>
+                        <p>Відправляємо “Новою Поштою”</p>
+                    </div>
+                    <div class="slidertext">
+                        <p>Ви можете отримати реквізити для оплати на картку Приват Банку у WhatsApp, Viber, Telegram, після підтвердження замовлення</p>
+                        <p>Мінімальне замовлення - 1кг борошна</p>
+                    </div>
+                    <div class="slidertext">
+                        <img src="img/Certificate Almond Flour 1:2.jpg" class="slidersertificate">
+                        <img src="img/Certificate Almond Flour 2:2.jpg" class="slidersertificate">
+                    </div>
+                    <div class="slidertext">
+                        <p>1. Виберіть бажану кількість товару ( вибрати за <span class="bluelink">посиланням</span>)</p>
+                        <p>2.Для відправки товару новою поштою ( єдиний спосіб на данний момент ) введіть ваші прізвище та імя для формування замовлення у додатку Нової Пошти ( можна зробити за <span class="bluelink">посиланням</span> ) та виберіть номер відділення на карти на яке отримуватимете ваше замовлення ( можна зробити за <span class="bluelink">посиланням</span> )</p>
+                        <p>3.Введіть свій номер телефону, щоб ми відправили вам всю інформацію про ваше замолення в одному повідомленні разом з реквізитами для оплати</p>
+                        <p>4.Оплатіть замовлення через додаток приват банку, банкомат або в інший зручний спосіб за отриманими реквізитами</p>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div class="cardcartgallery">
+            <div class="cardcartimagelist">
+                <img src="" class="cardcartimage">
+                <img src="" class="cardcartimage">
+                <img src="" class="cardcartimage">
+            </div>
+            <div class="imagepreviewlist">
+                <img src="" class="cardcartimagepreview">
+                <img src="" class="cardcartimagepreview">
+                <img src="" class="cardcartimagepreview">
+            </div>
+        </div>
     </section>
   
     <section style="height: 10000px">

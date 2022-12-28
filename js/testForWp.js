@@ -600,6 +600,310 @@ const burgerLine = document.querySelector('.burger__line'),
                 })
 
         })
+
+
+/* <----- reviews -----> */
+
+
+/* <----- card cart -----> */
+
+    const cardcartButon = document.querySelector('.cardcart__buton')
+
+    mm.add('(max-width: 959px)', () => { 
+        cardcartButon.textContent = 'Отримати реквізити'
+    })     
+    mm.add('(min-width: 960px)', () => { 
+        cardcartButon.textContent = 'Отримати реквізити для оплати'
+    })    
+
+        const sellModal = document.querySelector('.changecountmodal'),
+    sellMadalAnimation = gsap.timeline()
+    .fromTo(sellModal, { autoAlpha: 0 }, { autoAlpha: 1, duration: .1, ease: 'al_out'})
+    .addPause()
+    .addLabel('sellModalPause')
+    .fromTo(sellModal, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
+
+const sellChangeCountButton = document.querySelector('.changecountbutton'),
+    sellChangeCountButtonHoverAnimation = gsap.timeline()
+    .fromTo(sellChangeCountButton, { '--sellTotalCountBoxOpacity': 1 }, { '--sellTotalCountBoxOpacity': 0, duration: .1, ease: 'none' })
+    sellChangeCountButton.addEventListener('mouseenter', () => sellChangeCountButtonHoverAnimation.tweenTo('0', { ease: 'al_out' }))
+    sellChangeCountButton.addEventListener('mouseleave', () => sellChangeCountButtonHoverAnimation.tweenTo('.1', { ease: 'al_out' }))
+    sellChangeCountButton.addEventListener('click', () => {
+        sellMadalAnimation.restart()
+    })
+
+
+const sellModalTab = gsap.utils.toArray('.modaltab')
+const sellModalTabAnimationBox = sellModalTab.map(createSellModalTabAnimation)
+    
+sellModalTab.forEach((tab) => { 
+    tab.addEventListener('click', () => sellModalTabAnimation(tab))
+})
+
+function sellModalTabAnimation(clickedTab) {
+    sellModalTabAnimationBox.forEach((toggleFn) => toggleFn(clickedTab))
+}
+
+function createSellModalTabAnimation(element, i) {
+    
+    const tl = gsap.timeline()
+    .fromTo(element, { '--sellModalTabChackedOpacity': 1 }, { '--sellModalTabChackedOpacity': 0, duration: .1, ease: 'none' })
+    
+        return function(clickedTab) {
+            sellMadalAnimation.play('sellModalPause')
+        if (clickedTab === element) {
+            if (tl.time() === .1) {
+            tl.tweenTo('0', { ease: 'al_out' })
+            } else {
+            }
+        } else {
+            tl.tweenTo('.1', { ease: 'al_out' })
+        }
+        }
+
+}
+
+// function sellModalAnimationBuilder(element) {
+//     const tl = gsap.timeline()
+//     .fromTo(element, { '--sellModalTabOpacity': 1, '--sellModalValueOpacity': 1, }, { '--sellModalTabOpacity': 0, '--sellModalValueOpacity': 0, duration: .1, ease: 'none' })
+//     return tl
+// }
+// const sellModalTabAnimationArray = sellModalTab.map(sellModalAnimationBuilder)
+const sellTotalInputCountBox = document.querySelector('.inputcount'),
+    lableForSaleInput = document.querySelector('.lableforinputcount'),
+    sellTotalCount = document.querySelector('.counter'),
+    sellTotalPrice = document.querySelector('.cardcartdisplay'),
+    sellInputCountBox = document.querySelector('.inputcountbox')
+sellModalTab.forEach((tab, i) => {
+    const value = i + 1
+    const price =  495 * (i + 1)
+    const tl = gsap.timeline()
+    .fromTo(tab, { '--sellModalTabOpacity': 1, '--sellModalValueOpacity': 1, }, { '--sellModalTabOpacity': 0, '--sellModalValueOpacity': 0, duration: .1, ease: 'none' })
+    tab.addEventListener('mouseenter', () => tl.tweenTo('0', { ease: 'al_out' }))
+    tab.addEventListener('mouseleave', () => tl.tweenTo('.1', { ease: 'al_out' }))  
+        tab.addEventListener('click', () => {
+        tl.tweenTo('.1', { ease: 'al_out', onStart: () => { tl.timeScale(2) }})
+        tl.tweenTo('0', { ease: 'al_out', delay: .1, onStart: () => { tl.timeScale(2) }})
+        if ( i < 9 ) {
+            tab.dataset.value = `${value}`
+            tab.dataset.price = `${price}`
+            sellTotalCount.textContent = `${tab.dataset.value}`
+            sellTotalPrice.textContent = `${tab.dataset.value} кг - ${tab.dataset.price} грн`
+        } 
+        if ( i === 9 ) {
+            sellTotalInputAnimation.play()
+            sellTotalPrice.textContent = '10 кг - 4950 грн'
+        }
+        })
+
+})
+
+document.addEventListener('click', (e) => {
+    if ( sellModal.contains(e.target)) {
+        
+    } else {
+        if( sellMadalAnimation.time() === sellMadalAnimation.labels.sellModalPause ) {
+            sellMadalAnimation.play('sellModalPause' + .2)
+        }
+    }
+})
+
+    
+    const sellTotalInputAnimation = gsap.timeline()
+        .set(sellInputCountBox, { autoAlpha: 0 })
+        .to(sellInputCountBox, { duration: .1 })
+        .addPause()
+        .to(sellInputCountBox, { duration: .25 })
+        .set(sellChangeCountButton, { overflow: 'hidden' })
+        .set(sellTotalInputCountBox, { value: "" }, '<')
+        .to(sellChangeCountButton, { '--sellTotalCountBoxY': '40px', duration: .2, ease: 'al_slide' }, '<')
+        .to(sellTotalCount, { y: 45, duration: .2, ease: 'al_slide' }, '<')
+        .set(sellChangeCountButton, { autoAlpha: 0 })
+        .set([sellTotalInputCountBox, sellInputCountBox], { autoAlpha: 1 }, '<')
+        .from(lableForSaleInput, { y: -77, duration: .2, ease: 'al_slide' })
+        .set(sellTotalInputCountBox, { value: "10" })
+        .set(lableForSaleInput, { autoAlpha: 0 })
+
+    
+    sellTotalInputCountBox.addEventListener('focus', () => {
+        sellTotalInputCountBox.select()
+    })
+    sellTotalInputCountBox.addEventListener('blur', () => {
+        if ( sellTotalInputCountBox.value === '') {
+            sellTotalInputCountBox.value = '1'
+        }
+    })
+    sellTotalInputCountBox.addEventListener('input', () => {
+        sellTotalInputCountBox.value = sellTotalInputCountBox.value.replace(/[^0-9]/g, '')
+        const price =  495 * sellTotalInputCountBox.value
+        if ( sellTotalInputCountBox.value === '') {
+            sellTotalPrice.textContent = '1 кг - 495 грн' 
+        } else if ( sellTotalInputCountBox.value === '0' ) {
+            sellTotalInputCountBox.value = '1'
+            sellTotalPrice.textContent = '1 кг - 495 грн'
+        } else {
+            sellTotalPrice.textContent = `${sellTotalInputCountBox.value} кг - ${price} грн`
+        }
+    })
+    
+//     const blueLink = gsap.utils.toArray('.blueLink')
+    
+//     blueLink.forEach(a => {
+//     const aHoverTl = gsap.timeline()
+//     .fromTo(a, { '--faq_line_scale': 1 }, { '--faq_line_scale': 0, duration: .1, ease: 'none' } )
+//     a.addEventListener('mouseenter', () => aHoverTl.tweenTo('0', { ease: 'al_out' }))
+//     a.addEventListener('mouseleave', () => aHoverTl.tweenTo('.1', { ease: 'al_out' }))
+//   })
+  
+//   const sellSliderTab = gsap.utils.toArray('.sliderDescriptionTab'),
+//   sellSliderText = gsap.utils.toArray('.sliderDescriptionText')
+  
+//   sellSliderTab.forEach(tab => {
+      
+//       const tabTl = gsap.timeline()
+//       .fromTo(tab, { color: '#1D1D1F', pointerEvents: 'none', '--sellModalTabLineOpacity': 1 }, { color: '#6E6E73', '--sellModalTabLineOpacity': 0, pointerEvents: 'auto', duration: .1, ease: 'none' })
+//       tab.addEventListener('click', () => tabTl.tweenTo('0', { ease: 'none' }))
+      
+//       const tabTl2 = gsap.timeline()
+//       .fromTo(tab, { '--sellTabOpacity': 1 }, { '--sellTabOpacity': 0, duration: .1, ease: 'none' })
+//       tab.addEventListener('mouseenter', () => tabTl2.tweenTo('0', { ease: 'none' }))
+//       tab.addEventListener('mouseleave', () => tabTl2.tweenTo('.1', { ease: 'none' }))
+//   })
+//   sellSliderText.
+//   .fromTo(tab, { position: 'relative', opacity: 1 }, { position: 'absolute', opacity: 0, duration: .2, ease: 'none' })
+
+
+    const sellSliderTab = gsap.utils.toArray('.slidertab'),
+    sellSliderText = gsap.utils.toArray('.slidertext'),
+    sellSliderToggles = sellSliderTab.map(createsellSliderAnimation)
+    
+    sellSliderTab.forEach(tab => {
+        
+      const tabTl = gsap.timeline()
+      .fromTo(tab, { '--sellTabOpacity': 1 }, { '--sellTabOpacity': 0, duration: .1, ease: 'none' })
+      tab.addEventListener('mouseenter', () => tabTl.tweenTo('0', { ease: 'none' }))
+      tab.addEventListener('mouseleave', () => tabTl.tweenTo('.1', { ease: 'none' }))
+      
+      tab.addEventListener("click", () => toggleSellSlider(tab))
+  })
+  
+  function toggleSellSlider(clickedTab) {
+      sellSliderToggles.forEach(toggleFn => toggleFn(clickedTab))
+  }
+  
+  function createsellSliderAnimation(element, i) {
+      
+    const text = sellSliderText[i]
+    
+    const textTl = gsap.timeline()
+    .fromTo(text, { opacity: 1 }, { opacity: 0, duration: .2, ease: 'none' })
+    
+    const TextTl2 = gsap.timeline()
+    .fromTo(text, { position: 'relative' }, { position: 'absolute', duration: .01, ease: 'none' })
+      
+    const tabTl = gsap.timeline()
+    .fromTo(element, { color: '#1D1D1F', pointerEvents: 'none', '--sellModalTabLineOpacity': 1 }, { color: '#6E6E73', '--sellModalTabLineOpacity': 0, pointerEvents: 'auto', duration: .1, ease: 'none' })
+      
+    return function(clickedTab) {
+    
+        if (clickedTab === element) {
+          tabTl.tweenTo('0', { ease: 'none' })
+          textTl.tweenTo('0', { ease: 'none' })
+          TextTl2.tweenTo('0', { ease: 'none' })
+        } else {
+          tabTl.tweenTo('.1', { ease: 'none' })
+          textTl.tweenTo('.2', { ease: 'none' })
+          TextTl2.tweenTo('.01', { ease: 'none' })
+        }
+    }
+  }
+
+
+
+
+
+
+//     const saleImage = gsap.utils.toArray('.sellImg'),
+//     saleImageMin = gsap.utils.toArray('.sellImgControls'),
+//     imageSaleClickAnimation = saleImageMin.map(createClickimageSaleAnimation),
+//     imageSaleMinClickAnimation = saleImageMin.map(createSaleImageMinAnimation)
+//     currentImage = {
+//         value: 0,
+//     }
+    
+//     const imageSaleAnimation = saleImage.map(createImageSaleAnimation)
+    
+//     function createImageSaleAnimation(image) {
+        
+//          const tl = gsap.timeline()
+//         .addLabel('hideScaleStart')
+//         .fromTo(image, { zIndex: 2, scale: 1, }, { zIndex: 2, scale: .9, duration: .36, ease: 'gg_scale_out', immediateRender: false })
+//         .fromTo(image, { zIndex: 2, opacity: 1, }, { zIndex: 2, opacity: 0, duration: .36, ease: 'gg_scale_clip_in', immediateRender: false }, '<')
+    
+//         .addPause()
+//         .addLabel('showFromRightSideStart')
+//         .fromTo(image, { zIndex: 3, opacity: 1, clipPath: 'inset(0 0 0 100%)', scale: 1.2, }, { zIndex: 3, clipPath: 'inset(0px 0px 0px 0px)', scale: 1, opacity: 1, duration: .6, ease: 'gg_scale_clip_in', immediateRender: false })
+
+//         return tl
+  
+//     }
+    
+//     function createSaleImageMinAnimation(image) {
+
+//         gsap.set(image, { opacity: 1, pointerEvents: 'auto', })
+//         const tl = gsap.timeline()
+//             .to(image, { opacity: 0.7, pointerEvents: 'none', border: '2px solid #8B70F6', duration: .1, ease: 'none' })
+//             .reverse()
+//         return tl
+    
+//     }
+    
+
+    
+    
+//     saleImageMin.forEach((image) => {
+//         image.addEventListener('click', () => conectImageSaleAnimation(image))
+        
+//         const img = image.querySelector('.tn-atom')
+//         const tl = gsap.timeline()
+//         .to(img, { scale: 1.1, duration: .2, ease: 'al_out' })
+//         .reverse()
+        
+//         image.addEventListener('mouseenter', () => tl.play())
+//         image.addEventListener('mouseleave', () => tl.reverse())
+//     })
+
+//     function conectImageSaleAnimation(image) {
+//         imageSaleClickAnimation.forEach((fn) => fn(image))
+//     }
+
+//     function createClickimageSaleAnimation(element, i) {
+
+//     return function (target) {
+//       if (target === element) {
+          
+//           if (Number.isInteger(currentImage.value) ) {
+//             imageSaleMinClickAnimation[i].play()              
+//           }
+          
+//         if (i !== currentImage.value) {
+
+//           if (Number.isInteger(currentImage.value)) {
+//             gsap.to(currentImage, { value: i, duration: .6 })
+//             imageSaleAnimation[i].play("showFromRightSideStart")
+//           }
+
+//         } 
+//       } else {
+
+//         imageSaleAnimation[currentImage.value].play("hideScaleStart")
+//         imageSaleMinClickAnimation[i].reverse()
+
+//       }
+
+//     }
+
+//   }
             
         
         
