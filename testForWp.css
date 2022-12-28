@@ -2138,7 +2138,7 @@ body {
         margin: calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))) 0 calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
         padding: calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320)));
         width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
-        overflow-x: hidden;
+        overflow: hidden;
     }
         .cardcartcontent {
             
