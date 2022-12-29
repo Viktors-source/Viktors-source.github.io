@@ -1518,6 +1518,7 @@ body {
     position: relative;
     width: 100%;
     display: flex;
+    overflow: hidden;
 }
     .cardcartcontent {
         position: relative;
@@ -2441,4 +2442,161 @@ body {
             line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
             letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
         }
+}
+
+/* <----- qa -----> */
+
+
+
+/* <----- footer -----> */
+
+.footer {
+    position: relative;
+    width: 100%;
+    background: #FBFBFD;
+}
+    .footercontent {
+        position: relative;
+        margin: 0 auto;
+    }
+        .footerlogo {
+            position: relative;
+            font-family: 'SFProDisplaySemibold';
+            font-weight: 600;
+            line-height: 120%;
+            letter-spacing: 0;
+        }
+            .footerlogo > span {
+                color: #C7B9FE;
+            }
+        .footer__actions {
+            position: relative;
+            display: flex;
+        }
+            .copyright {
+                position: relative;
+                font-family: 'SFProTextRegular';
+                font-weight: 400;
+                line-height: 60%;
+                letter-spacing: -1%;
+                color: rgba(134, 134, 139, 0.7);
+
+            }
+            .footer__links {
+                position: relative;
+                display: flex;
+            }
+                .linkssocial, .linkmessegers {
+                    position: relative;
+                    display: flex;
+                }
+                    .foterlink {
+                        position: relative;
+                        background: #1D1D1F;
+                        color: #FFFFFF;
+                    }
+
+@media screen and (min-width: 1360px) {
+    .footer {
+        margin: 200px 0 0;
+        padding: 32px 0 68px;
+    }
+        .footercontent {
+            width: 1200px;
+        }
+            .footerlogo {
+                font-size: 41px;
+                text-transform: uppercase;
+            }
+            .footer__actions {
+                align-items: flex-end;
+            }
+                .copyright {
+                    width: 525px;
+                    font-size: 15px;
+                }
+                .footer__links {
+                    gap: 56px;
+                }
+                    .linkssocial, .linkmessegers {
+                        gap: 16px;
+                    }
+                        .foterlink {
+                            padding: 4px 12px;
+                            font-family: 'SFProDisplayMedium';
+                            font-weight: 500;
+                            font-size: 18px;
+                            line-height: 130%;
+                            border-radius: 16px;
+                        }
+} 
+@media screen and (min-width: 960px) and (max-width: 1359px) {
+    .footer {
+        margin: calc(142px + (200 - 142) * ((100vW - 960px) / (1360 - 960))) 0 0;
+        padding: calc(23px + (32 - 23) * ((100vW - 960px) / (1360 - 960))) 0 calc(45px + (68 - 45) * ((100vW - 960px) / (1360 - 960)));
+    }
+        .footercontent {
+            width: calc(848px + (1200 - 848) * ((100vW - 960px) / (1360 - 960)));
+        }
+            .footerlogo {
+                font-size: calc(29px + (41 - 29) * ((100vW - 960px) / (1360 - 960)));
+                text-transform: uppercase;
+            }
+            .footer__actions {
+                align-items: flex-end;
+            }
+                .copyright {
+                    width: calc(370px + (525 - 370) * ((100vW - 960px) / (1360 - 960)));
+                    font-size: calc(11px + (15 - 11) * ((100vW - 960px) / (1360 - 960)));
+                }
+                .footer__links {
+                    gap: calc(40px + (56 - 40) * ((100vW - 960px) / (1360 - 960)));
+                }
+                    .linkssocial, .linkmessegers {
+                        gap: calc(12px + (16 - 12) * ((100vW - 960px) / (1360 - 960)));
+                    }
+                        .foterlink {
+                            padding: calc(3px + (4 - 3) * ((100vW - 960px) / (1360 - 960))) calc(9px + (12 - 9) * ((100vW - 960px) / (1360 - 960)));
+                            font-family: 'SFProDisplayMedium';
+                            font-weight: 500;
+                            font-size: calc(13px + (18 - 13) * ((100vW - 960px) / (1360 - 960)));
+                            line-height: 130%;
+                            border-radius: calc(11px + (16 - 11) * ((100vW - 960px) / (1360 - 960)));
+                        }
+} 
+@media screen and (max-width: 959px) {
+    .footer {
+        margin: calc(60px + (180 - 60) *  ((100vW - 320px) / (960 - 320))) 0 0;
+        padding: calc(15px + (45 - 15) *  ((100vW - 320px) / (960 - 320))) calc(20px + (60 - 20) *  ((100vW - 320px) / (960 - 320))) calc(47px + (142 - 47) *  ((100vW - 320px) / (960 - 320)));
+    }
+        .footercontent {
+            display: flex;
+            flex-direction: column;
+            gap: calc(16px + (48 - 16) *  ((100vW - 320px) / (960 - 320)));
+        }
+            .footerlogo {
+                font-size: calc(24px + (72 - 24) *  ((100vW - 320px) / (960 - 320)))
+            }
+            .footer__actions {
+                flex-direction: column-reverse;
+                gap: calc(24px + (71 - 24) *  ((100vW - 320px) / (960 - 320)));
+            }
+                .copyright {
+                    font-size: calc(12px + (36 - 12) *  ((100vW - 320px) / (960 - 320)));
+                }
+                .footer__links {
+                    flex-direction: column;
+                    gap: calc(7px + (20 - 7) *  ((100vW - 320px) / (960 - 320)));
+                }
+                    .linkssocial, .linkmessegers {
+                        gap: calc(12px + (36 - 12) *  ((100vW - 320px) / (960 - 320)));
+                    }
+                        .foterlink {
+                            padding: calc(4px + (12 - 4) *  ((100vW - 320px) / (960 - 320))) calc(12px + (36 - 12) *  ((100vW - 320px) / (960 - 320)));
+                            font-family: 'SFProTextRegular';
+                            font-weight: 400;
+                            font-size: calc(14px + (42 - 14) *  ((100vW - 320px) / (960 - 320)));
+                            line-height: 130%;
+                            border-radius: calc(16px + (48 - 16) *  ((100vW - 320px) / (960 - 320)))
+                        }
 }
