@@ -123,7 +123,20 @@ body {
                 font-weight: 600;
                 line-height: 120%;
                 letter-spacing: 0;
-                background: #8B70F7;
+                /* background: #8B70F7; */
+                cursor: pointer;
+            }
+            .button::after {
+                content: " ";
+                position: absolute;
+                opacity: var(--headerButtonOpacity);
+                z-index: -1;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                border-radius: inherit;
+                background: rgba(139, 112, 246, 1);
             }
             .nav__actions_mobile {
                 position: relative;
@@ -383,18 +396,6 @@ body {
         .mainbeneffit__text {
             position: relative;
         }
-.mainbutton {
-    position: relative;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    text-transform: uppercase;
-    font-family: 'SFProDisplaySemibold';
-    font-weight: 600;
-    color: #FFFFFF;
-    background: #C7B9FE;
-}
 
 @media screen and (min-width: 1360px) {
     .first-screen__title {
@@ -441,15 +442,6 @@ body {
             line-height: 27px;
             letter-spacing: 0.1px;
         }
-    .mainbutton {
-        width: 1200px;
-        height: 60px;
-        margin: 70px auto 0;
-        border-radius: 5px;
-        font-size: 21px;
-        line-height: 27px;
-        letter-spacing: 0.2em;
-    }
 
 
 } 
@@ -498,15 +490,6 @@ body {
             line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
             letter-spacing: calc(0.07px + (0.1 - 0.07) * ((100vW - 960px) / (1360 - 960)));
         }
-    .mainbutton {
-        width: calc(848px + (1200 - 848) * ((100vW - 960px) / (1360 - 960)));
-        height: calc(42px + (60 - 42) * ((100vW - 960px) / (1360 - 960)));
-        margin: calc(50px + (70 - 50) * ((100vW - 960px) / (1360 - 960))) auto 0;
-        border-radius: calc(3px + (5 - 3) * ((100vW - 960px) / (1360 - 960)));
-        font-size: calc(15px + (21 - 15) * ((100vW - 960px) / (1360 - 960)));
-        line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
-        letter-spacing: 0.2em;
-    }
 
 }
 @media screen and (max-width: 959px) {
@@ -560,9 +543,6 @@ body {
             .mainbeneffit__text > span {
                 color: #1D1D1F;
             }
-    .mainbutton {
-        display: none;
-    }
                     
 }
 
@@ -2326,7 +2306,7 @@ body {
             .qa_text {
                 position: relative;
             }
-        .qa__action {
+        /* .qa__action {
             display: flex;
             flex-direction: column;
             font-family: 'SFProDisplaySemibold';
@@ -2334,6 +2314,9 @@ body {
             color: #0066CC;
             overflow: hidden;
             cursor: pointer;
+        } */
+        .qa__action {
+            display: none;
         }
 
 @media screen and (min-width: 1360px) {

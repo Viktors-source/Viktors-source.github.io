@@ -59,12 +59,30 @@ const burgerLine = document.querySelector('.burger__line'),
     navLink.forEach(link => {
         innerText = link.querySelectorAll('span')
         const tl = gsap.timeline()
-        .to(innerText, { y: '-100%', ease: 'al_slide', duration: .3 })
+        .to(innerText, { y: '-100%', ease: 'al_slide', duration: .5 })
         .reverse()
 
         link.addEventListener('mouseenter', () => {
             tl.restart()
         })
+    })
+
+    const buttons = gsap.utils.toArray('.button')
+    buttons.forEach(button => {
+        const tl = gsap.timeline()
+        .fromTo(button, { scale: 1 }, { scale: .9, ease: "power2.inOut", duration: .1 })
+        .to(button, { scale: 1, ease: 'elastic.out(1.2, 0.3)', duration: .5 })
+        .reverse()
+
+        const tl2 = gsap.timeline()
+        .fromTo(button, { '--headerButtonOpacity': 1 }, { '--headerButtonOpacity': .8, ease: "power2.inOut", duration: .2 })
+        .reverse()
+
+        button.addEventListener('click', () => {
+            tl.restart()
+        })
+        button.addEventListener('mouseenter', () => tl2.play())
+        button.addEventListener('mouseleave', () => tl2.reverse())
     })
 
     /* <----- local-nav -----> */
@@ -73,7 +91,7 @@ const burgerLine = document.querySelector('.burger__line'),
     /* <----- first screen -----> */
 
     const h1Toggles = gsap.utils.toArray('.h1_toggle'),
-    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .3, ease: 'none', delay: 1.5, } })
+    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .3, ease: 'al_slide', delay: 1.5, } })
     .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
     .set(h1Toggles[0], { y: '100%', delay: 0 })
     .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
