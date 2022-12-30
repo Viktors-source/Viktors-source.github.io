@@ -13,23 +13,132 @@ CustomEase.create('apl_accordion_out1', 'M0,0 C0.2,1 0.68,1 1,1')
 CustomEase.create('apl_accordion_in2', 'M0,0 C0.2,0 0.68,0 1,1')
 CustomEase.create('apl_accordion_out2', 'M0,0 C0.2,1 0.68,1 1,1')
 CustomEase.create('al_slide', 'M0,0 C0.26,0.67 0.48,0.91 1,1') 
+CustomEase.create('easeOutQuad', 'M0,0 C0.5,1 0.89,1 1,1') 
+CustomEase.create('easeOutQuint', 'M0,0 C0.22,1 0.36,1 1,1') 
+
+
 
 
 /* <----- show animation -----> */
+let mm = gsap.matchMedia()
+
 /* first screen */
+const h1 = document.querySelector('h1'),
+mainimage = document.querySelector('.mainimage'),
+firstScreenBeneffit = document.querySelector('.first-screen__beneffit'),
+mainBeneffit = firstScreenBeneffit.querySelectorAll('.mainbeneffit'),
+mainBeneffitArray = gsap.utils.toArray('.mainbeneffit'),
+mainBeneffitImage = firstScreenBeneffit.querySelectorAll('.mainbeneffit__icon'),
+mainBeneffitImageArray = gsap.utils.toArray('.mainbeneffit__icon'),
+mainBeneffitTextArray = gsap.utils.toArray('.mainbeneffit__text'),
+h1Toggles = gsap.utils.toArray('.h1_toggle')
 
- const h1 = document.querySelector('h1'),
- mainimage = document.querySelector('.mainimage'),
- firstScreenBeneffit = document.querySelector('.first-screen__beneffit'),
- mainBeneffit = firstScreenBeneffit.querySelectorAll('.mainbeneffit'),
- mainBeneffitImage = firstScreenBeneffit.querySelectorAll('.mainbeneffit__icon'),
+mm.add('(min-width: 960px)', () => {
 
- firstScreenShow = gsap.timeline()
- .from(mainimage, { opacity: .1, ease: "power2.inOut", duration: 1 })
- .from(h1, { y: '25%', autoAlpha: 0, ease: 'al_slide', duration: 1.5 }, '<')
-//  .set(mainBeneffitImage, { y: '50%', autoAlpha: 0, ease: 'al_slide'})
- .from(mainBeneffit, { y: '40%', autoAlpha: 0, ease: 'al_slide', duration: 1 }, '>-.7')
- .from(mainBeneffitImage, { y: '70%', autoAlpha: 0, ease: 'al_slide', stagger: .05, duration: .7 })
+    const firstScreenShow = gsap.timeline()
+    .from(mainimage, { opacity: .1, ease: "power2.inOut", duration: 1 })
+    .from(h1, { y: '25%', autoAlpha: 0, ease: 'al_slide', duration: 1.5 }, '<')
+    .from(mainBeneffit, { y: '40%', autoAlpha: 0, ease: 'al_slide', duration: 1 }, '>-.7')
+    .from(mainBeneffitImage, { y: '70%', autoAlpha: 0, ease: 'al_slide', stagger: .05, duration: .7 })
+
+    const h1ToggleTl = gsap.timeline({ repeat: -1, repeatDelay: 2.8, defaults: { duration: .7, ease: "power2.out", delay: .7, } })
+    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { opacity: 1, duration: 1.1 })
+    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
+    .set(h1Toggles[0], { y: '100%', delay: 0 })
+    .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
+    .set(h1Toggles[1], { y: '0%', delay: 0  })
+    .to(h1Toggles[2], { y: '-300%' })
+    .to(h1Toggles[0], { y: '0%', delay: 0  }, '<')
+    .set(h1Toggles[2], { y: '200%', delay: 0  })
+
+})
+
+mm.add('(max-width: 959px)', () => {
+
+    const firstScreenShow = gsap.timeline()
+    .from(mainimage, { opacity: .1, ease: "power2.inOut", duration: 1 })
+    .from(h1, { y: '25%', autoAlpha: 0, ease: 'al_slide', duration: 1.5 }, '<')
+
+    const h1ToggleTl = gsap.timeline({ repeat: -1, repeatDelay: 2.8, defaults: { duration: .7, ease: "power2.out", delay: .7, } })
+    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { opacity: 1, duration: .1 })
+    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
+    .set(h1Toggles[0], { y: '100%', delay: 0 })
+    .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
+    .set(h1Toggles[1], { y: '0%', delay: 0  })
+    .to(h1Toggles[2], { y: '-300%' })
+    .to(h1Toggles[0], { y: '0%', delay: 0  }, '<')
+    .set(h1Toggles[2], { y: '200%', delay: 0  })
+
+    mainBeneffitImageArray.forEach((image, i) => {
+     
+        tl =  gsap.timeline({
+            scrollTrigger: {
+                trigger: image,
+                start: 'top bottom-=20vh',
+                toggleActions: 'play none none reverse',
+                // markers: true,
+            }
+        })
+        .from(image, { y: '50%', ease: 'al_slide', autoAlpha: 0, duration: 1 })
+    })
+
+    mainBeneffitTextArray.forEach((text, i) => {
+     
+        tl =  gsap.timeline({
+            scrollTrigger: {
+                trigger: text,
+                start: 'top bottom-=20vh',
+                toggleActions: 'play none none reverse',
+                // markers: true,
+            }
+        })
+        .from(text, { y: '50%', ease: 'al_slide', autoAlpha: 0, duration: 1 })
+    })
+
+
+})
+
+// shadowBoxes.forEach((element, i) => {
+//     if( targets_array[i].querySelectorAll('video').length > 0 ) {
+//         ScrollTrigger.create({
+//             scroller: targets_main_wrapper,
+//             trigger: element,
+//             start: `top top+=${widths[1] - 1}`,
+//             end: 'top top-=1',
+//             onEnter: () => {
+//                 targets_array[i].querySelector('video').play()
+//             },
+//             onEnterBack: () => {
+//                 targets_array[i].querySelector('video').play()
+//             },
+//             onLeave: () => {
+//                 targets_array[i].querySelector('video').currentTime = 0
+//                 targets_array[i].querySelector('video').pause()
+//             },
+//             onLeaveBack: () => {
+//                 targets_array[i].querySelector('video').currentTime = 0
+//                 targets_array[i].querySelector('video').pause()
+//             }
+//         })
+//     }
+// })
+
+// srollingTextAnimation = gsap.timeline({
+//     scrollTrigger: {
+//     trigger: drytextbeneffit,
+//     start: `bottom center+=${aboutusTitleHeight}`,
+//     end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
+//     scrub: true,
+//     }
+// })
+// .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
+// .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
+// .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
+// .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
+// .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
+
+
+
 
 
 
@@ -45,13 +154,6 @@ const burgerLine = document.querySelector('.burger__line'),
     burgerLineWidth = burgerLine.offsetWidth,
     burgerLineHeight = burgerLineWidth / 12,
     burgerIndent = burgerLineWidth / 6
-    
-    // const burgerAnimation = gsap.timeline()
-    // .from(burgerLines[0], { y: (-burgerIndent) + (-burgerLineHeight), duration: .2, ease: 'al_out'  })
-    // .from(burgerLines[2], { y: burgerIndent + burgerLineHeight, duration: .2, ease: 'al_out'  }, '<')
-    // .set(burgerLines[1], { autoAlpha: 0 })
-    // .to(burgerLines[0], { rotate: '-45deg', duration: .2, ease: 'al_out'  })
-    // .to(burgerLines[2], { rotate: '45deg', duration: .2, ease: 'al_out'  }, '<')
 
     const burgerAnimation = gsap.timeline()
     .from(burgerLines[0], { rotate: '-45deg', duration: .2, ease: 'al_out'  })
@@ -127,16 +229,7 @@ const burgerLine = document.querySelector('.burger__line'),
 
     /* <----- first screen -----> */
 
-    const h1Toggles = gsap.utils.toArray('.h1_toggle'),
-    h1ToggleTl = gsap.timeline({ repeat: -1, repeatDelay: 2.8, defaults: { duration: .7, ease: "power2.out", delay: .7, } })
-    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { opacity: 1, duration: .1 })
-    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
-    .set(h1Toggles[0], { y: '100%', delay: 0 })
-    .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
-    .set(h1Toggles[1], { y: '0%', delay: 0  })
-    .to(h1Toggles[2], { y: '-300%' })
-    .to(h1Toggles[0], { y: '0%', delay: 0  }, '<')
-    .set(h1Toggles[2], { y: '200%', delay: 0  })
+
 
     /* <----- first screen -----> */
 
@@ -573,7 +666,7 @@ const burgerLine = document.querySelector('.burger__line'),
             reviewsVideos = gsap.utils.toArray(sliderMainReview.querySelectorAll('video')),
             shopreviewactionsMobile = document.querySelector('.shopreviewactions_mobile')
 
-        let mm = gsap.matchMedia()
+        
 
         mm.add('(max-width: 959px)', () => {
 
