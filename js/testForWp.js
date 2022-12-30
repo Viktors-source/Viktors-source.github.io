@@ -74,12 +74,12 @@ mm.add('(max-width: 959px)', () => {
         tl =  gsap.timeline({
             scrollTrigger: {
                 trigger: image,
-                start: 'top bottom-=20vh',
+                start: 'top bottom-=10%',
                 toggleActions: 'play none none reverse',
                 // markers: true,
             }
         })
-        .from(image, { y: '50%', ease: 'al_slide', autoAlpha: 0, duration: 1 })
+        .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .7 })
     })
 
     mainBeneffitTextArray.forEach((text, i) => {
@@ -87,12 +87,12 @@ mm.add('(max-width: 959px)', () => {
         tl =  gsap.timeline({
             scrollTrigger: {
                 trigger: text,
-                start: 'top bottom-=20vh',
+                start: 'top bottom-=10%',
                 toggleActions: 'play none none reverse',
                 // markers: true,
             }
         })
-        .from(text, { y: '50%', ease: 'al_slide', autoAlpha: 0, duration: 1 })
+        .from(text, { y: '40%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
     })
 
 
