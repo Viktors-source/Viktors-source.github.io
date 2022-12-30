@@ -524,7 +524,7 @@ body {
             }
     .first-screen__beneffit {
         width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
-        padding: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320))) calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320))) 0;
+        padding: calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320))) calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320))) 0;
         flex-direction: column;
         gap: calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
     }
@@ -750,7 +750,7 @@ body {
 }
 @media screen and (max-width: 959px) {
     .dryflour {
-        margin: calc(60px + (180 - 60) * ((100vW - 320px) / (960 - 320))) 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
+        margin: calc(90px + (270 - 90) * ((100vW - 320px) / (960 - 320))) 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
         flex-direction: column-reverse;     
     }
     .fineflour {
@@ -761,7 +761,7 @@ body {
     .flourbeneffit {
         width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
         max-width: calc(320px + (960 - 320) * ((100vW - 320px) / (960 - 320)));
-        padding: calc(34px + (102 - 34) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) 0;
+        padding: calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) 0;
         overflow: hidden;
     }
     .drytextbeneffit {
@@ -817,7 +817,7 @@ body {
         .beneffit__title {
             line-height: calc(48px + (144 - 48) * ((100vW - 320px) / (960 - 320)));
             letter-spacing: 0;
-            margin: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320))) 0 calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320)));
+            margin: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320))) 0 calc(16px + (42 - 16) * ((100vW - 320px) / (960 - 320)));
         }
         .dryflour__title {
             font-size: calc(40px + (120 - 40) * ((100vW - 320px) / (960 - 320)));
