@@ -153,7 +153,8 @@ body {
                     .burger__line {
                         position: absolute;
                         width: 100%;
-                        background-image: url(img/svg\ \(35\).svg);
+                        background-color: #1D1D1F;
+                        border-radius: 300px;
                     }
             .dropdown {
                 position: absolute;

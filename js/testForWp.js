@@ -20,29 +20,46 @@ CustomEase.create('al_slide', 'M0,0 C0.26,0.67 0.48,0.91 1,1')
 const burgerLine = document.querySelector('.burger__line'),
     burgerLines = gsap.utils.toArray('.burger__line'),
     burgerClickArea = document.querySelector('.nav__burger'),
+    dropdown = document.querySelector('.dropdown'),
+    navContent = document.querySelector('.nav__content')
     
     burgerLineWidth = burgerLine.offsetWidth,
     burgerLineHeight = burgerLineWidth / 12,
     burgerIndent = burgerLineWidth / 6
     
+    // const burgerAnimation = gsap.timeline()
+    // .from(burgerLines[0], { y: (-burgerIndent) + (-burgerLineHeight), duration: .2, ease: 'al_out'  })
+    // .from(burgerLines[2], { y: burgerIndent + burgerLineHeight, duration: .2, ease: 'al_out'  }, '<')
+    // .set(burgerLines[1], { autoAlpha: 0 })
+    // .to(burgerLines[0], { rotate: '-45deg', duration: .2, ease: 'al_out'  })
+    // .to(burgerLines[2], { rotate: '45deg', duration: .2, ease: 'al_out'  }, '<')
+
     const burgerAnimation = gsap.timeline()
-    .from(burgerLines[0], { y: (-burgerIndent) + (-burgerLineHeight), duration: .2, ease: 'al_out'  })
-    .from(burgerLines[2], { y: burgerIndent + burgerLineHeight, duration: .2, ease: 'al_out'  }, '<')
-    .set(burgerLines[1], { autoAlpha: 0 })
-    .to(burgerLines[0], { rotate: '-45deg', duration: .2, ease: 'al_out'  })
-    .to(burgerLines[2], { rotate: '45deg', duration: .2, ease: 'al_out'  }, '<')
-    .reverse()
+    .from(burgerLines[0], { rotate: '-45deg', duration: .2, ease: 'al_out'  })
+    .from(burgerLines[2], { rotate: '45deg', duration: .2, ease: 'al_out'  }, '<')
+    .from(burgerLines[1], { autoAlpha: 0, duration: 0.001 })
+    .to(burgerLines[0], { y: (-burgerIndent) + (-burgerLineHeight), duration: .2, ease: 'al_out'  })
+    .to(burgerLines[2], { y: burgerIndent + burgerLineHeight, duration: .2, ease: 'al_out'  }, '<')
+
+    
+    
     
     burgerClickArea.addEventListener('click', () => {
         burgerAnimation.reversed(!burgerAnimation.reversed())
-        toggleMobileNav.reversed(!burgerAnimation.reversed())
+        toggleMobileNav.reversed(!toggleMobileNav.reversed())
+    })
+    document.addEventListener('click', (e) => {
+        if ( dropdown.contains(e.target) || navContent.contains(e.target)) {
+            
+        } else if ( toggleMobileNav.time() > 0 ) {
+            burgerAnimation.reversed(!burgerAnimation.reversed())
+            toggleMobileNav.reversed(!toggleMobileNav.reversed())
+        }
     })
 
     const navLinkMobile = document.querySelectorAll('.nav__link_mobile'),
-    dropdown = document.querySelector('.dropdown'),
     navFooter = document.querySelector('.nav__footer'),
     navFooterTexts = navFooter.querySelectorAll('p'),
-    navContent = document.querySelector('.nav__content'),
     dropdownHeight = dropdown.offsetHeight,
     navContentHeight = navContent.offsetHeight,
     navCurtain =document.querySelector('.nav__curtain'),
@@ -84,6 +101,7 @@ const burgerLine = document.querySelector('.burger__line'),
         button.addEventListener('mouseenter', () => tl2.play())
         button.addEventListener('mouseleave', () => tl2.reverse())
     })
+    
 
     /* <----- local-nav -----> */
 
@@ -91,7 +109,7 @@ const burgerLine = document.querySelector('.burger__line'),
     /* <----- first screen -----> */
 
     const h1Toggles = gsap.utils.toArray('.h1_toggle'),
-    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .3, ease: 'al_slide', delay: 1.5, } })
+    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .3, ease: 'none', delay: 1.5, } })
     .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
     .set(h1Toggles[0], { y: '100%', delay: 0 })
     .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
