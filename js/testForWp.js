@@ -79,7 +79,8 @@ mm.add('(max-width: 959px)', () => {
                 // markers: true,
             }
         })
-        .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .7 })
+        .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+        // .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
     })
 
     mainBeneffitTextArray.forEach((text, i) => {
