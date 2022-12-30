@@ -25,7 +25,8 @@ CustomEase.create('al_slide', 'M0,0 C0.26,0.67 0.48,0.91 1,1')
  mainBeneffitImage = firstScreenBeneffit.querySelectorAll('.mainbeneffit__icon'),
 
  firstScreenShow = gsap.timeline()
- .from(h1, { y: '25%', autoAlpha: 0, ease: 'al_slide', duration: 1.5 })
+ .from(mainimage, { opacity: .1, ease: "power2.inOut", duration: 1 })
+ .from(h1, { y: '25%', autoAlpha: 0, ease: 'al_slide', duration: 1.5 }, '<')
 //  .set(mainBeneffitImage, { y: '50%', autoAlpha: 0, ease: 'al_slide'})
  .from(mainBeneffit, { y: '40%', autoAlpha: 0, ease: 'al_slide', duration: 1 }, '>-.7')
  .from(mainBeneffitImage, { y: '70%', autoAlpha: 0, ease: 'al_slide', stagger: .05, duration: .7 })
@@ -127,7 +128,7 @@ const burgerLine = document.querySelector('.burger__line'),
     /* <----- first screen -----> */
 
     const h1Toggles = gsap.utils.toArray('.h1_toggle'),
-    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .3, ease: 'none', delay: 1.5, } })
+    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .7, ease: "power2.out", delay: .7, } })
     .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
     .set(h1Toggles[0], { y: '100%', delay: 0 })
     .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
