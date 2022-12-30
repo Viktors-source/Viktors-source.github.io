@@ -537,9 +537,12 @@ body {
             }
         .mainbeneffit__text {
             font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
-            font-family: 'SFProTextSemibold';
+            font-family: 'SFProTextMedium';
+            font-weight: 500;
+            color: #1D1D1F;
+            /* font-family: 'SFProTextSemibold';
             font-weight: 600;
-            color: #86868B;
+            color: #86868B; */
             line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
             letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
         }
