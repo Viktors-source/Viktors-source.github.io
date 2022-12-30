@@ -537,8 +537,8 @@ body {
             }
         .mainbeneffit__text {
             font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
-            font-family: 'SFProTextMedium';
-            font-weight: 500;
+            font-family: 'SFProTextSemibold';
+            font-weight: 600;
             color: #1D1D1F;
             /* font-family: 'SFProTextSemibold';
             font-weight: 600;
