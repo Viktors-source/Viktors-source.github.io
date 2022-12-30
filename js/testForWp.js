@@ -15,6 +15,24 @@ CustomEase.create('apl_accordion_out2', 'M0,0 C0.2,1 0.68,1 1,1')
 CustomEase.create('al_slide', 'M0,0 C0.26,0.67 0.48,0.91 1,1') 
 
 
+/* <----- show animation -----> */
+/* first screen */
+
+ const h1 = document.querySelector('h1'),
+ mainimage = document.querySelector('.mainimage'),
+ firstScreenBeneffit = document.querySelector('.first-screen__beneffit'),
+ mainBeneffit = firstScreenBeneffit.querySelectorAll('.mainbeneffit'),
+ mainBeneffitImage = firstScreenBeneffit.querySelectorAll('.mainbeneffit__icon'),
+
+ firstScreenShow = gsap.timeline()
+ .from(h1, { y: '25%', autoAlpha: 0, ease: 'al_slide', duration: 1.5 })
+//  .set(mainBeneffitImage, { y: '50%', autoAlpha: 0, ease: 'al_slide'})
+ .from(mainBeneffit, { y: '40%', autoAlpha: 0, ease: 'al_slide', duration: 1 }, '>-.7')
+ .from(mainBeneffitImage, { y: '70%', autoAlpha: 0, ease: 'al_slide', stagger: .05, duration: .7 })
+
+
+
+
 /* <----- local-nav -----> */
 
 const burgerLine = document.querySelector('.burger__line'),
@@ -62,7 +80,7 @@ const burgerLine = document.querySelector('.burger__line'),
     navFooterTexts = navFooter.querySelectorAll('p'),
     dropdownHeight = dropdown.offsetHeight,
     navContentHeight = navContent.offsetHeight,
-    navCurtain =document.querySelector('.nav__curtain'),
+    navCurtain = document.querySelector('.nav__curtain'),
 
     toggleMobileNav = gsap.timeline()
     .from(dropdown, { autoAlpha: 0, y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
