@@ -15,6 +15,8 @@ CustomEase.create('apl_accordion_out2', 'M0,0 C0.2,1 0.68,1 1,1')
 CustomEase.create('al_slide', 'M0,0 C0.26,0.67 0.48,0.91 1,1') 
 CustomEase.create('easeOutQuad', 'M0,0 C0.5,1 0.89,1 1,1') 
 CustomEase.create('easeOutQuint', 'M0,0 C0.22,1 0.36,1 1,1') 
+CustomEase.create('easeOutSine', 'M0,0 C0.61,1 0.88,1 1,1') 
+
 
 
 
@@ -70,7 +72,7 @@ mm.add('(max-width: 959px)', () => {
     .set(h1Toggles[2], { y: '200%', delay: 0  })
 
     mainBeneffitImageArray.forEach((image, i) => {
-     
+        img = image.querySelector('img')
         tl =  gsap.timeline({
             scrollTrigger: {
                 trigger: image,
@@ -79,8 +81,8 @@ mm.add('(max-width: 959px)', () => {
                 // markers: true,
             }
         })
-        .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
         // .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+        .from(img, { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
     })
 
     mainBeneffitTextArray.forEach((text, i) => {
@@ -93,11 +95,14 @@ mm.add('(max-width: 959px)', () => {
                 // markers: true,
             }
         })
-        .from(text, { y: '40%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+        // .from(text, { y: '40%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+        .from(text, { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
     })
 
 
 })
+
+
 
 // shadowBoxes.forEach((element, i) => {
 //     if( targets_array[i].querySelectorAll('video').length > 0 ) {

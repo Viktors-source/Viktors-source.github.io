@@ -382,9 +382,11 @@ body {
         position: relative;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
         .mainbeneffit__icon {
             position: relative;
+            overflow: hidden;
         }
             .mainbeneffit__icon > img {
                 position: absolute;
