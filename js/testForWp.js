@@ -71,33 +71,49 @@ mm.add('(max-width: 959px)', () => {
     .to(h1Toggles[0], { y: '0%', delay: 0  }, '<')
     .set(h1Toggles[2], { y: '200%', delay: 0  })
 
-    mainBeneffitImageArray.forEach((image, i) => {
-        img = image.querySelector('img')
+    mainBeneffitArray.forEach((beneffit, i) => {
+
         tl =  gsap.timeline({
             scrollTrigger: {
-                trigger: image,
+                trigger: beneffit,
                 start: 'top bottom-=10%',
                 toggleActions: 'play none none reverse',
                 // markers: true,
             }
         })
-        // .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
-        .from(img, { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
+        // .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+        .from(mainBeneffitTextArray[i], { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
+        .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 }, '>.1')
+
     })
 
-    mainBeneffitTextArray.forEach((text, i) => {
+    // mainBeneffitImageArray.forEach((image, i) => {
+    //     img = image.querySelector('img')
+    //     tl =  gsap.timeline({
+    //         scrollTrigger: {
+    //             trigger: image,
+    //             start: 'top bottom-=10%',
+    //             toggleActions: 'play none none reverse',
+    //             // markers: true,
+    //         }
+    //     })
+    //     // .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+    //     .from(img, { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
+    // })
+
+    // mainBeneffitTextArray.forEach((text, i) => {
      
-        tl =  gsap.timeline({
-            scrollTrigger: {
-                trigger: text,
-                start: 'top bottom-=10%',
-                toggleActions: 'play none none reverse',
-                // markers: true,
-            }
-        })
-        // .from(text, { y: '40%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
-        .from(text, { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
-    })
+    //     tl =  gsap.timeline({
+    //         scrollTrigger: {
+    //             trigger: text,
+    //             start: 'top bottom-=10%',
+    //             toggleActions: 'play none none reverse',
+    //             // markers: true,
+    //         }
+    //     })
+    //     // .from(text, { y: '40%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
+    //     .from(text, { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
+    // })
 
 
 })
