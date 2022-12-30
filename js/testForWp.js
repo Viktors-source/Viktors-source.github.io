@@ -128,7 +128,8 @@ const burgerLine = document.querySelector('.burger__line'),
     /* <----- first screen -----> */
 
     const h1Toggles = gsap.utils.toArray('.h1_toggle'),
-    h1ToggleTl = gsap.timeline({ repeat: -1, defaults: { duration: .7, ease: "power2.out", delay: .7, } })
+    h1ToggleTl = gsap.timeline({ repeat: -1, repeatDelay: 2.8, defaults: { duration: .7, ease: "power2.out", delay: .7, } })
+    .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { opacity: 1, duration: .1 })
     .to([h1Toggles[0], h1Toggles[1], h1Toggles[2]], { y: '-100%' })
     .set(h1Toggles[0], { y: '100%', delay: 0 })
     .to([h1Toggles[1], h1Toggles[2]], { y: '-200%'  })
