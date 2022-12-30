@@ -386,7 +386,7 @@ body {
     }
         .mainbeneffit__icon {
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
             .mainbeneffit__icon > img {
                 position: absolute;

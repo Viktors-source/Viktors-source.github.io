@@ -73,6 +73,8 @@ mm.add('(max-width: 959px)', () => {
 
     mainBeneffitArray.forEach((beneffit, i) => {
 
+        gsap.set(beneffit, { overflow: 'visible' })
+
         tl =  gsap.timeline({
             scrollTrigger: {
                 trigger: beneffit,
@@ -84,6 +86,8 @@ mm.add('(max-width: 959px)', () => {
         // .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
         .from(mainBeneffitTextArray[i], { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
         .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 }, '>.1')
+        .to(mainBeneffitImageArray[i], { rotate: '-35deg', ease: 'easeOutSine', duration: .2 }, '<')
+        .to(mainBeneffitImageArray[i], { rotate: '0deg', ease: 'easeOutSine', duration: .2 })
 
     })
 
@@ -118,46 +122,6 @@ mm.add('(max-width: 959px)', () => {
 
 })
 
-
-
-// shadowBoxes.forEach((element, i) => {
-//     if( targets_array[i].querySelectorAll('video').length > 0 ) {
-//         ScrollTrigger.create({
-//             scroller: targets_main_wrapper,
-//             trigger: element,
-//             start: `top top+=${widths[1] - 1}`,
-//             end: 'top top-=1',
-//             onEnter: () => {
-//                 targets_array[i].querySelector('video').play()
-//             },
-//             onEnterBack: () => {
-//                 targets_array[i].querySelector('video').play()
-//             },
-//             onLeave: () => {
-//                 targets_array[i].querySelector('video').currentTime = 0
-//                 targets_array[i].querySelector('video').pause()
-//             },
-//             onLeaveBack: () => {
-//                 targets_array[i].querySelector('video').currentTime = 0
-//                 targets_array[i].querySelector('video').pause()
-//             }
-//         })
-//     }
-// })
-
-// srollingTextAnimation = gsap.timeline({
-//     scrollTrigger: {
-//     trigger: drytextbeneffit,
-//     start: `bottom center+=${aboutusTitleHeight}`,
-//     end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
-//     scrub: true,
-//     }
-// })
-// .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
-// .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
-// .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
-// .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
-// .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
 
 
 
