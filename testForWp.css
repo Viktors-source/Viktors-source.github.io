@@ -571,6 +571,7 @@ body {
     margin: 0 auto;
     align-items: center;
     background: linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%);
+    overflow: hidden;
 }
 .drytextbeneffitBox {
     background: #FFFFFF;
@@ -578,6 +579,7 @@ body {
     .drytextbeneffit__title {
         color: #FFFFFF;
         text-align: center;
+        transform-origin: center center;
     }
     .beneffit__media {
         position: relative;
@@ -656,6 +658,9 @@ body {
         .fineflour__description {
             padding: 106px 0 0 50px;
         }
+        .sheercurtain, .sheercurtain2 {
+            display: none;
+        }
             .beneffit__points {
                 gap: 24px;
             }
@@ -722,6 +727,9 @@ body {
         }
         .fineflour__description {
             padding: calc(75px + (106 - 75) * ((100vW - 960px) / (1360 - 960))) 0 0 calc(35px + (50 - 35) * ((100vW - 960px) / (1360 - 960)));
+        }
+        .sheercurtain, .sheercurtain2 {
+            display: none;
         }
             .beneffit__points {
                 gap: calc(18px + (24 - 18) * ((100vW - 960px) / (1360 - 960)));
@@ -804,6 +812,25 @@ body {
             }
         .beneffit__points {
             gap: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
+        }
+        .sheercurtain {
+            position: absolute;
+            width: calc(90px + (270 - 90) * ((100vW - 320px) / (960 - 320)));
+            height: calc(54px + (162 - 54) * ((100vW - 320px) / (960 - 320)));
+            top: calc((-10px) + ((-30) - (-10)) * ((100vW - 320px) / (960 - 320)));
+            left: calc(265px + (795 - 265) * ((100vW - 320px) / (960 - 320)));
+            z-index: 100;
+            background: linear-gradient(270deg, #FBFBFD 0%, #FBFBFD 83.85%, rgba(251, 251, 253, 0) 100%);;
+        }
+        .sheercurtain2 {
+            position: absolute;
+            width: calc(90px + (270 - 90) * ((100vW - 320px) / (960 - 320)));
+            height: calc(54px + (162 - 54) * ((100vW - 320px) / (960 - 320)));
+            top: calc((-10px) + ((-30) - (-10)) * ((100vW - 320px) / (960 - 320)));
+            right: calc(265px + (795 - 265) * ((100vW - 320px) / (960 - 320)));
+            z-index: 100;
+            transform: rotate(-180deg);
+            background: linear-gradient(270deg, #FBFBFD 0%, #FBFBFD 83.85%, rgba(251, 251, 253, 0) 100%);;
         }
             .beneffit__point {
                 font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));

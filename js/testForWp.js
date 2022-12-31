@@ -122,6 +122,145 @@ mm.add('(max-width: 959px)', () => {
 
 })
 
+/* first screen */
+
+/* beneffits */
+const beneffitPoint = gsap.utils.toArray('.beneffit__point'),
+beneffitTitle = gsap.utils.toArray('.beneffit__title'),
+beneffitText = gsap.utils.toArray('.beneffit__text'),
+beneffitMdia = gsap.utils.toArray('.beneffit__media'),
+dryTextBeneffit = document.querySelector('.drytextbeneffit'),
+dryTextBeneffitTitle = document.querySelectorAll('.drytextbeneffit__title')
+
+mm.add('(min-width: 960px)', () => {
+
+    beneffitPoint.forEach((point, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: point,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(point, { y: 120, ease: 'al_slide', autoAlpha: 0, duration: .6 })
+    })
+    beneffitTitle.forEach((title, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: title,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(title, { y: 120, ease: 'al_slide', autoAlpha: 0, duration: .6 })
+    })
+    beneffitText.forEach((text, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: text,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(text, { y: 120, ease: 'al_slide', autoAlpha: 0, duration: .6 })
+    })
+    beneffitMdia.forEach((media, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: media,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(media, { opacity: .1, ease: "power2.inOut", duration: .6 })
+    })
+
+    const dryTextBeneffitTitleAnimation = gsap.timeline({
+        scrollTrigger: {
+            trigger: dryTextBeneffit,
+            start: 'top bottom-=25%',
+            toggleActions: 'play none none reverse',
+            // markers: true,
+        }
+    })
+    .from(dryTextBeneffitTitle, { opacity: 0, scale: 10, ease: "power2.inOut", duration: 1 })
+
+
+})
+mm.add('(max-width: 959px)', () => {
+
+    // beneffitPoint.forEach((point, i) => {
+
+    //     tl =  gsap.timeline({
+    //                 scrollTrigger: {
+    //                     trigger: point,
+    //                     start: 'top bottom-=10%',
+    //                     toggleActions: 'play none none reverse',
+    //                     // markers: true,
+    //                 }
+    //             })
+    //             .from(point, { y: 120, ease: 'al_slide', autoAlpha: 0, duration: .6 })
+    // })
+    beneffitTitle.forEach((title, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: title,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(title, { y: '20%', ease: 'al_slide', autoAlpha: 0, duration: .6 })
+    })
+    beneffitText.forEach((text, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: text,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(text, { y: '20%', ease: 'al_slide', autoAlpha: 0, duration: .6 })
+    })
+    beneffitMdia.forEach((media, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: media,
+                        start: 'top bottom-=10%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(media, { opacity: .1, ease: "power2.inOut", duration: .6 })
+    })
+
+    const dryTextBeneffitTitleAnimation = gsap.timeline({
+        scrollTrigger: {
+            trigger: dryTextBeneffit,
+            start: 'top bottom-=25%',
+            toggleActions: 'play none none reverse',
+            // markers: true,
+        }
+    })
+    .from(dryTextBeneffitTitle, { opacity: 0, scale: 5, ease: "power2.inOut", duration: 1 })
+
+})
+
+
+/* <----- show animation -----> */
+
 
 
 
@@ -222,7 +361,7 @@ const burgerLine = document.querySelector('.burger__line'),
 
     /* <----- beneffits -----> */
 
-    const dryTextBeneffit = document.querySelector('.drytextbeneffit')
+    // const dryTextBeneffit = document.querySelector('.drytextbeneffit')
     gsap.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 2, ease: 'none', repeat: -1, yoyo: true })
 
     /* <----- beneffits -----> */
