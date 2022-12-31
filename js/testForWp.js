@@ -130,7 +130,8 @@ beneffitTitle = gsap.utils.toArray('.beneffit__title'),
 beneffitText = gsap.utils.toArray('.beneffit__text'),
 beneffitMdia = gsap.utils.toArray('.beneffit__media'),
 dryTextBeneffit = document.querySelector('.drytextbeneffit'),
-dryTextBeneffitTitle = document.querySelectorAll('.drytextbeneffit__title')
+dryTextBeneffitTitle = document.querySelectorAll('.drytextbeneffit__title'),
+dryflourPoints = document.querySelector('.dryflour__points')
 
 mm.add('(min-width: 960px)', () => {
 
@@ -200,19 +201,31 @@ mm.add('(min-width: 960px)', () => {
 })
 mm.add('(max-width: 959px)', () => {
 
-    beneffitPoint.forEach((point, i) => {
-
-        tl =  gsap.timeline({
+    const dryflourPointsAnimation =  gsap.timeline({
                     scrollTrigger: {
-                        trigger: point,
+                        trigger: dryflourPoints,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
                         // markers: true,
                     }
                 })
-                .from(point, { y: '20%', ease: 'al_slide', duration: .6 })
-                .from(point, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+                .from(dryflourPoints, { y: '20%', ease: 'al_slide', duration: .6 })
+                .from(dryflourPoints, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
+    beneffitPoint.forEach((point, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: point,
+                        start: 'top bottom-=6%',
+                        end: 'top bottom-=20%',
+                        scrub: true,
+                    }
+                })
+                .to(point, { x: -79 + ((-235) - (-79)) * ((window.innerWidth - 320) / (960 - 320)), ease: 'none', duration: .6 })
     })
+
+
     beneffitTitle.forEach((title, i) => {
 
         tl =  gsap.timeline({
@@ -255,7 +268,7 @@ mm.add('(max-width: 959px)', () => {
     const dryTextBeneffitTitleAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: dryTextBeneffit,
-            start: 'top bottom-=25%',
+            start: 'top bottom-=20%',
             toggleActions: 'play none none reverse',
             // markers: true,
         }
