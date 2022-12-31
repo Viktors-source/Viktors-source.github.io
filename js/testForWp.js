@@ -126,6 +126,8 @@ mm.add('(max-width: 959px)', () => {
 
 /* beneffits */
 const beneffitPoint = gsap.utils.toArray('.beneffit__point'),
+dryflourPoint = gsap.utils.toArray('.dryflour__point'),
+fineflourPoint = gsap.utils.toArray('.fineflour__point'),
 beneffitTitle = gsap.utils.toArray('.beneffit__title'),
 beneffitText = gsap.utils.toArray('.beneffit__text'),
 beneffitMdia = gsap.utils.toArray('.beneffit__media'),
@@ -212,13 +214,27 @@ mm.add('(max-width: 959px)', () => {
                 .from(dryflourPoints, { y: '20%', ease: 'al_slide', duration: .6 })
                 .from(dryflourPoints, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
 
-    beneffitPoint.forEach((point, i) => {
+    fineflourPoint.forEach((point, i) => {
 
         tl =  gsap.timeline({
                     scrollTrigger: {
                         trigger: point,
-                        start: 'top bottom-=6%',
-                        end: 'top bottom-=20%',
+                        start: 'top bottom-=5%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(point, { y: '20%', ease: 'al_slide', duration: .6 })
+                .from(point, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    })
+
+    dryflourPoint.forEach((point, i) => {
+
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: point,
+                        start: 'top bottom-=20%',
+                        end: 'top bottom-=80%',
                         scrub: true,
                     }
                 })
@@ -276,6 +292,45 @@ mm.add('(max-width: 959px)', () => {
     .from(dryTextBeneffitTitle, { opacity: 0, scale: 5, ease: "power2.inOut", duration: 1 })
 
 })
+/* beneffits */
+
+
+/* about us */
+const aboutus = document.querySelector('.aboutus'),
+drytextbeneffit = document.querySelector('.drytextbeneffit'),
+aboutusSubtitlesSmall = document.querySelector('.aboutus__subtitles_small'),
+aboutusSubtitlesLarge = document.querySelector('.aboutus__subtitles_large'),
+aboutusTitle = document.querySelector('.aboutus__title'),
+aboutusTitleHeight = aboutusTitle.offsetHeight,
+aboutusSubtitlesSmallHeight = aboutusSubtitlesSmall.offsetHeight,
+aboutusSubtitlesLargeHeight = aboutusSubtitlesLarge.offsetHeight,
+aboutusHeight = aboutus.offsetHeight,
+aboutusPadding = gsap.getProperty(aboutus, "padding-top"),
+aboutusTitleSpan = aboutusTitle.querySelector('span')
+
+mm.add('(min-width: 960px)', () => {
+
+})
+mm.add('(max-width: 959px)', () => {
+
+})
+
+
+const srollingTextAnimation = gsap.timeline({
+    scrollTrigger: {
+    trigger: drytextbeneffit,
+    start: `bottom center+=${aboutusTitleHeight}`,
+    end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
+    scrub: true,
+    }
+})
+.from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
+.to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
+.from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
+.to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
+.fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
+
+
 
 
 /* <----- show animation -----> */
@@ -388,32 +443,7 @@ const burgerLine = document.querySelector('.burger__line'),
 
     /* <----- about us -----> */
 
-    const aboutus = document.querySelector('.aboutus'),
-    drytextbeneffit = document.querySelector('.drytextbeneffit'),
-    aboutusSubtitlesSmall = document.querySelector('.aboutus__subtitles_small'),
-    aboutusSubtitlesLarge = document.querySelector('.aboutus__subtitles_large'),
-    aboutusTitle = document.querySelector('.aboutus__title'),
-    aboutusTitleHeight = aboutusTitle.offsetHeight,
-    aboutusSubtitlesSmallHeight = aboutusSubtitlesSmall.offsetHeight,
-    aboutusSubtitlesLargeHeight = aboutusSubtitlesLarge.offsetHeight,
-    aboutusHeight = aboutus.offsetHeight,
-    aboutusPadding = gsap.getProperty(aboutus, "padding-top"),
-    aboutusTitleSpan = aboutusTitle.querySelector('span'),
-
-
-    srollingTextAnimation = gsap.timeline({
-        scrollTrigger: {
-        trigger: drytextbeneffit,
-        start: `bottom center+=${aboutusTitleHeight}`,
-        end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
-        scrub: true,
-        }
-    })
-    .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
-    .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
-    .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
-    .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
-    .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
+  
 
     /* <----- about us -----> */
 
@@ -1000,6 +1030,10 @@ document.addEventListener('click', (e) => {
         }
     }
 })
+
+// const cardcartButon = document.querySelector('.cardcart__buton')
+const cardCartDisplay = document.querySelector('.cardcartdisplay')
+
 
     
     const sellTotalInputAnimation = gsap.timeline()
