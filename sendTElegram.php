@@ -22,7 +22,7 @@ function parser($url){
 
 $message .= "Новая завка с  сайта";
 $message .= "Количество (кг): ".$quantity;
-$message .= "Стоимость:".$price;
+$message .= "Стоимость: ".$price;
 
 function orderSendTelegram($message) {
 
