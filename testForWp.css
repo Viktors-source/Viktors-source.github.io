@@ -2616,3 +2616,8 @@ body {
                             border-radius: calc(16px + (48 - 16) *  ((100vW - 320px) / (960 - 320)))
                         }
 }
+#tgrequest {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
