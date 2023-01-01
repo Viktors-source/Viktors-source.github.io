@@ -996,7 +996,9 @@ const sellTotalInputCountBox = document.querySelector('.inputcount'),
     lableForSaleInput = document.querySelector('.lableforinputcount'),
     sellTotalCount = document.querySelector('.counter'),
     sellTotalPrice = document.querySelector('.cardcartdisplay'),
-    sellInputCountBox = document.querySelector('.inputcountbox')
+    sellInputCountBox = document.querySelector('.inputcountbox'),
+    inputQuantity = document.querySelector('.inputquantity'),
+    inputPrice = document.querySelector('.inputprice')
 sellModalTab.forEach((tab, i) => {
     const value = i + 1
     const price =  495 * (i + 1)
@@ -1012,10 +1014,14 @@ sellModalTab.forEach((tab, i) => {
             tab.dataset.price = `${price}`
             sellTotalCount.textContent = `${tab.dataset.value}`
             sellTotalPrice.textContent = `${tab.dataset.value} кг - ${tab.dataset.price} грн`
+            inputQuantity.value = `${tab.dataset.value}`
+            inputPrice.value = `${tab.dataset.price} грн`
         } 
         if ( i === 9 ) {
             sellTotalInputAnimation.play()
             sellTotalPrice.textContent = '10 кг - 4950 грн'
+            inputQuantity.value = '10 кг'
+            inputPrice.value = '4950 грн'
         }
         })
 
@@ -1058,6 +1064,8 @@ const cardCartDisplay = document.querySelector('.cardcartdisplay')
     sellTotalInputCountBox.addEventListener('blur', () => {
         if ( sellTotalInputCountBox.value === '') {
             sellTotalInputCountBox.value = '1'
+            inputQuantity.value = '1 кг'
+            inputPrice.value = '495 грн'
         }
     })
     sellTotalInputCountBox.addEventListener('input', () => {
@@ -1065,11 +1073,17 @@ const cardCartDisplay = document.querySelector('.cardcartdisplay')
         const price =  495 * sellTotalInputCountBox.value
         if ( sellTotalInputCountBox.value === '') {
             sellTotalPrice.textContent = '1 кг - 495 грн' 
+            inputQuantity.value = '1 кг'
+            inputPrice.value = '495 грн'
         } else if ( sellTotalInputCountBox.value === '0' ) {
             sellTotalInputCountBox.value = '1'
             sellTotalPrice.textContent = '1 кг - 495 грн'
+            inputQuantity.value = '1 кг'
+            inputPrice.value = '495 грн'
         } else {
             sellTotalPrice.textContent = `${sellTotalInputCountBox.value} кг - ${price} грн`
+            inputQuantity.value = `${sellTotalInputCountBox.value} кг`
+            inputPrice.value = `${price} грн`
         }
     })
     

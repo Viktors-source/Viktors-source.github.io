@@ -1685,6 +1685,13 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                appearance: none;
+                border: none;
+            }
+            .tgrequest {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         .cardcart__slider {
             position: relative;
@@ -1894,6 +1901,9 @@ body {
                         letter-spacing: 0.2px;
                         transform: translate(-63px, 12px);
                     }
+                .tgrequest {
+                    flex: 1 0 auto;
+                }
                 .cardcart__buton {
                     flex: 1 0 auto;
                     height: 51px;
@@ -2083,6 +2093,9 @@ body {
                     line-height: calc(19px + (27 - 19) * ((100vW - 960px) / (1360 - 960)));
                     letter-spacing: calc(0.07px + (0.1 - 0.07) * ((100vW - 960px) / (1360 - 960)));
                 }
+                .tgrequest {
+                    flex: 1 0 auto;
+                }
             .cardcart__slider {
                 margin: calc(54px + (88 - 54) * ((100vW - 960px) / (1360 - 960))) 0 calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) 0;
                 gap: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
@@ -2235,7 +2248,6 @@ body {
                 }
                 .cardcart__buton {
                     flex: 0 0 100%;
-                    order: 2;
                     margin: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 0 0;
                     height: calc(36px + (108 - 36) * ((100vW - 320px) / (960 - 320)));
                     border-radius: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320)));
@@ -2244,6 +2256,10 @@ body {
                     font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
                     line-height: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
                     letter-spacing: calc((-0.4px) + ((-1.2) - (-0.4)) * ((100vW - 320px) / (960 - 320)));
+                }
+                .tgrequest {
+                    flex: 0 0 100%;
+                    order: 2;
                 }
             .cardcart__slider {
                 margin: calc(80px + (160 - 80) * ((100vW - 320px) / (960 - 320))) 0 0 0;
@@ -2616,8 +2632,6 @@ body {
                             border-radius: calc(16px + (48 - 16) *  ((100vW - 320px) / (960 - 320)))
                         }
 }
-#tgrequest {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
+.inputquantity, .inputprice {
+    display: none;
 }
