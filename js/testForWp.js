@@ -599,7 +599,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(cardcartTitle, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(cardcartTitle, { y: '50%', ease: 'al_slide', duration: .6 })
     .from(cardcartTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const cardcartPointsAnimation =  gsap.timeline({
@@ -609,7 +609,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(cardcartPoints, { y: '20%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(cardcartPoints, { y: '50%', ease: 'al_slide', stagger: .05, duration: .6 })
     .from(cardcartPoints, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
     
     const cardCartDisplayAnimation =  gsap.timeline({
@@ -619,7 +619,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(cardCartDisplay, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(cardCartDisplay, { y: '50%', ease: 'al_slide', duration: .6 })
     .from(cardCartDisplay, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const changeCountButtonAnimation =  gsap.timeline({
@@ -629,7 +629,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(changeCountButton, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(changeCountButton, { y: '50%', ease: 'al_slide', duration: .6 })
     .from(changeCountButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const cardCartButonAnimation =  gsap.timeline({
@@ -639,7 +639,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(cardCartButon, { y: '20%', ease: 'al_slide', delay: .1, duration: .6 })
+    .from(cardCartButon, { y: '50%', ease: 'al_slide', delay: .1, duration: .6 })
     .from(cardCartButon, { ease: 'none', autoAlpha: 0, delay: .1, duration: .6 }, '<')
     
     const sliderTabsAnimation =  gsap.timeline({
@@ -649,7 +649,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(sliderTabs, { y: '20%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(sliderTabs, { y: '50%', ease: 'al_slide', stagger: .05, duration: .6 })
     .from(sliderTabs, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
     
     const sliderTabAnimation =  gsap.timeline({
