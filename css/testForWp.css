@@ -907,6 +907,7 @@ body {
             font-size: 140px;
             line-height: 114px;
             letter-spacing: -1.1px;
+            height: 250px;
         }
             .aboutus__subtitles_small {
                 font-size: 24px;
@@ -930,6 +931,7 @@ body {
             font-size: calc(99px + (140 - 99) * ((100vW - 960px) / (1360 - 960)));
             line-height: calc(80px + (114 - 80) * ((100vW - 960px) / (1360 - 960)));
             letter-spacing: calc((-0.78px) + ((-1.1) - (-0.78)) * ((100vW - 960px) / (1360 - 960)));
+            height: calc(180px + (250 - 180) * ((100vW - 960px) / (1360 - 960)));
         }
             .aboutus__subtitles_small {
                 font-size: calc(17px + (24 - 17) * ((100vW - 960px) / (1360 - 960)));
@@ -952,6 +954,7 @@ body {
             font-size: calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320)));
             line-height: calc(66px + (198 - 66) * ((100vW - 320px) / (960 - 320)));
             letter-spacing: 0;
+            height: calc(203px + (610 - 203) * ((100vW - 320px) / (960 - 320)));
         }
             .aboutus__subtitles_small {
                 font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
