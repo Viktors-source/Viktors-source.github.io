@@ -405,23 +405,72 @@ mm.add('(max-width: 959px)', () => {
     .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: 0, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'al_slide', duration: 1 })
 
 })
+/* about us */
 
 
-// const srollingTextAnimation = gsap.timeline({
-//     scrollTrigger: {
-//     trigger: drytextbeneffit,
-//     start: `bottom center+=${aboutusTitleHeight}`,
-//     end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
-//     scrub: true,
-//     markers: true,
-//     }
-// })
-// .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
-// .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
-// .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
-// .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
-// .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
+/* review */
+const shopReviewTitle = document.querySelector('.shopreview__title'),
+reviewText = gsap.utils.toArray('.review__text')
 
+
+mm.add('(min-width: 960px)', () => {
+
+const shopReviewTitleAnimation =  gsap.timeline({
+    scrollTrigger: {
+        trigger: shopReviewTitle,
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none reverse',
+        // markers: true,
+    }
+})
+.from(shopReviewTitle, { y: 120, ease: 'al_slide', duration: .6 })
+.from(shopReviewTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
+reviewText.forEach((text, i) => {
+
+    tl =  gsap.timeline({
+                scrollTrigger: {
+                    trigger: text,
+                    start: 'top bottom-=5%',
+                    toggleActions: 'play none none reverse',
+                    // markers: true,
+                }
+            })
+            .from(text, { y: 120, ease: 'al_slide', duration: .6 })
+            .from(text, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+})
+
+})
+
+
+mm.add('(max-width: 959px)', () => {
+
+    const shopReviewTitleAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: shopReviewTitle,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+            // markers: true,
+        }
+    })
+    .from(shopReviewTitle, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(shopReviewTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    reviewText.forEach((text, i) => {
+    
+        tl =  gsap.timeline({
+                    scrollTrigger: {
+                        trigger: text,
+                        start: 'top bottom-=5%',
+                        toggleActions: 'play none none reverse',
+                        // markers: true,
+                    }
+                })
+                .from(text, { y: '20%', ease: 'al_slide', duration: .6 })
+                .from(text, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    })
+
+})
 
 
 
