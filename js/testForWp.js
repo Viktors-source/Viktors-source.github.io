@@ -412,7 +412,9 @@ mm.add('(max-width: 959px)', () => {
 const shopReviewTitle = document.querySelector('.shopreview__title'),
 reviewText = gsap.utils.toArray('.review__text'),
 volumetToggleButton = document.querySelector('.shopreviewactions_mobile'),
-shopReviewMediaBox = document.querySelector('.shopreviewmediaBox')
+shopReviewMediaBox = document.querySelector('.shopreviewmediaBox'),
+shopReviewActions = document.querySelectorAll('.shopreviewactions > div'),
+mkReviewControlls = document.querySelector('.mkreviewcontrolls')
 
 
 mm.add('(min-width: 960px)', () => {
@@ -441,6 +443,26 @@ reviewText.forEach((text, i) => {
             .from(text, { y: 120, ease: 'al_slide', duration: .6 })
             .from(text, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
 })
+
+const shopReviewActionsAnimation =  gsap.timeline({
+    scrollTrigger: {
+        trigger: shopReviewActions,
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none reverse',
+    }
+})
+.from(shopReviewActions, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
+.from(shopReviewActions, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+
+const mkReviewControllsAnimation =  gsap.timeline({
+    scrollTrigger: {
+        trigger: mkReviewControlls,
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none reverse',
+    }
+})
+.from(mkReviewControlls, { y: 120, ease: 'al_slide', duration: .6 })
+.from(mkReviewControlls, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
 
 })
 
@@ -481,6 +503,170 @@ mm.add('(max-width: 959px)', () => {
     .from(volumetToggleButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
 
 })
+/* review */
+
+
+/* cartcard */
+const cardcartTitle = document.querySelector('.cardcart__title'),
+cardcartPoints = document.querySelectorAll('.cardcart__points p'),
+cardCartDisplay = document.querySelector('.cardcartdisplay'),
+changeCountButton = document.querySelector('.changecountbutton'),
+cardCartButon = document.querySelector('.cardcart__buton'),
+sliderTabs = document.querySelectorAll('.slidertabs > div'),
+sliderTab = document.querySelector('.slidertabs')
+
+
+mm.add('(min-width: 960px)', () => {
+
+    const cardcartTitleAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardcartTitle,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardcartTitle, { y: 120, ease: 'al_slide', duration: .6 })
+    .from(cardcartTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    const cardcartPointsAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardcartPoints,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardcartPoints, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(cardcartPoints, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+    
+    const cardCartDisplayAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardCartDisplay,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardCartDisplay, { y: 120, ease: 'al_slide', duration: .6 })
+    .from(cardCartDisplay, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    const changeCountButtonAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: changeCountButton,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(changeCountButton, { y: 120, ease: 'al_slide', duration: .6 })
+    .from(changeCountButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    const cardCartButonAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardCartButon,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardCartButon, { y: 120, ease: 'al_slide', delay: .1, duration: .6 })
+    .from(cardCartButon, { ease: 'none', autoAlpha: 0, delay: .1, duration: .6 }, '<')
+    
+    const sliderTabsAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: sliderTabs,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(sliderTabs, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(sliderTabs, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+    
+    const sliderTabAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: sliderTabs,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', delay: .7, duration: .6 })
+
+})
+    
+    
+mm.add('(max-width: 959px)', () => {
+
+    const cardcartTitleAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardcartTitle,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardcartTitle, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(cardcartTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    const cardcartPointsAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardcartPoints,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardcartPoints, { y: '20%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(cardcartPoints, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+    
+    const cardCartDisplayAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardCartDisplay,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardCartDisplay, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(cardCartDisplay, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    const changeCountButtonAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: changeCountButton,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(changeCountButton, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(changeCountButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    
+    const cardCartButonAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: cardCartButon,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(cardCartButon, { y: '20%', ease: 'al_slide', delay: .1, duration: .6 })
+    .from(cardCartButon, { ease: 'none', autoAlpha: 0, delay: .1, duration: .6 }, '<')
+    
+    const sliderTabsAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: sliderTabs,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(sliderTabs, { y: '20%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(sliderTabs, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+    
+    const sliderTabAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: sliderTabs,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', delay: .7, duration: .6 })
+    
+})
+
+
+
+ 
+
 
 
 
@@ -1189,7 +1375,7 @@ document.addEventListener('click', (e) => {
 })
 
 // const cardcartButon = document.querySelector('.cardcart__buton')
-const cardCartDisplay = document.querySelector('.cardcartdisplay')
+
 
 
     
