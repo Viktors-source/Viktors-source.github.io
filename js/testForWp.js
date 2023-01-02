@@ -410,7 +410,9 @@ mm.add('(max-width: 959px)', () => {
 
 /* review */
 const shopReviewTitle = document.querySelector('.shopreview__title'),
-reviewText = gsap.utils.toArray('.review__text')
+reviewText = gsap.utils.toArray('.review__text'),
+volumetToggleButton = document.querySelector('.shopreviewactions_mobile'),
+shopReviewMediaBox = document.querySelector('.shopreviewmediaBox')
 
 
 mm.add('(min-width: 960px)', () => {
@@ -450,7 +452,6 @@ mm.add('(max-width: 959px)', () => {
             trigger: shopReviewTitle,
             start: 'top bottom-=5%',
             toggleActions: 'play none none reverse',
-            // markers: true,
         }
     })
     .from(shopReviewTitle, { y: '20%', ease: 'al_slide', duration: .6 })
@@ -463,12 +464,21 @@ mm.add('(max-width: 959px)', () => {
                         trigger: text,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(text, { y: '20%', ease: 'al_slide', duration: .6 })
                 .from(text, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     })
+
+    const srollingTextAnimation2 = gsap.timeline({
+        scrollTrigger: {
+        trigger: shopReviewMediaBox,
+        start: `bottom bottom-=${43 + (129 - 43) * ((window.innerWidth - 320) / (960 - 320))}`, 
+        toggleActions: 'play none none reverse',
+        }
+    })
+    .from(volumetToggleButton, { y: -43 + ((-129) - (-43)) * ((window.innerWidth - 320) / (960 - 320)), ease: 'al_slide', duration: .6 })
+    .from(volumetToggleButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
 
 })
 
