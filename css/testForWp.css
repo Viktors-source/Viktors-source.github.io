@@ -1,54 +1,52 @@
-/*
-Theme Name: macaron_ingredient
-*/
+
 
 @font-face {
     font-family: "SFProDisplayLight" ;
     font-style: normal;
     font-weight: 300;
-    src: url(fonts/9206SFProDisplay-Light.woff) format("woff");
+    src: url(../fonts/9206SFProDisplay-Light.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplayMedium" ;
     font-style: normal;
     font-weight: 500;
-    src: url(fonts/SFProDisplay-Medium.woff) format("woff");
+    src: url(../fonts/SFProDisplay-Medium.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplayRegular" ;
     font-style: normal;
     font-weight: 400;
-    src: url(fonts/SFProDisplay-Regular.woff) format("woff");
+    src: url(../fonts/SFProDisplay-Regular.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplaySemibold" ;
     font-style: normal;
     font-weight: 600;
-    src: url(fonts/SFProDisplay-Semibold.woff) format("woff");
+    src: url(../fonts/SFProDisplay-Semibold.woff) format("woff");
 }
 @font-face {
     font-family: "SFProDisplayBold" ;
     font-style: normal;
     font-weight: 700;
-    src: url(fonts/SFProDisplay-Bold.woff) format("woff");
+    src: url(../fonts/SFProDisplay-Bold.woff) format("woff");
 }
 @font-face {
     font-family: 'SFProTextRegular' ;
     font-style: normal;
     font-weight: 400;
-    src: url(fonts/SF-Pro-Text-Regular.woff) format("woff");
+    src: url(../fonts/SF-Pro-Text-Regular.woff) format("woff");
 }
 @font-face {
     font-family: 'SFProTextMedium' ;
     font-style: normal;
     font-weight: 500;
-    src: url(fonts/SF-Pro-Text-Medium.woff) format("woff");
+    src: url(../fonts/SF-Pro-Text-Medium.woff) format("woff");
 }
 @font-face {
     font-family: 'SFProTextSemibold' ;
     font-style: normal;
     font-weight: 600;
-    src: url(fonts/SF-Pro-Text-Semibold.woff) format("woff");
+    src: url(../fonts/SF-Pro-Text-Semibold.woff) format("woff");
 }
 html {
     -moz-osx-font-smoothing: grayscale;
@@ -643,11 +641,11 @@ body {
         }
         .dryflour__media {
             height: 518px;
-            background-image: url('img/Flour pouring in.png');
+            background-image: url('../img/Flour pouring in.png');
         }
         .fineflour__media {
             height: 518px;
-            background-image: url('img/shift\ flour.png');
+            background-image: url('../img/shift\ flour.png');
         }
         .beneffit__media {
             flex: 0 0 600px;
@@ -713,11 +711,11 @@ body {
         }
         .dryflour__media {
             height: calc(366px + (518 - 366) * ((100vW - 960px) / (1360 - 960)));
-            background-image: url('img/Flour pouring in.png');
+            background-image: url('../img/Flour pouring in.png');
         }
         .fineflour__media {
             height: calc(366px + (518 - 366) * ((100vW - 960px) / (1360 - 960)));
-            background-image: url('img/shift\ flour.png');
+            background-image: url('../img/shift\ flour.png');
         }
         .beneffit__media {
             flex: 0 0 calc(424px + (600 - 424) * ((100vW - 960px) / (1360 - 960)));
@@ -795,10 +793,10 @@ body {
             flex: 0 0 calc(248px + (744 - 248) * ((100vW - 320px) / (960 - 320)));
         }
             .dryflour__media > div {
-                background-image: url('img/Flour\ pouring\ in\ mobile.png');
+                background-image: url('../img/Flour\ pouring\ in\ mobile.png');
             }
             .fineflour__media > div {
-                background-image: url('img/shift\ flour\ mobile.png');
+                background-image: url('../img/shift\ flour\ mobile.png');
             }
             .beneffit__media > div {
                 position: absolute;
@@ -1019,13 +1017,13 @@ body {
                     cursor: pointer;
                 }
                 .controllleftarrow > div, .mkcontrollleftarrow > div {
-                    background-image: url('img/Controlls\ arrow\ left.svg');
+                    background-image: url('../img/Controlls\ arrow\ left.svg');
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;
                 }
                 .controllrightarrow > div, .mkcontrollrightarrow > div {
-                    background-image: url('img/Controls\ arrow\ right.svg');
+                    background-image: url('../img/Controls\ arrow\ right.svg');
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -1037,7 +1035,7 @@ body {
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background-image: url('img/Volume\ button\ On.svg');
+                    background-image: url('../img/Volume\ button\ On.svg');
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;   
@@ -1046,7 +1044,7 @@ body {
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background-image: url('img/Volume\ button\ Off.svg');
+                    background-image: url('../img/Volume\ button\ Off.svg');
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;   
@@ -1057,7 +1055,7 @@ body {
                     content: '';
                     width: 100%;
                     height: 100%;
-                    background-image: url('img/Volume\ button\ On\ Hover.svg');
+                    background-image: url('../img/Volume\ button\ On\ Hover.svg');
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;   
@@ -1068,7 +1066,7 @@ body {
                     content: '';
                     width: 100%;
                     height: 100%;
-                    background-image: url('img/Volume\ button\ Off\ Hover.svg');
+                    background-image: url('../img/Volume\ button\ Off\ Hover.svg');
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;   
@@ -1100,7 +1098,7 @@ body {
                         top: 0;
                         left: 0;
                         z-index: 2;
-                        background-image: url('img/PhoneDisplay.svg');
+                        background-image: url('../img/PhoneDisplay.svg');
                         background-position: center center;
                         background-size: contain;
                         background-repeat: no-repeat; 
@@ -1578,7 +1576,7 @@ body {
             .changecountbutton::after {
                 position: absolute;
                 content: ' ';
-                background-image: url('img/More\ Button.svg');
+                background-image: url('../img/More\ Button.svg');
                 background-position: center center;
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -1618,7 +1616,7 @@ body {
                         opacity: var(--sellModalTabChackedOpacity);
                         z-index: 10;
                         content: ' ';
-                        background-image: url('img/check.svg');
+                        background-image: url('../img/check.svg');
                         background-position: center center;
                         background-size: contain;
                         background-repeat: no-repeat;
