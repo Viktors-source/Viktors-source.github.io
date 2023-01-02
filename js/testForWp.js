@@ -310,25 +310,117 @@ aboutusTitleSpan = aboutusTitle.querySelector('span')
 
 mm.add('(min-width: 960px)', () => {
 
+    gsap.set(aboutus, { y: -aboutusPadding + -aboutusTitleHeight })
+    gsap.set(aboutusSubtitlesLarge, { autoAlpha: 0 })
+
+    const srollingTextAnimation = gsap.timeline({
+        scrollTrigger: {
+        pinSpacing: false,
+        trigger: drytextbeneffit,
+        start: `bottom center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusTitleHeight * 2}`,
+        scrub: 0.5,
+        pin: aboutus,
+        }
+    })
+    .to(aboutusTitleSpan, { duration: .5, delay: .5, textFillColor: "#C7B9FE", ease: 'al_slide' })
+
+    const srollingTextAnimation2 = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom+=${aboutusTitleHeight * 2} center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusSubtitlesSmallHeight}`,
+        scrub: 0.5,
+        }
+    })
+    .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'al_slide', duration: 1 })
+
+    const srollingTextAnimation3 = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom+=${aboutusTitleHeight * 2 + aboutusSubtitlesSmallHeight * 2} center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusSubtitlesSmallHeight}`,
+        scrub: 0.5,
+        }
+    })
+    .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'al_slide', duration: 1 })
+
+    const srollingTextAnimation4 = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom+=${aboutusTitleHeight * 2 + aboutusSubtitlesSmallHeight * 2.9} center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusSubtitlesLargeHeight}`,
+        scrub: 0.5,
+        }
+    })
+    .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: 0, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'al_slide', duration: 1 })
+
+
 })
 mm.add('(max-width: 959px)', () => {
 
+    gsap.set(aboutus, { y: -aboutusPadding + -aboutusTitleHeight })
+    gsap.set(aboutusSubtitlesLarge, { autoAlpha: 0 })
+
+    const srollingTextAnimation = gsap.timeline({
+        scrollTrigger: {
+        pinSpacing: false,
+        trigger: drytextbeneffit,
+        start: `bottom center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusTitleHeight * 2}`,
+        scrub: 0.5,
+        pin: aboutus,
+        }
+    })
+    .to(aboutusTitleSpan, { duration: .5, delay: .5, textFillColor: "#C7B9FE", ease: 'al_slide' })
+
+    const srollingTextAnimation2 = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom+=${aboutusTitleHeight * 2} center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusSubtitlesSmallHeight}`,
+        scrub: 0.5,
+        }
+    })
+    .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'al_slide', duration: 1 })
+
+    const srollingTextAnimation3 = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom+=${aboutusTitleHeight * 2 + aboutusSubtitlesSmallHeight} center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusSubtitlesSmallHeight}`,
+        scrub: 0.5,
+        }
+    })
+    .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'al_slide', duration: 1 })
+
+    const srollingTextAnimation4 = gsap.timeline({
+        scrollTrigger: {
+        trigger: drytextbeneffit,
+        start: `bottom+=${aboutusTitleHeight * 2 + aboutusSubtitlesSmallHeight * 1.9} center+=${aboutusTitleHeight}`,
+        end: `+=${aboutusSubtitlesLargeHeight}`,
+        scrub: 0.5,
+        }
+    })
+    .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: 0, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'al_slide', duration: 1 })
+
 })
 
 
-const srollingTextAnimation = gsap.timeline({
-    scrollTrigger: {
-    trigger: drytextbeneffit,
-    start: `bottom center+=${aboutusTitleHeight}`,
-    end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
-    scrub: true,
-    }
-})
-.from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
-.to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
-.from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
-.to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
-.fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
+// const srollingTextAnimation = gsap.timeline({
+//     scrollTrigger: {
+//     trigger: drytextbeneffit,
+//     start: `bottom center+=${aboutusTitleHeight}`,
+//     end: `+=${aboutusPadding + aboutusTitleHeight + aboutusSubtitlesSmallHeight + aboutusSubtitlesLargeHeight}`,
+//     scrub: true,
+//     markers: true,
+//     }
+// })
+// .from(aboutus, { duration: 1, y: -aboutusPadding + -aboutusTitleHeight, ease: 'none' })
+// .to(aboutusTitleSpan, { duration: .5, textFillColor: "#C7B9FE", ease: 'al_slide' }, '<.5')
+// .from(aboutusSubtitlesSmall, { autoAlpha: 0, y: aboutusSubtitlesSmallHeight / 2, ease: 'none', duration: .5 })
+// .to(aboutusSubtitlesSmall, { autoAlpha: 0, ease: 'none', duration: .5, delay: .5, })
+// .fromTo(aboutusSubtitlesLarge, { autoAlpha: 0, y: -aboutusSubtitlesSmallHeight / 2, }, { autoAlpha: 1, y: -aboutusSubtitlesSmallHeight, ease: 'none', duration: .5 })
 
 
 

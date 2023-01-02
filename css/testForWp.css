@@ -901,7 +901,7 @@ body {
     .aboutus {
         width: 850px;
         padding: 200px 0;
-        gap: 64px;
+        gap: 40px;
     }
         .aboutus__title {
             font-size: 140px;
@@ -925,7 +925,7 @@ body {
     .aboutus {
         width: calc(600px + (850 - 600) * ((100vW - 960px) / (1360 - 960)));
         padding: calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) 0;
-        gap: calc(45px + (64 - 45) * ((100vW - 960px) / (1360 - 960)));
+        gap: calc(24px + (40 - 24) * ((100vW - 960px) / (1360 - 960)));
     }
         .aboutus__title {
             font-size: calc(99px + (140 - 99) * ((100vW - 960px) / (1360 - 960)));
