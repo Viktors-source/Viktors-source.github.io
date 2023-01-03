@@ -135,6 +135,16 @@ dryTextBeneffit = document.querySelector('.drytextbeneffit'),
 dryTextBeneffitTitle = document.querySelectorAll('.drytextbeneffit__title'),
 dryflourPoints = document.querySelector('.dryflour__points')
 
+const dryTextBeneffitTitleBackAnimation = gsap.timeline({
+    scrollTrigger: {
+        trigger: dryTextBeneffit,
+        start: 'top bottom',
+        end: 'bottom top',
+        toggleActions: 'play pause play pause',
+    }
+})
+.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 2, ease: 'none', repeat: -1, yoyo: true })
+
 mm.add('(min-width: 960px)', () => {
 
     beneffitPoint.forEach((point, i) => {
@@ -193,8 +203,6 @@ mm.add('(min-width: 960px)', () => {
         scrollTrigger: {
             trigger: dryTextBeneffit,
             start: 'top bottom-=25%',
-            toggleActions: 'play none none reverse',
-            // markers: true,
         }
     })
     .from(dryTextBeneffitTitle, { opacity: 0, scale: 10, ease: "power2.inOut", duration: 1 })
@@ -424,7 +432,6 @@ const shopReviewTitleAnimation =  gsap.timeline({
         trigger: shopReviewTitle,
         start: 'top bottom-=5%',
         toggleActions: 'play none none reverse',
-        // markers: true,
     }
 })
 .from(shopReviewTitle, { y: 120, ease: 'al_slide', duration: .6 })
@@ -437,7 +444,6 @@ reviewText.forEach((text, i) => {
                     trigger: text,
                     start: 'top bottom-=5%',
                     toggleActions: 'play none none reverse',
-                    // markers: true,
                 }
             })
             .from(text, { y: 120, ease: 'al_slide', duration: .6 })
@@ -448,7 +454,6 @@ const shopReviewActionsAnimation =  gsap.timeline({
     scrollTrigger: {
         trigger: shopReviewActions,
         start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
     }
 })
 .from(shopReviewActions, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
@@ -458,11 +463,22 @@ const mkReviewControllsAnimation =  gsap.timeline({
     scrollTrigger: {
         trigger: mkReviewControlls,
         start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
     }
 })
 .from(mkReviewControlls, { y: 120, ease: 'al_slide', duration: .6 })
 .from(mkReviewControlls, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
+const swowcardCartGalleryAnimationPart1 = ScrollTrigger.create({ 
+    trigger: mkReviewControlls,
+    start: 'top bottom-=5%',
+    once: true,
+    onEnter: () => {
+        gsap.delayedCall(0.1, hideCardCartGalley);
+    },
+})
+function hideCardCartGalley() {
+    imageSaleAnimation[0, 1, 2].tweenTo('showFromRightSideStart')
+}
 
 })
 
@@ -513,7 +529,10 @@ cardCartDisplay = document.querySelector('.cardcartdisplay'),
 changeCountButton = document.querySelector('.changecountbutton'),
 cardCartButon = document.querySelector('.cardcart__buton'),
 sliderTabs = document.querySelectorAll('.slidertabs > div'),
-sliderTab = document.querySelector('.slidertabs')
+sliderTab = document.querySelector('.slidertabs'),
+cardcartPrice = document.querySelector('.cardcart__price')
+
+gsap.set(cardcartPrice, { overflow: 'hidden' })
 
 
 mm.add('(min-width: 960px)', () => {
@@ -527,6 +546,15 @@ mm.add('(min-width: 960px)', () => {
     })
     .from(cardcartTitle, { y: 120, ease: 'al_slide', duration: .6 })
     .from(cardcartTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
+    const cardcartGalleryAnimation = ScrollTrigger.create({ 
+        trigger: cardcartTitle,
+        start: 'top bottom-=5%',
+        once: true,
+        onEnter: () => {
+            imageSaleClickAnimation[0](saleImageMin[0])
+        },
+    })
     
     const cardcartPointsAnimation =  gsap.timeline({
         scrollTrigger: {
@@ -537,57 +565,42 @@ mm.add('(min-width: 960px)', () => {
     })
     .from(cardcartPoints, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
     .from(cardcartPoints, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
-    
+
     const cardCartDisplayAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: cardCartDisplay,
             start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
-        }
-    })
-    .from(cardCartDisplay, { y: 120, ease: 'al_slide', duration: .6 })
-    .from(cardCartDisplay, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
-    
-    const changeCountButtonAnimation =  gsap.timeline({
-        scrollTrigger: {
-            trigger: changeCountButton,
-            start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
         }
     })
     .from(changeCountButton, { y: 120, ease: 'al_slide', duration: .6 })
     .from(changeCountButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
-    
-    const cardCartButonAnimation =  gsap.timeline({
-        scrollTrigger: {
-            trigger: cardCartButon,
-            start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
-        }
-    })
-    .from(cardCartButon, { y: 120, ease: 'al_slide', delay: .1, duration: .6 })
-    .from(cardCartButon, { ease: 'none', autoAlpha: 0, delay: .1, duration: .6 }, '<')
+    .from(cardCartButon, { y: 120, ease: 'al_slide', duration: .6 }, '.1')
+    .from(cardCartButon, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    .set(cardcartPrice, { overflow: 'visible' })
+    .from(cardCartDisplay, { y: '200%', ease: 'al_slide', duration: .6 }, '>-.1')
+    .from(cardCartDisplay, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const sliderTabsAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: sliderTabs,
             start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
+            onEnter: () => {
+                gsap.delayedCall(1.2, showTextTab);
+                
+            },
         }
     })
     .from(sliderTabs, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
     .from(sliderTabs, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
-    
-    const sliderTabAnimation =  gsap.timeline({
-        scrollTrigger: {
-            trigger: sliderTabs,
-            start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
-        }
-    })
-    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', delay: .7, duration: .6 })
+    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', duration: .6 }, '>-.1')
+    .set(sliderTab, { overflow: 'visible' })
+
+    function showTextTab() {
+        sellSliderToggles[0](sellSliderTab[0])
+    }
 
 })
+
     
     
 mm.add('(max-width: 959px)', () => {
@@ -663,8 +676,35 @@ mm.add('(max-width: 959px)', () => {
     
 })
 
+/* cartcard */
 
 
+/* footer */
+const footerLink = gsap.utils.toArray('.foterlink'),
+footerLinkAll = document.querySelectorAll('.foterlink'),
+footer = document.querySelector('.footer'),
+copyright = document.querySelector('.copyright')
+
+mm.add('(min-width: 960px)', () => {
+
+
+    const footerLinkAllAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: footer,
+            start: 'top bottom',
+        }
+    })
+    .from(footerLinkAll, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(footerLinkAll, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+    .from(copyright, { y: 120, ease: 'al_slide', duration: .6 }, '<')
+    .from(copyright, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+})
+
+    
+    
+mm.add('(max-width: 959px)', () => {
+
+})
  
 
 
@@ -773,7 +813,7 @@ const burgerLine = document.querySelector('.burger__line'),
     /* <----- beneffits -----> */
 
     // const dryTextBeneffit = document.querySelector('.drytextbeneffit')
-    gsap.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 2, ease: 'none', repeat: -1, yoyo: true })
+    // gsap.fromTo(dryTextBeneffit, { background: 'linear-gradient(106.5deg, rgba(139, 112, 247, 0.5) 32.59%, rgba(199, 185, 254, 0.6) 80.29%)' }, { background: 'linear-gradient(338.43deg, rgba(139, 112, 247, 0.5) 3.71%, rgba(199, 185, 254, 0.6) 90.02%)', duration: 2, ease: 'none', repeat: -1, yoyo: true })
 
     /* <----- beneffits -----> */
 
@@ -1283,6 +1323,8 @@ const burgerLine = document.querySelector('.burger__line'),
     .addLabel('sellModalPause')
     .fromTo(sellModal, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
 
+    sellMadalAnimation.tweenTo(0)
+
 const sellChangeCountButton = document.querySelector('.changecountbutton'),
     sellChangeCountButtonHoverAnimation = gsap.timeline()
     .fromTo(sellChangeCountButton, { '--sellTotalCountBoxOpacity': 1 }, { '--sellTotalCountBoxOpacity': 0, duration: .1, ease: 'none' })
@@ -1292,6 +1334,7 @@ const sellChangeCountButton = document.querySelector('.changecountbutton'),
         sellMadalAnimation.restart()
     })
 
+    
 
 const sellModalTab = gsap.utils.toArray('.modaltab')
 const sellModalTabAnimationBox = sellModalTab.map(createSellModalTabAnimation)
@@ -1305,7 +1348,9 @@ function sellModalTabAnimation(clickedTab) {
 }
 
 function createSellModalTabAnimation(element, i) {
-    
+
+    sellMadalAnimation.tweenTo(0)
+
     const tl = gsap.timeline()
     .fromTo(element, { '--sellModalTabChackedOpacity': 1 }, { '--sellModalTabChackedOpacity': 0, duration: .1, ease: 'none' })
     
@@ -1323,6 +1368,7 @@ function createSellModalTabAnimation(element, i) {
 
 }
 
+
 // function sellModalAnimationBuilder(element) {
 //     const tl = gsap.timeline()
 //     .fromTo(element, { '--sellModalTabOpacity': 1, '--sellModalValueOpacity': 1, }, { '--sellModalTabOpacity': 0, '--sellModalValueOpacity': 0, duration: .1, ease: 'none' })
@@ -1336,6 +1382,7 @@ const sellTotalInputCountBox = document.querySelector('.inputcount'),
     sellInputCountBox = document.querySelector('.inputcountbox'),
     inputQuantity = document.querySelector('.inputquantity'),
     inputPrice = document.querySelector('.inputprice')
+
 sellModalTab.forEach((tab, i) => {
     const value = i + 1
     const price =  495 * (i + 1)
@@ -1483,7 +1530,7 @@ document.addEventListener('click', (e) => {
     .fromTo(element, { color: '#1D1D1F', pointerEvents: 'none', '--sellModalTabLineOpacity': 1 }, { color: '#6E6E73', '--sellModalTabLineOpacity': 0, pointerEvents: 'auto', duration: .1, ease: 'none' })
       
     return function(clickedTab) {
-    
+
         if (clickedTab === element) {
           tabTl.tweenTo('0', { ease: 'none' })
           textTl.tweenTo('0', { ease: 'none' })
@@ -1515,12 +1562,13 @@ document.addEventListener('click', (e) => {
         
          const tl = gsap.timeline()
         .addLabel('hideScaleStart')
-        .fromTo(image, { zIndex: 2, scale: 1, }, { zIndex: 2, scale: .9, duration: .36, ease: 'gg_scale_out', immediateRender: false })
-        .fromTo(image, { zIndex: 2, opacity: 1, }, { zIndex: 2, opacity: 0, duration: .36, ease: 'gg_scale_clip_in', immediateRender: false }, '<')
+        .fromTo(image, { zIndex: 2, scale: 1, }, { zIndex: 2, scale: .9, duration: .72, ease: 'gg_scale_out', immediateRender: false })
+        .fromTo(image, { zIndex: 2, opacity: 1, }, { zIndex: 2, opacity: 0, duration: .72, ease: 'gg_scale_clip_in', immediateRender: false }, '<')
     
         .addPause()
         .addLabel('showFromRightSideStart')
-        .fromTo(image, { zIndex: 3, opacity: 1, clipPath: 'inset(0 0 0 100%)', scale: 1.2, }, { zIndex: 3, clipPath: 'inset(0px 0px 0px 0px)', scale: 1, opacity: 1, duration: .6, ease: 'gg_scale_clip_in', immediateRender: false })
+        .fromTo(image, { zIndex: 3, opacity: 1, clipPath: 'inset(0 0 0 100%)', scale: 1.2, }, { zIndex: 3, clipPath: 'inset(0px 0px 0px 0px)', scale: 1, opacity: 1, duration: 1.2, ease: 'gg_scale_clip_in', immediateRender: false })
+        .reverse()
 
         return tl
   
@@ -1542,9 +1590,8 @@ document.addEventListener('click', (e) => {
     saleImageMin.forEach((image) => {
         image.addEventListener('click', () => conectImageSaleAnimation(image))
         
-        const img = image.querySelector('.tn-atom')
         const tl = gsap.timeline()
-        .to(img, { scale: 1.1, duration: .2, ease: 'al_out' })
+        .to(image, { scale: 1.1, duration: .2, ease: 'al_out' })
         .reverse()
         
         image.addEventListener('mouseenter', () => tl.play())
@@ -1601,6 +1648,97 @@ document.addEventListener('click', (e) => {
             tl.restart()
         })
     })
-        
-        
+
+
+footerLink.forEach(link => {
+    innerText = link.querySelectorAll('span')
+    const tl = gsap.timeline()
+    .to(innerText, { y: '-100%', ease: 'al_slide', duration: .5 })
+    .reverse()
+
+    link.addEventListener('mouseenter', () => {
+        tl.restart()
+    })
+})
+
+const beneffitSection = document.querySelector('.dryflour'),
+aboutUsSection = document.querySelector('.aboutus'),
+shopReviewsSection = document.querySelector('.shopreviews'),
+qaSection = document.querySelector('.qa')
+
+const navigationSection = [beneffitSection, aboutUsSection, shopReviewsSection, qaSection],
+navigationSectiontoSnap = [beneffitSection.offsetTop, dryTextBeneffit.offsetTop + dryTextBeneffit.offsetHeight, shopReviewsSection.offsetTop, qaSection.offsetTop - qaSection.offsetHeight],
+linksScrollAnimationArray = navLink.map(createLinksScrolltoSectionAnimation),
+linksChangeInOutAnimationArray = navLink.map(createLinksChangeInOutSectionAnimation)
+
+function createLinksChangeInOutSectionAnimation(link) {
+    const tl = gsap.timeline()
+    .fromTo(link, { color: '#8B70F6', pointerEvents: 'none', }, { color: '#1D1D1F', pointerEvents: 'auto', duration: .1, ease: 'none' })
+
+    return tl
+}
+
+navLink.forEach((link, i) => {
+    link.addEventListener('click', () => conectSectionScrollToAnimation(link))
+    link.addEventListener("click", () => {
+        gsap.to(window, { duration: 1, ease: 'al_slide', scrollTo: { y: navigationSection[i], offsetY: 42 + (60 - 42) * ((window.innerWidth - 960) / (1360 - 960)) }})
+      })
+})
+
+function conectSectionScrollToAnimation(link) { 
+    linksScrollAnimationArray.forEach((fn) => fn(link))
+}
+
+function createLinksScrolltoSectionAnimation(element, i) { 
+
+    return function(link) {
+
+        if (link === element) {
+            linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+          } else {
+            linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+          }
+    }
+}
+
+navigationSectiontoSnap.forEach((section, i) => {
+
+    ScrollTrigger.create({
+        start: `top+=${ section } center-=20%`,
+        end: `+=${ navigationSectiontoSnap[i + 1] - navigationSectiontoSnap[i] }`,
+        onEnter: (self) => {
+            linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+        },
+        onEnterBack: () => {
+            linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+        },
+        onLeave: () => {
+            linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+        },
+        onLeaveBack: () => {
+            linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+        }
+    })
+
+})
+
+
+const cardCart = document.querySelector('.cardcart'),
+navButton = document.querySelector('.nav__button')
+
+mm.add('(min-width: 960px)', () => {
+
+    navButton.addEventListener("click", () => {
+        gsap.to(window, { duration: 1, ease: 'al_slide', scrollTo: { y: cardCart, offsetY: 42 + (60 - 42) * ((window.innerWidth - 960) / (1360 - 960)) }})
+    })
+
+})
+
+
+
+
+
+
+
+
 
