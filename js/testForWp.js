@@ -241,7 +241,7 @@ mm.add('(max-width: 959px)', () => {
                     scrollTrigger: {
                         trigger: point,
                         start: 'top bottom-=40%',
-                        end: `+=${(79 + ((235) - (79)) * ((window.innerWidth - 320) / (960 - 320))) * 3}`, //'top bottom-=70%',
+                        end: `+=${(79 + ((235) - (79)) * ((window.innerWidth - 320) / (960 - 320))) * 2}`, //'top bottom-=70%',
                         scrub: .1,
                     }
                 })
