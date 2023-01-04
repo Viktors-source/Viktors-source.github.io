@@ -1262,7 +1262,8 @@ body {
     .shopreviews {
         flex-direction: column;
         padding: calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
-        gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320)));
+        /* gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320))); */
+        gap: calc(48px + (146 - 48) * ((100vW - 320px) / (960 - 320)));
     }
         .shopreview__title {
             font-size: calc(48px + (144 - 48) * ((100vW - 320px) / (960 - 320)));
@@ -1270,12 +1271,18 @@ body {
             letter-spacing: calc((-0.1px) + ((-0.3) - (-0.1)) * ((100vW - 320px) / (960 - 320)));
         }
         .shopreview__text {
-            font-family: "SFProTextSemibold" ;
             color: #86868B;
-            font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+            /* margin: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320))) 0 0 0;  */
+            /* font-family: "SFProTextSemibold" ; */
+            /* font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
             line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
-            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
-            margin: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320))); */
+            margin: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+            font-family: 'SFProDisplayMedium';
+            font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+            line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: calc((0.2px) + ((0.6) - (0.2)) * ((100vW - 320px) / (960 - 320)));
+            font-weight: 500;
         }
     .shopreviewactions_mobile {
         margin: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320))) 0;
