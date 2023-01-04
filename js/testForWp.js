@@ -229,7 +229,6 @@ mm.add('(max-width: 959px)', () => {
                         trigger: point,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(point, { y: '20%', ease: 'al_slide', duration: .6 })
@@ -241,9 +240,9 @@ mm.add('(max-width: 959px)', () => {
         tl =  gsap.timeline({
                     scrollTrigger: {
                         trigger: point,
-                        start: 'top bottom-=20%',
-                        end: 'top bottom-=80%',
-                        scrub: true,
+                        start: 'top bottom-=30%',
+                        end: `+=${(79 + ((235) - (79)) * ((window.innerWidth - 320) / (960 - 320))) * 3}`, //'top bottom-=70%',
+                        scrub: .1,
                     }
                 })
                 .to(point, { x: -79 + ((-235) - (-79)) * ((window.innerWidth - 320) / (960 - 320)), ease: 'none', duration: .6 })
