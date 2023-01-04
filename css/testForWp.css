@@ -1502,11 +1502,19 @@ body {
         gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320)));
     }
             .mkreview__text {
-                font-family: "SFProTextSemibold" ;
+                color: rgba(0, 0, 0, .56);
+                font-family: "SFProTextMedium";
+                font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                font-weight: 500;
+                text-align: justify;
+
+                /* font-family: "SFProTextSemibold" ;
                 color: #86868B;
                 font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
                 line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320))); */
                 margin: 0;
             }
             .mkreviewactions {
