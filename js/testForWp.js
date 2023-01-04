@@ -240,7 +240,7 @@ mm.add('(max-width: 959px)', () => {
         tl =  gsap.timeline({
                     scrollTrigger: {
                         trigger: point,
-                        start: 'top bottom-=30%',
+                        start: 'top bottom-=40%',
                         end: `+=${(79 + ((235) - (79)) * ((window.innerWidth - 320) / (960 - 320))) * 3}`, //'top bottom-=70%',
                         scrub: .1,
                     }
