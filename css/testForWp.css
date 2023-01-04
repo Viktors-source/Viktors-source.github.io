@@ -1261,7 +1261,7 @@ body {
 @media screen and (max-width: 959px) {
     .shopreviews {
         flex-direction: column;
-        padding: calc(34px + (102 - 34) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
+        padding: calc(64px + (192 - 64) * ((100vW - 320px) / (960 - 320))) calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
         gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320)));
     }
         .shopreview__title {
