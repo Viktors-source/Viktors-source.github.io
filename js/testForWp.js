@@ -1189,6 +1189,140 @@ const burgerLine = document.querySelector('.burger__line'),
         
         } 
         })
+
+        gsap.registerEffect({ 
+            name:'draggable_scroll2', 
+            effect: (targets, config) => { 
+            
+            let targets_array = targets,
+            targets_wrapper = targets[0].parentNode,
+            targets_main_wrapper = targets_wrapper.parentNode,
+            targets_height = targets_array[0].offsetHeight,
+            targets_width = targets_array[0].offsetWidth,
+            listWidth = targets_width * targets_array.length,
+            iteration = 0
+            console.log(listWidth)
+        
+            gsap.set(targets_array, {xPercent: 100})
+            const spacing = 0.25,
+            snapTime = gsap.utils.snap(spacing),
+            cards = targets_array,
+            
+        
+            animateFunc = element => {
+                const tl = gsap.timeline()
+                .fromTo(element, { xPercent: 200, }, { xPercent: -200, duration: 1, ease: 'none', immediateRender: false })  
+                .fromTo(element.querySelector('div'), { opacity: .3, }, { opacity: 1, delay: .25, zIndex: 100, duration: .25, repeat: 1, yoyo: true, ease: 'al_out', immediateRender: false }, '0')  
+                return tl
+            },
+        
+            seamlessLoop = buildSeamlessLoop(cards, spacing, animateFunc),
+            playhead = {offset: 0}, 
+            wrapTime = gsap.utils.wrap(0, seamlessLoop.duration()), 
+            scrub = gsap.to(playhead, {
+                offset: 0,
+                onUpdate() {
+                    seamlessLoop.time(wrapTime(playhead.offset))
+                },
+                duration: 0.5,
+        
+                paused: true
+            }),
+            trigger = ScrollTrigger.create({
+                scroller: targets_main_wrapper, 
+                start: 0,
+                onUpdate(self) {
+                    let scroll = self.scroll()
+                    if (scroll > self.end - 1) {
+                        wrap(1, 1)
+                    } else if (scroll < 1 && self.direction < 0) {
+                        wrap(-1, self.end - 1)
+                    } else {
+                        scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration()
+                        scrub.invalidate().restart()
+                    }
+                },
+                end: `+=${ listWidth }`, 
+                pin: targets_wrapper,
+            }),
+        
+            progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end),
+            wrap = (iterationDelta, scrollTo) => {
+                iteration += iterationDelta
+                trigger.scroll(scrollTo)
+                trigger.update() 
+            }
+        
+            function scrollToOffset(offset) { 
+                let snappedTime = snapTime(offset),
+                    progress = (snappedTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration(),
+                    scroll = progressToScroll(progress)
+                if (progress >= 1 || progress < 0) {
+                    return wrap(Math.floor(progress), scroll)
+                }
+                trigger.scroll(scroll)
+            }
+        
+            
+            document.querySelector(config.next).addEventListener("click", () => scrollToOffset(scrub.vars.offset + spacing))
+            document.querySelector(config.prev).addEventListener("click", () => scrollToOffset(scrub.vars.offset - spacing))
+        
+            function buildSeamlessLoop(items, spacing, animateFunc) {
+                let rawSequence = gsap.timeline({paused: true}), 
+                    seamlessLoop = gsap.timeline({ 
+                        paused: true,
+                        repeat: -1, 
+                        onRepeat() { 
+                            this._time === this._dur && (this._tTime += this._dur - 0.01)
+                        },
+                  onReverseComplete() {
+                    this.totalTime(this.rawTime() + this.duration() * 100)
+                  }
+                    }),
+        
+                    cycleDuration = spacing * items.length,
+                    dur
+                    items.concat(items).concat(items).forEach((item, i) => {
+                        let anim = animateFunc(items[i % items.length])
+                        rawSequence.add(anim, i * spacing)
+                        dur || (dur = anim.duration())
+                    })
+                
+                    seamlessLoop.fromTo(rawSequence, {
+                        time: cycleDuration + dur / 2
+                    }, {
+                        time: "+=" + cycleDuration,
+                        duration: cycleDuration,
+                        ease: "none"
+                    })
+                    return seamlessLoop
+            }
+        
+            gsap.set(targets_main_wrapper, { pointerEvents: 'none'})
+            const targets_main_wrapperBox = targets_main_wrapper.parentNode
+
+            console.log(targets_main_wrapperBox)
+
+            var proxyDiv = document.createElement('div')
+        
+            Draggable.create(proxyDiv, {
+                type: "x",
+                trigger: targets_main_wrapperBox,
+                cursor: config.cursor, 
+                activeCursor: 'grabbing',
+                onPress() {
+                  this.startOffset = scrub.vars.offset
+                },
+                onDrag() {
+                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.005 // 0.003
+                  scrub.invalidate().restart() 
+                },
+                onDragEnd() {
+                  scrollToOffset(scrub.vars.offset)
+                }
+              })
+            } 
+        })
         
           const reviewSlider = gsap.effects.draggable_scroll('.shopreview', { 
             cursor: 'grab',
@@ -1200,12 +1334,12 @@ const burgerLine = document.querySelector('.burger__line'),
             prev: '.controllleftarrow',
           })
 
-          const mkreviewSlider = gsap.effects.draggable_scroll('.mkreview', { 
+          const mkreviewSlider = gsap.effects.draggable_scroll2('.mkreview', { 
             cursor: 'grab',
-            stagger: .5,  
-            duration: 1,  
-            scene_duration: .5,
-            end_count: 1,
+            // stagger: .5,  
+            // duration: 1,  
+            // scene_duration: .5,
+            // end_count: 1,
             next: '.mkcontrollrightarrow',
             prev: '.mkcontrollleftarrow',
           })
