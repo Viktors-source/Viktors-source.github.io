@@ -1224,7 +1224,7 @@ const burgerLine = document.querySelector('.burger__line'),
                 onUpdate() {
                     seamlessLoop.time(wrapTime(playhead.offset))
                 },
-                duration: 0.5,
+                duration: 0.25,
         
                 paused: true
             }),
@@ -1314,7 +1314,7 @@ const burgerLine = document.querySelector('.burger__line'),
                   this.startOffset = scrub.vars.offset
                 },
                 onDrag() {
-                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.005 // 0.003
+                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.003 // 0.003
                   scrub.invalidate().restart() 
                 },
                 onDragEnd() {

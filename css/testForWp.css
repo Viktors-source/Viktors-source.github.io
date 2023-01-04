@@ -1498,15 +1498,18 @@ body {
 @media screen and (max-width: 959px) {
     .mkreviews {
         flex-direction: column;
-        padding: 0 calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320))) calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320)));
+        padding: 0 0 calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320))); 
         gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320)));
     }
+        .mkreviewscontent {
+            padding: 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))); 
+        }
             .mkreview__text {
                 color: rgba(0, 0, 0, .56);
-                font-family: "SFProTextMedium";
+                font-family: "SFProDisplayMedium";
                 font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
-                line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
-                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(26px + (78 - 26) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((0.2px) + ((0.6) - (0.2)) * ((100vW - 320px) / (960 - 320)));
                 font-weight: 500;
                 text-align: justify;
 
@@ -1527,7 +1530,7 @@ body {
         .mkreviewmedia {
             width: calc(100% + calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)))); 
             height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
-            padding: 0 0 0 calc(21px + (63 - 21) * ((100vW - 320px) / (960 - 320)));
+            padding: 0 0 0 calc(46px + (138 - 46) * ((100vW - 320px) / (960 - 320))); 
             overflow: visible;
         }
             .mkreviewslist {
