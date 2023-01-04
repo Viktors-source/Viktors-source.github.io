@@ -1302,8 +1302,8 @@ body {
                 height: calc(43px + (129 - 43) * ((100vW - 320px) / (960 - 320)));
             }
                 .controllleftarrow > div, .controllrightarrow > div, .mkcontrollleftarrow > div, .mkcontrollrightarrow > div {
-                    height: calc(23px + (69 - 23) * ((100vW - 320px) / (960 - 320)));
-                    width: calc(13px + (39 - 13) * ((100vW - 320px) / (960 - 320)));
+                    height: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                    width: calc(11px + (33 - 11) * ((100vW - 320px) / (960 - 320)));
                 }
             .volumetogglebutton, .mkvolumetogglebutton {
                 height: calc(37px + (111 - 37) * ((100vW - 320px) / (960 - 320)));
@@ -1372,6 +1372,11 @@ body {
         .mkreviewmedia {
             position: relative;
             overflow: hidden;
+        }
+        .mkreviewmedia::-webkit-scrollbar {
+            height: 0px;
+            width: 0px;
+            background: transparent;
         }
             .mkreviewslist {
                 position: absolute; 
@@ -1498,8 +1503,8 @@ body {
 @media screen and (max-width: 959px) {
     .mkreviews {
         flex-direction: column;
-        padding: 0 0 calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320))); 
-        gap: calc(35px + (105 - 35) * ((100vW - 320px) / (960 - 320)));
+        padding: 0 0 calc(75px + (225 - 75) * ((100vW - 320px) / (960 - 320))); 
+        gap: calc(48px + (146 - 48) * ((100vW - 320px) / (960 - 320)));
     }
         .mkreviewscontent {
             padding: 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))); 
@@ -1522,12 +1527,39 @@ body {
                 margin: 0;
             }
             .mkreviewactions {
-                display: none;
+            position: absolute;
+            height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
+            margin: calc(48px + (146 - 58) * ((100vW - 320px) / (960 - 320))) 0 0 calc((-15px) + ((-45) - (-15)) * ((100vW - 320px) / (960 - 320)));
+            width: 100%;
+            display: block;
+            z-index: 10;
+            pointer-events: none;
             }
                 .mkreviewcontrolls {
-                    gap: calc(36px + (108 - 26) * ((100vW - 320px) / (960 - 320)));
-                    border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                    height: 100%;
+                    width: 100%;
+                    gap: calc(234px + (702 - 234) * ((100vW - 320px) / (960 - 320)));
+                    background: transparent;
                 }
+                    .mkcontrollleftarrow, .mkcontrollrightarrow {
+                        width: calc(43px + (129 - 43) * ((100vW - 320px) / (960 - 320)));
+                        height: 100%;
+                        pointer-events: auto;
+                    }
+                        .mkcontrollleftarrow > div {
+                            background: url(/img/Mk\ Gallery\ left\ arrow\ mobile.svg);
+                            opacity: .5;
+                            background-size: contain;
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                        }
+                        .mkcontrollrightarrow > div {
+                            background: url(/img/Mk\ Gallery\ right\ arrow\ mobile.svg);
+                            opacity: .5;
+                            background-size: contain;
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                        }
         .mkreviewmedia {
             width: 100%; 
             height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
