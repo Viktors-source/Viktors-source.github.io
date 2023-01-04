@@ -1272,16 +1272,17 @@ body {
         }
         .shopreview__text {
             color: #86868B;
-            /* margin: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320))) 0 0 0;  */
+            margin: calc(18px + (54 - 18) * ((100vW - 320px) / (960 - 320))) 0 0 0; 
             /* font-family: "SFProTextSemibold" ; */
-            /* font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+            font-family: "SFProTextMedium" ;
+            font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
             line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
-            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320))); */
-            margin: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320))) 0 0 0;
-            font-family: 'SFProDisplayMedium';
+            letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+            /* margin: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320))) 0 0 0; */
+            /* font-family: 'SFProDisplayMedium';
             font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
             line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
-            letter-spacing: calc((0.2px) + ((0.6) - (0.2)) * ((100vW - 320px) / (960 - 320)));
+            letter-spacing: calc((0.2px) + ((0.6) - (0.2)) * ((100vW - 320px) / (960 - 320))); */
             font-weight: 500;
         }
     .shopreviewactions_mobile {
