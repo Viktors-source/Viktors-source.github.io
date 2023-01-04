@@ -1312,10 +1312,10 @@ body {
     .shopreviewmedia {
         width: calc(100% + calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)))); 
         height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
-        padding: 0 0 0 calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320)));
+        padding: 0 0 0 calc(21px + (63 - 21) * ((100vW - 320px) / (960 - 320)));
     }
         .shopreviewslist {
-            width: calc(100% - calc(30px + (90 - 30) * ((100vW - 320px) / (960 - 320))));
+            width: calc(100% - calc(21px + (63 - 21) * ((100vW - 320px) / (960 - 320))));
         }
             .shopreview {
                 height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
