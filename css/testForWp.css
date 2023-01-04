@@ -1286,7 +1286,7 @@ body {
             font-weight: 500;
         }
     .shopreviewactions_mobile {
-        margin: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320))) 0;
+        margin: calc((-32px) + ((-96) - (-32)) * ((100vW - 320px) / (960 - 320))) 0 calc(50px + (150 - 50) * ((100vW - 320px) / (960 - 320))) 0;
         gap: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
         align-items: center;
     }
@@ -1309,6 +1309,12 @@ body {
                 height: calc(37px + (111 - 37) * ((100vW - 320px) / (960 - 320)));
                 width: calc(200px + (595 - 200) * ((100vW - 320px) / (960 - 320)));  
             }
+                .volumetoggleOnbutton, .mkvolumetoggleOnbutton {
+                    background-image: url('../img/Volume\ button\ On\ mobile.svg');
+                }
+                .volumetoggleOffbutton, .mkvolumetoggleOffbutton {
+                    background-image: url('../img/Volume\ button\ Off\ mobile.svg');
+                }
     .shopreviewmedia {
         width: calc(100% + calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)))); 
         height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
