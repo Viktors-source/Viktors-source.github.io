@@ -2349,8 +2349,8 @@ body {
                     order: 2;
                 }
             .cardcart__slider {
-                margin: calc(80px + (160 - 80) * ((100vW - 320px) / (960 - 320))) 0 0 0;
-                gap: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                margin: calc(96px + (288 - 96) * ((100vW - 320px) / (960 - 320))) 0 0 0;
+                gap: calc(24px + (72 - 24) * ((100vW - 320px) / (960 - 320)));
             }
                 .slidertabs {
                     font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
@@ -2376,8 +2376,8 @@ body {
                     }
                 .slidertexts {
                     font-family: 'SFProTextRegular';
-                    font-size: calc(19px + (57 - 19) * ((100vW - 320px) / (960 - 320)));
-                    line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                    font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                    line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
                     letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
                 }
                     .slidertext > p:not(:first-child) {
