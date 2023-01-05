@@ -531,10 +531,12 @@ sliderTabs = document.querySelectorAll('.slidertabs > div'),
 sliderTab = document.querySelector('.slidertabs'),
 cardcartPrice = document.querySelector('.cardcart__price')
 
-gsap.set(cardcartPrice, { overflow: 'hidden' })
+
 
 
 mm.add('(min-width: 960px)', () => {
+
+    gsap.set(cardcartPrice, { overflow: 'hidden' })
 
     const cardcartTitleAnimation =  gsap.timeline({
         scrollTrigger: {
@@ -1359,7 +1361,6 @@ const burgerLine = document.querySelector('.burger__line'),
                     trigger: element,
                     start: `top top+=1`,
                     end: `+=${ targets_width - 1 }`,
-                    // markers: true,
                     onEnter: () => {
                         pointsAnimationsArray[i].tweenTo(.1)
                     },
