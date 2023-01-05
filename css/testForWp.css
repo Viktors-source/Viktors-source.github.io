@@ -2261,7 +2261,7 @@ body {
             }
             .cardcart__points {
                 margin: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320))) 0 calc(48px + (144 - 48) * ((100vW - 320px) / (960 - 320)));
-                gap: calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320)));
+                /* gap: calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320))); */
             } 
                 .cardcart__point {
                     font-size: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320)));
