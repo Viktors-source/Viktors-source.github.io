@@ -1318,7 +1318,7 @@ const burgerLine = document.querySelector('.burger__line'),
                   this.startOffset = scrub.vars.offset
                 },
                 onDrag() {
-                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.003  // 0.003
+                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.003  
                   scrub.invalidate().restart() 
                 },
                 onDragEnd() {
