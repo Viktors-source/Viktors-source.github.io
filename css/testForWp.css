@@ -2264,6 +2264,7 @@ body {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320)));
+                white-space: nowrap;
             } 
                 .cardcart__point {
                     font-size: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320)));
