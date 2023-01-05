@@ -2337,7 +2337,7 @@ body {
                 .cardcart__buton {
                     flex: 0 0 100%;
                     margin: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320))) 0 0 0;
-                    height: calc(36px + (108 - 36) * ((100vW - 320px) / (960 - 320)));
+                    height: calc(44px + (132 - 44) * ((100vW - 320px) / (960 - 320)));
                     border-radius: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320)));
                     font-family: 'SFProTextRegular';
                     font-weight: 400;
