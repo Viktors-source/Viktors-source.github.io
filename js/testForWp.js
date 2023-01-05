@@ -1357,9 +1357,9 @@ const burgerLine = document.querySelector('.burger__line'),
                 ScrollTrigger.create({
                     scroller: targets_main_wrapper,
                     trigger: element,
-                    start: `top-=1 top`,
-                    end: `+=${ targets_width }`,
-                    markers: true,
+                    start: `top top+=1`,
+                    end: `+=${ targets_width - 1 }`,
+                    // markers: true,
                     onEnter: () => {
                         pointsAnimationsArray[i].tweenTo(.1)
                     },
