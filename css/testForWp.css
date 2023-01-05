@@ -2260,7 +2260,7 @@ body {
                 letter-spacing: calc((-0.1px) + ((-0.3) - (-0.1)) * ((100vW - 320px) / (960 - 320)));
             }
             .cardcart__points {
-                margin: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320))) 0 calc(40px + (120 - 40) * ((100vW - 320px) / (960 - 320)));
+                margin: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320))) 0 calc(48px + (144 - 48) * ((100vW - 320px) / (960 - 320)));
                 gap: calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320)));
             } 
                 .cardcart__point {
