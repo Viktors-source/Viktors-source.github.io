@@ -1210,6 +1210,9 @@ const burgerLine = document.querySelector('.burger__line'),
             console.log(listWidth)
         
             gsap.set(targets_array, {xPercent: 100})
+            targets_array.forEach((element, i) => {
+                gsap.set(element.querySelector('div'), {opacity: .3})
+            })
             const spacing = 0.25,
             snapTime = gsap.utils.snap(spacing),
             cards = targets_array,
