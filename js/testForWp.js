@@ -826,6 +826,8 @@ const burgerLine = document.querySelector('.burger__line'),
 
     /* <----- reviews -----> */
 
+    
+
     gsap.registerEffect({ 
         name:'draggable_scroll', 
         effect: (targets, config) => { 
@@ -1190,6 +1192,8 @@ const burgerLine = document.querySelector('.burger__line'),
         } 
         })
 
+        mm.add('(max-width: 959px)', () => {
+
         gsap.registerEffect({ 
             name:'draggable_scroll2', 
             effect: (targets, config) => { 
@@ -1314,15 +1318,68 @@ const burgerLine = document.querySelector('.burger__line'),
                   this.startOffset = scrub.vars.offset
                 },
                 onDrag() {
-                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.003 // 0.003
+                  scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.003  // 0.003
                   scrub.invalidate().restart() 
                 },
                 onDragEnd() {
                   scrollToOffset(scrub.vars.offset)
                 }
-              })
+            })
+
+            for( i = 0; i < targets_array.length; i++ ) {
+                const box = document.createElement('div')
+                box.classList.add('shadowMk')
+                box.style.height = targets_height + 'px'
+                box.style.width = targets_width + 'px'
+                box.style.position = 'absolute'
+                targets_main_wrapper.append(box)
+              
+            }
+            
+            const shadowBoxes = gsap.utils.toArray('.shadowMk'),
+            points = gsap.utils.toArray(config.points),
+            pointsAnimationsArray = points.map(createPointsTl)
+
+            function createPointsTl(element) {
+                tl = gsap.timeline()
+                .to(element, { opacity: .5, duration: .1, ease: 'al_out' })
+                .reverse()
+
+                return tl
+            }
+            
+            shadowBoxes.forEach((shadow, i) => {
+                  gsap.set(shadow, { top: `+=${i * targets_width}` })
+            })
+            
+                
+            shadowBoxes.forEach((element, i) => {
+                ScrollTrigger.create({
+                    scroller: targets_main_wrapper,
+                    trigger: element,
+                    start: `top-=1 top`,
+                    end: `+=${ targets_width }`,
+                    markers: true,
+                    onEnter: () => {
+                        pointsAnimationsArray[i].tweenTo(.1)
+                    },
+                    onEnterBack: () => {
+                        pointsAnimationsArray[i].tweenTo(.1)
+                    },
+                    onLeave: () => {
+                        pointsAnimationsArray[i].tweenTo(0)
+                    },
+                    onLeaveBack: () => {
+                        pointsAnimationsArray[i].tweenTo(0)
+                    }
+                })
+            })
+
+            
             } 
         })
+
+    })
         
           const reviewSlider = gsap.effects.draggable_scroll('.shopreview', { 
             cursor: 'grab',
@@ -1334,15 +1391,28 @@ const burgerLine = document.querySelector('.burger__line'),
             prev: '.controllleftarrow',
           })
 
-          const mkreviewSlider = gsap.effects.draggable_scroll2('.mkreview', { 
-            cursor: 'grab',
-            // stagger: .5,  
-            // duration: 1,  
-            // scene_duration: .5,
-            // end_count: 1,
-            next: '.mkcontrollrightarrow',
-            prev: '.mkcontrollleftarrow',
+
+          mm.add('(max-width: 959px)', () => {
+
+            const mkreviewSlider = gsap.effects.draggable_scroll2('.mkreview', { 
+                cursor: 'grab',
+                next: '.mkcontrollrightarrow',
+                prev: '.mkcontrollleftarrow',
+                points: '.dotnav',
           })
+         })
+         mm.add('(min-width: 960px)', () => {
+
+            const mkreviewSlider = gsap.effects.draggable_scroll('.mkreview', { 
+                cursor: 'grab',
+                stagger: .5,  
+                duration: 1,  
+                scene_duration: .5,
+                end_count: 1,
+                next: '.mkcontrollrightarrow',
+                prev: '.mkcontrollleftarrow',
+          })
+         })
 
 
 
