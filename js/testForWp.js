@@ -1514,7 +1514,16 @@ const burgerLine = document.querySelector('.burger__line'),
 
 /* <----- card cart -----> */
 
-    const cardcartButon = document.querySelector('.cardcart__buton')
+    const cardcartButon = document.querySelector('.cardcart__buton'),
+        sellChangeCountButton = document.querySelector('.changecountbutton'),
+        sellModal = document.querySelector('.changecountmodal'),
+        sellModalMobile = document.querySelector('.changecountmodalmobile'),
+        sellModalTab = gsap.utils.toArray('.modaltab'),
+        sellModalTabMobile = gsap.utils.toArray('.modaltabmobile'),
+        sellTotalCount = document.querySelector('.counter'),
+        sellTotalPrice = document.querySelector('.cardcartdisplay'),
+        inputQuantity = document.querySelector('.inputquantity'),
+        inputPrice = document.querySelector('.inputprice')
 
     mm.add('(max-width: 959px)', () => { 
         cardcartButon.textContent = 'Отримати реквізити'
@@ -1523,186 +1532,215 @@ const burgerLine = document.querySelector('.burger__line'),
         cardcartButon.textContent = 'Отримати реквізити для оплати'
     })    
 
-        const sellModal = document.querySelector('.changecountmodal'),
-    sellMadalAnimation = gsap.timeline()
-    .fromTo(sellModal, { autoAlpha: 0 }, { autoAlpha: 1, duration: .1, ease: 'al_out'})
-    .addPause()
-    .addLabel('sellModalPause')
-    .fromTo(sellModal, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
 
-    sellMadalAnimation.tweenTo(0)
+    sellModalTab.forEach((tab, i) => {
+        
 
-const sellChangeCountButton = document.querySelector('.changecountbutton'),
-    sellChangeCountButtonHoverAnimation = gsap.timeline()
-    .fromTo(sellChangeCountButton, { '--sellTotalCountBoxOpacity': 1 }, { '--sellTotalCountBoxOpacity': 0, duration: .1, ease: 'none' })
-    sellChangeCountButton.addEventListener('mouseenter', () => sellChangeCountButtonHoverAnimation.tweenTo('0', { ease: 'al_out' }))
-    sellChangeCountButton.addEventListener('mouseleave', () => sellChangeCountButtonHoverAnimation.tweenTo('.1', { ease: 'al_out' }))
-    sellChangeCountButton.addEventListener('click', () => {
-        sellMadalAnimation.restart()
     })
 
-    
+    mm.add('(max-width: 959px)', () => { 
 
-const sellModalTab = gsap.utils.toArray('.modaltab')
-const sellModalTabAnimationBox = sellModalTab.map(createSellModalTabAnimation)
-    
-sellModalTab.forEach((tab) => { 
-    tab.addEventListener('click', () => sellModalTabAnimation(tab))
-})
+        const sellMadalMobileAnimation = gsap.timeline()
+        .fromTo(sellModalMobile, { autoAlpha: 0 }, { autoAlpha: 1, duration: .1, ease: 'al_out'})
+        .addPause()
+        .addLabel('sellModalMobilePause')
+        .fromTo(sellModalMobile, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
+        sellMadalMobileAnimation.tweenTo(0)
 
-function sellModalTabAnimation(clickedTab) {
-    sellModalTabAnimationBox.forEach((toggleFn) => toggleFn(clickedTab))
-}
-
-function createSellModalTabAnimation(element, i) {
-
-    sellMadalAnimation.tweenTo(0)
-
-    const tl = gsap.timeline()
-    .fromTo(element, { '--sellModalTabChackedOpacity': 1 }, { '--sellModalTabChackedOpacity': 0, duration: .1, ease: 'none' })
-    
-        return function(clickedTab) {
-            sellMadalAnimation.play('sellModalPause')
-        if (clickedTab === element) {
-            if (tl.time() === .1) {
-            tl.tweenTo('0', { ease: 'al_out' })
-            } else {
-            }
-        } else {
-            tl.tweenTo('.1', { ease: 'al_out' })
-        }
-        }
-
-}
-
-
-// function sellModalAnimationBuilder(element) {
-//     const tl = gsap.timeline()
-//     .fromTo(element, { '--sellModalTabOpacity': 1, '--sellModalValueOpacity': 1, }, { '--sellModalTabOpacity': 0, '--sellModalValueOpacity': 0, duration: .1, ease: 'none' })
-//     return tl
-// }
-// const sellModalTabAnimationArray = sellModalTab.map(sellModalAnimationBuilder)
-const sellTotalInputCountBox = document.querySelector('.inputcount'),
-    lableForSaleInput = document.querySelector('.lableforinputcount'),
-    sellTotalCount = document.querySelector('.counter'),
-    sellTotalPrice = document.querySelector('.cardcartdisplay'),
-    sellInputCountBox = document.querySelector('.inputcountbox'),
-    inputQuantity = document.querySelector('.inputquantity'),
-    inputPrice = document.querySelector('.inputprice')
-
-sellModalTab.forEach((tab, i) => {
-    const value = i + 1
-    const price =  495 * (i + 1)
-    const tl = gsap.timeline()
-    .fromTo(tab, { '--sellModalTabOpacity': 1, '--sellModalValueOpacity': 1, }, { '--sellModalTabOpacity': 0, '--sellModalValueOpacity': 0, duration: .1, ease: 'none' })
-    tab.addEventListener('mouseenter', () => tl.tweenTo('0', { ease: 'al_out' }))
-    tab.addEventListener('mouseleave', () => tl.tweenTo('.1', { ease: 'al_out' }))  
-        tab.addEventListener('click', () => {
-        tl.tweenTo('.1', { ease: 'al_out', onStart: () => { tl.timeScale(2) }})
-        tl.tweenTo('0', { ease: 'al_out', delay: .1, onStart: () => { tl.timeScale(2) }})
-        if ( i < 9 ) {
-            tab.dataset.value = `${value}`
-            tab.dataset.price = `${price}`
-            sellTotalCount.textContent = `${tab.dataset.value}`
-            sellTotalPrice.textContent = `${tab.dataset.value} кг - ${tab.dataset.price} грн`
-            inputQuantity.value = `${tab.dataset.value}`
-            inputPrice.value = `${tab.dataset.price} грн`
-        } 
-        if ( i === 9 ) {
-            sellTotalInputAnimation.play()
-            sellTotalPrice.textContent = '10 кг - 4950 грн'
-            inputQuantity.value = '10 кг'
-            inputPrice.value = '4950 грн'
-        }
+        sellChangeCountButton.addEventListener('click', () => {
+            sellMadalMobileAnimation.restart()
         })
 
-})
+        const sellModalTabMobileAnimationBox = sellModalTabMobile.map(createSellModalTabMobileAnimation)
+            
+        sellModalTabMobile.forEach((tab) => { 
+            tab.addEventListener('click', () => sellModalTabAnimation(tab))
+        })
 
-document.addEventListener('click', (e) => {
-    if ( sellModal.contains(e.target)) {
-        
-    } else {
-        if( sellMadalAnimation.time() === sellMadalAnimation.labels.sellModalPause ) {
-            sellMadalAnimation.play('sellModalPause' + .2)
+        sellModalTabMobile.forEach((tab, i) => { 
+            const value = i + 1
+            const price =  495 * (i + 1)
+            tab.addEventListener('click', () => {
+                tab.dataset.value = `${value}`
+                tab.dataset.price = `${price}`
+                sellTotalCount.textContent = `${tab.dataset.value}`
+                sellTotalPrice.textContent = `${tab.dataset.value} кг - ${tab.dataset.price} грн`
+                inputQuantity.value = `${tab.dataset.value}`
+                inputPrice.value = `${tab.dataset.price} грн`
+            })
+        })
+
+
+        function sellModalTabAnimation(clickedTab) {
+            sellModalTabMobileAnimationBox.forEach((toggleFn) => toggleFn(clickedTab))
         }
-    }
-})
 
-// const cardcartButon = document.querySelector('.cardcart__buton')
+        function createSellModalTabMobileAnimation(element, i) {
 
+            sellMadalMobileAnimation.tweenTo(0)
 
+            const tl = gsap.timeline()
+            .fromTo(element.querySelector('.modaltabcheckbox'), { '--mobileModalCheckBoxOpacity': 1 }, { '--mobileModalCheckBoxOpacity': 0, duration: .1, ease: 'none' })
+            
+            return function(clickedTab) {
+                sellMadalMobileAnimation.play('sellModalMobilePause')
+                if (clickedTab === element) {
+                    if (tl.time() === .1) {
+                        tl.tweenTo('0', { ease: 'al_out' })
+                    } else {
+                    }
+                } else {
+                    tl.tweenTo('.1', { ease: 'al_out' })
+                }
+            }
+        }
 
-    
-    const sellTotalInputAnimation = gsap.timeline()
-        .set(sellInputCountBox, { autoAlpha: 0 })
-        .to(sellInputCountBox, { duration: .1 })
+    }) 
+
+    mm.add('(min-width: 960px)', () => { 
+
+        const sellMadalAnimation = gsap.timeline()
+        .fromTo(sellModal, { autoAlpha: 0 }, { autoAlpha: 1, duration: .1, ease: 'al_out'})
         .addPause()
-        .to(sellInputCountBox, { duration: .25 })
-        .set(sellChangeCountButton, { overflow: 'hidden' })
-        .set(sellTotalInputCountBox, { value: "" }, '<')
-        .to(sellChangeCountButton, { '--sellTotalCountBoxY': '40px', duration: .2, ease: 'al_slide' }, '<')
-        .to(sellTotalCount, { y: 45, duration: .2, ease: 'al_slide' }, '<')
-        .set(sellChangeCountButton, { autoAlpha: 0 })
-        .set([sellTotalInputCountBox, sellInputCountBox], { autoAlpha: 1 }, '<')
-        .from(lableForSaleInput, { y: -77, duration: .2, ease: 'al_slide' })
-        .set(sellTotalInputCountBox, { value: "10" })
-        .set(lableForSaleInput, { autoAlpha: 0 })
+        .addLabel('sellModalPause')
+        .fromTo(sellModal, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
+        sellMadalAnimation.tweenTo(0)
+
+        sellChangeCountButton.addEventListener('click', () => {
+            sellMadalAnimation.restart()
+        })
+        
+
+        const sellChangeCountButtonHoverAnimation = gsap.timeline()
+        .fromTo(sellChangeCountButton, { '--sellTotalCountBoxOpacity': 1 }, { '--sellTotalCountBoxOpacity': 0, duration: .1, ease: 'none' })
+        sellChangeCountButton.addEventListener('mouseenter', () => sellChangeCountButtonHoverAnimation.tweenTo('0', { ease: 'al_out' }))
+        sellChangeCountButton.addEventListener('mouseleave', () => sellChangeCountButtonHoverAnimation.tweenTo('.1', { ease: 'al_out' }))
 
     
-    sellTotalInputCountBox.addEventListener('focus', () => {
-        sellTotalInputCountBox.select()
-    })
-    sellTotalInputCountBox.addEventListener('blur', () => {
-        if ( sellTotalInputCountBox.value === '') {
-            sellTotalInputCountBox.value = '1'
-            inputQuantity.value = '1 кг'
-            inputPrice.value = '495 грн'
+
+
+        const sellModalTabAnimationBox = sellModalTab.map(createSellModalTabAnimation)
+            
+        sellModalTab.forEach((tab) => { 
+            tab.addEventListener('click', () => sellModalTabAnimation(tab))
+        })
+
+        function sellModalTabAnimation(clickedTab) {
+            sellModalTabAnimationBox.forEach((toggleFn) => toggleFn(clickedTab))
         }
-    })
-    sellTotalInputCountBox.addEventListener('input', () => {
-        sellTotalInputCountBox.value = sellTotalInputCountBox.value.replace(/[^0-9]/g, '')
-        const price =  495 * sellTotalInputCountBox.value
-        if ( sellTotalInputCountBox.value === '') {
-            sellTotalPrice.textContent = '1 кг - 495 грн' 
-            inputQuantity.value = '1 кг'
-            inputPrice.value = '495 грн'
-        } else if ( sellTotalInputCountBox.value === '0' ) {
-            sellTotalInputCountBox.value = '1'
-            sellTotalPrice.textContent = '1 кг - 495 грн'
-            inputQuantity.value = '1 кг'
-            inputPrice.value = '495 грн'
-        } else {
-            sellTotalPrice.textContent = `${sellTotalInputCountBox.value} кг - ${price} грн`
-            inputQuantity.value = `${sellTotalInputCountBox.value} кг`
-            inputPrice.value = `${price} грн`
+
+        function createSellModalTabAnimation(element, i) {
+
+            sellMadalAnimation.tweenTo(0)
+
+            const tl = gsap.timeline()
+            .fromTo(element, { '--sellModalTabChackedOpacity': 1 }, { '--sellModalTabChackedOpacity': 0, duration: .1, ease: 'none' })
+            
+            return function(clickedTab) {
+                sellMadalAnimation.play('sellModalPause')
+                if (clickedTab === element) {
+                    if (tl.time() === .1) {
+                        tl.tweenTo('0', { ease: 'al_out' })
+                    } else {
+                    }
+                } else {
+                    tl.tweenTo('.1', { ease: 'al_out' })
+                }
+            }
         }
-    })
+
     
-//     const blueLink = gsap.utils.toArray('.blueLink')
+
+        const sellTotalInputCountBox = document.querySelector('.inputcount'),
+            lableForSaleInput = document.querySelector('.lableforinputcount'),
+            sellInputCountBox = document.querySelector('.inputcountbox')
+            
+
+        sellModalTab.forEach((tab, i) => {
+            const value = i + 1
+            const price =  495 * (i + 1)
+            const tl = gsap.timeline()
+            .fromTo(tab, { '--sellModalTabOpacity': 1, '--sellModalValueOpacity': 1, }, { '--sellModalTabOpacity': 0, '--sellModalValueOpacity': 0, duration: .1, ease: 'none' })
+            tab.addEventListener('mouseenter', () => tl.tweenTo('0', { ease: 'al_out' }))
+            tab.addEventListener('mouseleave', () => tl.tweenTo('.1', { ease: 'al_out' }))  
+                tab.addEventListener('click', () => {
+                tl.tweenTo('.1', { ease: 'al_out', onStart: () => { tl.timeScale(2) }})
+                tl.tweenTo('0', { ease: 'al_out', delay: .1, onStart: () => { tl.timeScale(2) }})
+                if ( i < 9 ) {
+                    tab.dataset.value = `${value}`
+                    tab.dataset.price = `${price}`
+                    sellTotalCount.textContent = `${tab.dataset.value}`
+                    sellTotalPrice.textContent = `${tab.dataset.value} кг - ${tab.dataset.price} грн`
+                    inputQuantity.value = `${tab.dataset.value}`
+                    inputPrice.value = `${tab.dataset.price} грн`
+                } 
+                if ( i === 9 ) {
+                    sellTotalInputAnimation.play()
+                    sellTotalPrice.textContent = '10 кг - 4950 грн'
+                    inputQuantity.value = '10 кг'
+                    inputPrice.value = '4950 грн'
+                }
+                })
+
+        })
+
+        document.addEventListener('click', (e) => {
+            if ( sellModal.contains(e.target)) {
+                
+            } else {
+                if( sellMadalAnimation.time() === sellMadalAnimation.labels.sellModalPause ) {
+                    sellMadalAnimation.play('sellModalPause' + .2)
+                }
+            }
+        })
+
+        const sellTotalInputAnimation = gsap.timeline()
+            .set(sellInputCountBox, { autoAlpha: 0 })
+            .to(sellInputCountBox, { duration: .1 })
+            .addPause()
+            .to(sellInputCountBox, { duration: .25 })
+            .set(sellChangeCountButton, { overflow: 'hidden' })
+            .set(sellTotalInputCountBox, { value: "" }, '<')
+            .to(sellChangeCountButton, { '--sellTotalCountBoxY': '40px', duration: .2, ease: 'al_slide' }, '<')
+            .to(sellTotalCount, { y: 45, duration: .2, ease: 'al_slide' }, '<')
+            .set(sellChangeCountButton, { autoAlpha: 0 })
+            .set([sellTotalInputCountBox, sellInputCountBox], { autoAlpha: 1 }, '<')
+            .from(lableForSaleInput, { y: -77, duration: .2, ease: 'al_slide' })
+            .set(sellTotalInputCountBox, { value: "10" })
+            .set(lableForSaleInput, { autoAlpha: 0 })
+
+        
+        sellTotalInputCountBox.addEventListener('focus', () => {
+            sellTotalInputCountBox.select()
+        })
+        sellTotalInputCountBox.addEventListener('blur', () => {
+            if ( sellTotalInputCountBox.value === '') {
+                sellTotalInputCountBox.value = '1'
+                inputQuantity.value = '1 кг'
+                inputPrice.value = '495 грн'
+            }
+        })
+        sellTotalInputCountBox.addEventListener('input', () => {
+            sellTotalInputCountBox.value = sellTotalInputCountBox.value.replace(/[^0-9]/g, '')
+            const price =  495 * sellTotalInputCountBox.value
+            if ( sellTotalInputCountBox.value === '') {
+                sellTotalPrice.textContent = '1 кг - 495 грн' 
+                inputQuantity.value = '1 кг'
+                inputPrice.value = '495 грн'
+            } else if ( sellTotalInputCountBox.value === '0' ) {
+                sellTotalInputCountBox.value = '1'
+                sellTotalPrice.textContent = '1 кг - 495 грн'
+                inputQuantity.value = '1 кг'
+                inputPrice.value = '495 грн'
+            } else {
+                sellTotalPrice.textContent = `${sellTotalInputCountBox.value} кг - ${price} грн`
+                inputQuantity.value = `${sellTotalInputCountBox.value} кг`
+                inputPrice.value = `${price} грн`
+            }
+        })
+
+    }) //mediaQuery 960+ close
     
-//     blueLink.forEach(a => {
-//     const aHoverTl = gsap.timeline()
-//     .fromTo(a, { '--faq_line_scale': 1 }, { '--faq_line_scale': 0, duration: .1, ease: 'none' } )
-//     a.addEventListener('mouseenter', () => aHoverTl.tweenTo('0', { ease: 'al_out' }))
-//     a.addEventListener('mouseleave', () => aHoverTl.tweenTo('.1', { ease: 'al_out' }))
-//   })
-  
-//   const sellSliderTab = gsap.utils.toArray('.sliderDescriptionTab'),
-//   sellSliderText = gsap.utils.toArray('.sliderDescriptionText')
-  
-//   sellSliderTab.forEach(tab => {
-      
-//       const tabTl = gsap.timeline()
-//       .fromTo(tab, { color: '#1D1D1F', pointerEvents: 'none', '--sellModalTabLineOpacity': 1 }, { color: '#6E6E73', '--sellModalTabLineOpacity': 0, pointerEvents: 'auto', duration: .1, ease: 'none' })
-//       tab.addEventListener('click', () => tabTl.tweenTo('0', { ease: 'none' }))
-      
-//       const tabTl2 = gsap.timeline()
-//       .fromTo(tab, { '--sellTabOpacity': 1 }, { '--sellTabOpacity': 0, duration: .1, ease: 'none' })
-//       tab.addEventListener('mouseenter', () => tabTl2.tweenTo('0', { ease: 'none' }))
-//       tab.addEventListener('mouseleave', () => tabTl2.tweenTo('.1', { ease: 'none' }))
-//   })
-//   sellSliderText.
-//   .fromTo(tab, { position: 'relative', opacity: 1 }, { position: 'absolute', opacity: 0, duration: .2, ease: 'none' })
 
 
     const sellSliderTab = gsap.utils.toArray('.slidertab'),

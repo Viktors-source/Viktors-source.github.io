@@ -1951,6 +1951,9 @@ body {
                     left: 0%;
                     top: 54px;
                 }
+                .changecountmodalmobile {
+                    display: none;
+                }
                     .countmodallist {
                         font-size: 26px;
                     }
@@ -2133,6 +2136,9 @@ body {
                     left: 0%;
                     top: calc(37px + (54 - 37) * ((100vW - 960px) / (1360 - 960)));
                 }
+                .changecountmodalmobile {
+                    display: none;
+                }
                     .countmodallist {
                         font-size: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
                     }
@@ -2309,29 +2315,72 @@ body {
                         letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
                     }
                 .changecountmodal {
-                    padding: calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
-                    border: calc(0.8px + (2.4 - 0.8) * ((100vW - 320px) / (960 - 320))) solid #D2D2D7;
-                    box-shadow: calc(1.5px + (4.5 - 1.5) * ((100vW - 320px) / (960 - 320))) calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(35px + (16 - 35) * ((100vW - 320px) / (960 - 320))) rgb(0 0 0 / 16%);
+                    display: none;
+                }
+                .changecountmodalmobile {
+                    z-index: 100;
+                    width: calc(244px + (732 - 244) * ((100vW - 320px) / (960 - 320)));
+                    height: calc(300px + (900 - 300) * ((100vW - 320px) / (960 - 320)));
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    position: absolute;
+                    background: #F5F5F7;
+                    padding: 0;
+                    border: 0px;
+                    box-shadow: calc(2px + (6 - 2) * ((100vW - 320px) / (960 - 320))) calc(4px + (12 - 4) * ((100vW - 320px) / (960 - 320))) calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320))) rgb(0 0 0 / 16%);
                     border-radius: calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));
                     left: 0%;
                     top: 0%;
                 }
-                    .countmodallist {
+                    .countmodallistmobile {
+                        margin: 0;
+                        padding: 0;
                         font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                        color: #1D1D1F;
+                        font-family: 'SFProTextRegular';
+                        font-weight: 400;
+                        line-height:  calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+                        letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                        list-style-type: none;
+                        padding-left: 0;
                     }
-                        .modaltab {
-                            padding: calc(3px + (9 - 3) * ((100vW - 320px) / (960 - 320))) calc(12px + (36 - 12) * ((100vW - 320px) / (960 - 320)));;
-                            border-radius: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
+                        .modaltabmobile {
+                            position: relative;
+                            padding: calc(11px + (33 - 11) * ((100vW - 320px) / (960 - 320))) calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                            display: flex;
+                            justify-content: space-between;
                         }
-                        .modaltab::before {
-                            top: calc(8px + (25 - 8) * ((100vW - 320px) / (960 - 320)));
-                            right: calc(8px + (25 - 8) * ((100vW - 320px) / (960 - 320)));
-                            width: calc(15px + (42 - 15) * ((100vW - 320px) / (960 - 320)));
-                            height: calc(15px + (40 - 15) * ((100vW - 320px) / (960 - 320)));
+                        .countmodallistmobile > .modaltabmobile:not(:first-child)::after {
+                            content: " ";
+                            position: absolute;
+                            display: block;
+                            transform-origin: left top;
+                            left: 0px;
+                            top: 0px;
+                            width: 100%;
+                            height: calc(0.5px + (1.5 - 0.5) * ((100vW - 320px) / (960 - 320)));
+                            background-color: rgba(60, 60, 67, 0.36);
+                            opacity: .5;
                         }
-                        .modaltab::after {
-                            border-radius: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320)));
-                        }
+                            .modaltabcheckbox {
+                                width: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                                height: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                                border-radius: 300px;
+                                border: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320))) solid rgba(60, 60, 67, 0.36);
+                                margin: auto 0;
+                                position: relative;
+                            }
+                            .modaltabcheckbox::after {
+                                position: absolute;
+                                opacity: var(--mobileModalCheckBoxOpacity);
+                                content: '';
+                                width: 100%;
+                                height: 100%;
+                                background-image: url(../img/Active\ Mobile\ Modal\ Checkbox.svg);
+                                background-position: center center;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                            }
                 .inputcountbox {
                     display: none;
                 }
