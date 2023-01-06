@@ -80,7 +80,6 @@ mm.add('(max-width: 959px)', () => {
                 trigger: beneffit,
                 start: 'top bottom-=10%',
                 toggleActions: 'play none none reverse',
-                // markers: true,
             }
         })
         // .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
@@ -154,7 +153,6 @@ mm.add('(min-width: 960px)', () => {
                         trigger: point,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(point, { y: 120, ease: 'al_slide', duration: .6 })
@@ -167,7 +165,6 @@ mm.add('(min-width: 960px)', () => {
                         trigger: title,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(title, { y: 120, ease: 'al_slide', duration: .6 })
@@ -180,7 +177,6 @@ mm.add('(min-width: 960px)', () => {
                         trigger: text,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(text, { y: 120, ease: 'al_slide', duration: .6 })
@@ -193,7 +189,6 @@ mm.add('(min-width: 960px)', () => {
                         trigger: media,
                         start: 'top bottom-=10%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(media, { opacity: .1, ease: "power2.inOut", duration: .6 })
@@ -207,8 +202,8 @@ mm.add('(min-width: 960px)', () => {
     })
     .from(dryTextBeneffitTitle, { opacity: 0, scale: 10, ease: "power2.inOut", duration: 1 })
 
-
 })
+
 mm.add('(max-width: 959px)', () => {
 
     const dryflourPointsAnimation =  gsap.timeline({
@@ -216,7 +211,6 @@ mm.add('(max-width: 959px)', () => {
                         trigger: dryflourPoints,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(dryflourPoints, { y: '20%', ease: 'al_slide', duration: .6 })
@@ -256,10 +250,9 @@ mm.add('(max-width: 959px)', () => {
                         trigger: title,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
-                .from(title, { y: '20%', ease: 'al_slide', duration: .6 })
+                .from(title, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(title.offsetHeight / 100) + '%', ease: 'al_slide', duration: .6 })
                 .from(title, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     })
     beneffitText.forEach((text, i) => {
@@ -269,10 +262,9 @@ mm.add('(max-width: 959px)', () => {
                         trigger: text,
                         start: 'top bottom-=5%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
-                .from(text, { y: '20%', ease: 'al_slide', duration: .6 })
+                .from(text, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(text.offsetHeight / 100) + '%', ease: 'al_slide', duration: .6 })
                 .from(text, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     })
     beneffitMdia.forEach((media, i) => {
@@ -282,7 +274,6 @@ mm.add('(max-width: 959px)', () => {
                         trigger: media,
                         start: 'top bottom-=10%',
                         toggleActions: 'play none none reverse',
-                        // markers: true,
                     }
                 })
                 .from(media, { opacity: .1, ease: "power2.inOut", duration: .6 })
@@ -293,7 +284,6 @@ mm.add('(max-width: 959px)', () => {
             trigger: dryTextBeneffit,
             start: 'top bottom-=20%',
             toggleActions: 'play none none reverse',
-            // markers: true,
         }
     })
     .from(dryTextBeneffitTitle, { opacity: 0, scale: 5, ease: "power2.inOut", duration: 1 })
@@ -491,7 +481,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(shopReviewTitle, { y: '20%', ease: 'al_slide', duration: .6 })
+    .from(shopReviewTitle, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(shopReviewTitle.offsetHeight / 100) + '%', ease: 'al_slide', duration: .6 })
     .from(shopReviewTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     reviewText.forEach((text, i) => {
@@ -503,7 +493,7 @@ mm.add('(max-width: 959px)', () => {
                         toggleActions: 'play none none reverse',
                     }
                 })
-                .from(text, { y: '20%', ease: 'al_slide', duration: .6 })
+                .from(text, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(text.offsetHeight / 100) + '%', ease: 'al_slide', duration: .6 })
                 .from(text, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     })
 
@@ -524,10 +514,12 @@ mm.add('(max-width: 959px)', () => {
 /* cartcard */
 const cardcartTitle = document.querySelector('.cardcart__title'),
 cardcartPoints = document.querySelectorAll('.cardcart__points p'),
+cardcartPoint = document.querySelector('.cardcart__points p'),
 cardCartDisplay = document.querySelector('.cardcartdisplay'),
 changeCountButton = document.querySelector('.changecountbutton'),
 cardCartButon = document.querySelector('.cardcart__buton'),
 sliderTabs = document.querySelectorAll('.slidertabs > div'),
+tabSlider = document.querySelector('.slidertabs > div'),
 sliderTab = document.querySelector('.slidertabs'),
 cardcartPrice = document.querySelector('.cardcart__price')
 
@@ -593,7 +585,7 @@ mm.add('(min-width: 960px)', () => {
     })
     .from(sliderTabs, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
     .from(sliderTabs, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
-    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', duration: .6 }, '>-.1')
+    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', duration: .6 }, '>-.1') 
     .set(sliderTab, { overflow: 'visible' })
 
     function showTextTab() {
@@ -613,7 +605,7 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(cardcartTitle, { y: '50%', ease: 'al_slide', duration: .6 })
+    .from(cardcartTitle, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(cardcartTitle.offsetHeight / 100) + '%', ease: 'al_slide', duration: .6 })
     .from(cardcartTitle, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const cardcartPointsAnimation =  gsap.timeline({
@@ -623,57 +615,54 @@ mm.add('(max-width: 959px)', () => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(cardcartPoints, { y: '50%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(cardcartPoints, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(cardcartPoint.offsetHeight / 100) + '%', ease: 'al_slide', stagger: .05, duration: .6 })
     .from(cardcartPoints, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
     
     const cardCartDisplayAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: cardCartDisplay,
             start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
         }
     })
-    .from(cardCartDisplay, { y: '50%', ease: 'al_slide', duration: .6 })
+    .from(cardCartDisplay, { y: '25%', ease: 'al_slide', duration: .6 })
     .from(cardCartDisplay, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const changeCountButtonAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: changeCountButton,
             start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
         }
     })
-    .from(changeCountButton, { y: '50%', ease: 'al_slide', duration: .6 })
+    .from(changeCountButton, { y: '25%', ease: 'al_slide', duration: .6 })
     .from(changeCountButton, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
     
     const cardCartButonAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: cardCartButon,
             start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
         }
     })
-    .from(cardCartButon, { y: '50%', ease: 'al_slide', delay: .1, duration: .6 })
+    .from(cardCartButon, { y: '25%', ease: 'al_slide', delay: .1, duration: .6 })
     .from(cardCartButon, { ease: 'none', autoAlpha: 0, delay: .1, duration: .6 }, '<')
-    
+
     const sliderTabsAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: sliderTabs,
             start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
+            onEnter: () => {
+                gsap.delayedCall(1.2, showTextTab);
+                
+            },
         }
     })
-    .from(sliderTabs, { y: '50%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(sliderTabs, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(tabSlider.offsetHeight / 100) + '%', ease: 'al_slide', stagger: .05, duration: .6 })
     .from(sliderTabs, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
-    
-    const sliderTabAnimation =  gsap.timeline({
-        scrollTrigger: {
-            trigger: sliderTabs,
-            start: 'top bottom-=5%',
-            toggleActions: 'play none none reverse',
-        }
-    })
-    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', delay: .7, duration: .6 })
+    .fromTo(sliderTab, { '--slidertabs_scale': 0 }, { '--slidertabs_scale': 1, ease: 'al_slide', duration: .6 }, '>-.1')
+    .set(sliderTab, { overflow: 'visible' })
+
+    function showTextTab() {
+        sellSliderToggles[0](sellSliderTab[0])
+    }
     
 })
 
@@ -682,28 +671,41 @@ mm.add('(max-width: 959px)', () => {
 
 /* footer */
 const footerLink = gsap.utils.toArray('.foterlink'),
+footerOneLink = document.querySelector('.foterlink'),
 footerLinkAll = document.querySelectorAll('.foterlink'),
 footer = document.querySelector('.footer'),
 copyright = document.querySelector('.copyright')
 
 mm.add('(min-width: 960px)', () => {
 
-
     const footerLinkAllAnimation =  gsap.timeline({
         scrollTrigger: {
             trigger: footer,
             start: 'top bottom',
+            markers: true,
         }
     })
     .from(footerLinkAll, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
     .from(footerLinkAll, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
     .from(copyright, { y: 120, ease: 'al_slide', duration: .6 }, '<')
     .from(copyright, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
 })
 
     
     
 mm.add('(max-width: 959px)', () => {
+
+    const footerLinkAllAnimation =  gsap.timeline({
+        scrollTrigger: {
+            trigger: footerOneLink,
+            start: 'top bottom',
+        }
+    })
+    .from(footerLinkAll, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(footerOneLink.offsetHeight / 100) + '%', ease: 'al_slide', stagger: .05, duration: .6 })
+    .from(footerLinkAll, { ease: 'none', autoAlpha: 0, stagger: .05, duration: .6 }, '<')
+    .from(copyright, { y: (36 + (108 - 36) * ((window.innerWidth - 320) / (960 - 320))) /(copyright.offsetHeight / 100) + '%', ease: 'al_slide', duration: .6 }, '<')
+    .from(copyright, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
 
 })
  
@@ -1595,7 +1597,20 @@ const burgerLine = document.querySelector('.burger__line'),
             }
         }
 
+        document.addEventListener('click', (e) => {
+            if ( sellModalMobile.contains(e.target)) {
+                
+            } else {
+                if( sellMadalMobileAnimation.time() === sellMadalMobileAnimation.labels.sellModalMobilePause ) {
+                    sellMadalMobileAnimation.play('sellModalMobilePause' + .2)
+                }
+            }
+        })
+
+        sellModalTabMobileAnimationBox[0](sellModalTabMobile[0])
+
     }) 
+    
 
     mm.add('(min-width: 960px)', () => { 
 
