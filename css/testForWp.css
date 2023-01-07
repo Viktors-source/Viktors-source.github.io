@@ -2310,6 +2310,7 @@ body {
                     width: calc(87px + (261 - 87) * ((100vW - 320px) / (960 - 320)));
                     height: calc(37px + (111 - 37) * ((100vW - 320px) / (960 - 320)));
                     padding: calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320))) 0 calc(6px + (18 - 6) * ((100vW - 320px) / (960 - 320))) calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320)));
+                    border-radius: calc(8px + (24 - 8) * ((100vW - 320px) / (960 - 320)));
                 }
                 .changecountbutton::after {
                     top: calc(14px + (42 - 14) * ((100vW - 320px) / (960 - 320)));
