@@ -2436,10 +2436,17 @@ body {
                         white-space: nowrap;
                     }
                 .slidertexts {
-                    font-family: 'SFProTextRegular';
+                    /* font-family: 'SFProTextRegular';
                     font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
                     line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
-                    letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320)));
+                    letter-spacing: calc((-0.2px) + ((-0.6) - (-0.2)) * ((100vW - 320px) / (960 - 320))); */
+
+                    font-weight: 600;
+                    color: #6E6E73;
+                    font-family: 'SFProDisplaySemibold';
+                    font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
+                    line-height: calc(25px + (75 - 25) * ((100vW - 320px) / (960 - 320)));
+                    letter-spacing: calc((0.2px) + ((0.6) - (0.2)) * ((100vW - 320px) / (960 - 320)));
                 }
                     .slidertext > p:not(:first-child) {
                         margin: calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))) 0 0 0;

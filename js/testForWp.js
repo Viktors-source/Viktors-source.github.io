@@ -97,7 +97,7 @@ mm.add('(max-width: 959px)', () => {
     //             trigger: image,
     //             start: 'top bottom-=10%',
     //             toggleActions: 'play none none reverse',
-    //             // markers: true,
+
     //         }
     //     })
     //     // .from(image, { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
@@ -111,7 +111,7 @@ mm.add('(max-width: 959px)', () => {
     //             trigger: text,
     //             start: 'top bottom-=10%',
     //             toggleActions: 'play none none reverse',
-    //             // markers: true,
+
     //         }
     //     })
     //     // .from(text, { y: '40%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
@@ -682,7 +682,6 @@ mm.add('(min-width: 960px)', () => {
         scrollTrigger: {
             trigger: footer,
             start: 'top bottom',
-            markers: true,
         }
     })
     .from(footerLinkAll, { y: 120, ease: 'al_slide', stagger: .05, duration: .6 })
