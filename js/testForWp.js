@@ -1224,6 +1224,7 @@ const burgerLine = document.querySelector('.burger__line'),
                 const tl = gsap.timeline()
                 .fromTo(element, { xPercent: 200, }, { xPercent: -200, duration: 1, ease: 'none', immediateRender: false })  
                 .fromTo(element.querySelector('div'), { opacity: .3, }, { opacity: 1, delay: .25, zIndex: 100, duration: .25, repeat: 1, yoyo: true, ease: 'al_out', immediateRender: false }, '0')  
+                .fromTo(element, {  }, { zIndex: 100, delay: .25, duration: .25, repeat: 1, yoyo: true, ease: 'none'  }, '0') 
                 return tl
             },
         

@@ -1507,16 +1507,23 @@ body {
         gap: calc(48px + (146 - 48) * ((100vW - 320px) / (960 - 320)));
     }
         .mkreviewscontent {
-            padding: 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320))); 
+            padding: 0 calc(15px + (45 - 15) * ((100vW - 320px) / (960 - 320)));
         }
             .mkreview__text {
                 color: rgba(0, 0, 0, .56);
-                font-family: "SFProDisplayMedium";
+                /* font-family: "SFProDisplayMedium";
                 font-size: calc(20px + (60 - 20) * ((100vW - 320px) / (960 - 320)));
                 line-height: calc(26px + (78 - 26) * ((100vW - 320px) / (960 - 320)));
                 letter-spacing: calc((0.2px) + ((0.6) - (0.2)) * ((100vW - 320px) / (960 - 320)));
-                font-weight: 500;
+                font-weight: 500; */
                 text-align: justify;
+
+                /* color: #86868B; */
+                font-family: "SFProTextMedium" ;
+                font-size: calc(17px + (51 - 17) * ((100vW - 320px) / (960 - 320)));
+                line-height: calc(22px + (66 - 22) * ((100vW - 320px) / (960 - 320)));
+                letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320)));
+                font-weight: 500;
 
                 /* font-family: "SFProTextSemibold" ;
                 /* font-family: "SFProTextSemibold" ;
@@ -1526,6 +1533,9 @@ body {
                 letter-spacing: calc((-0.41px) + ((-1.23) - (-0.41)) * ((100vW - 320px) / (960 - 320))); */
                 margin: 0;
             }
+                .mkreviews__description {
+                    padding: 0 calc(10px + (30 - 10) * ((100vW - 320px) / (960 - 320)));
+                }
             .mkreviewactions {
             position: absolute;
             height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
