@@ -16,6 +16,7 @@ CustomEase.create('al_slide', 'M0,0 C0.26,0.67 0.48,0.91 1,1')
 CustomEase.create('easeOutQuad', 'M0,0 C0.5,1 0.89,1 1,1') 
 CustomEase.create('easeOutQuint', 'M0,0 C0.22,1 0.36,1 1,1') 
 CustomEase.create('easeOutSine', 'M0,0 C0.61,1 0.88,1 1,1') 
+CustomEase.create('easeInOutSine', 'M0,0 C0.37,0 0.63,1 1,1') 
 
 
 
@@ -82,11 +83,12 @@ mm.add('(max-width: 959px)', () => {
                 toggleActions: 'play none none reverse',
             }
         })
-        // .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 })
         .from(mainBeneffitTextArray[i], { y: '100%', ease: 'easeOutSine', autoAlpha: 0, duration: .5 })
-        .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', autoAlpha: 0, duration: .5 }, '>.1')
+        .from(mainBeneffitImageArray[i], { y: '100%', ease: 'al_slide', duration: .5 }, '>.1')
+        .from(mainBeneffitImageArray[i], { ease: 'al_slide', autoAlpha: 0, duration: .4 }, '<.1')
         .to(mainBeneffitImageArray[i], { rotate: '-35deg', ease: 'easeOutSine', duration: .2 }, '<')
-        .to(mainBeneffitImageArray[i], { rotate: '0deg', ease: 'easeOutSine', duration: .2 })
+        .to(mainBeneffitImageArray[i], { scale: 1.5, ease: 'easeInOutSine', repeat: 1, duration: .3, yoyo: true, }, '<')
+        .to(mainBeneffitImageArray[i], { rotate: '0deg', ease: 'easeOutSine', duration: .2 }, '<.3')
 
     })
 
@@ -763,8 +765,8 @@ const burgerLine = document.querySelector('.burger__line'),
     navContentHeight = navContent.offsetHeight,
     navCurtain = document.querySelector('.nav__curtain'),
 
-    toggleMobileNav = gsap.timeline()
-    .from(dropdown, { autoAlpha: 0, y: -dropdownHeight + navContentHeight, duration: .3, ease: 'al_slide' })
+    toggleMobileNav = gsap.timeline({ paused: true })
+    .fromTo(dropdown, { autoAlpha: 0, y: -dropdownHeight + navContentHeight, }, { autoAlpha: 1, y: 0, duration: .3, ease: 'al_slide', })
     .fromTo(navCurtain, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: .3 }, '<')
     .from(navLinkMobile, { y: '100%', duration: .3, stagger: .03, ease: 'none' }, '>-.1')
     .fromTo(navFooter, { '--navFooterLineScaleX': 0 }, { '--navFooterLineScaleX': 1, ease: 'al_slide', duration: .2 }, '>-.1') 
@@ -1547,7 +1549,7 @@ const burgerLine = document.querySelector('.burger__line'),
         .addPause()
         .addLabel('sellModalMobilePause')
         .fromTo(sellModalMobile, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
-        sellMadalMobileAnimation.tweenTo(0)
+        sellMadalMobileAnimation.play('sellModalMobilePause')
 
         sellChangeCountButton.addEventListener('click', () => {
             sellMadalMobileAnimation.restart()
@@ -1578,8 +1580,6 @@ const burgerLine = document.querySelector('.burger__line'),
         }
 
         function createSellModalTabMobileAnimation(element, i) {
-
-            sellMadalMobileAnimation.tweenTo(0)
 
             const tl = gsap.timeline()
             .fromTo(element.querySelector('.modaltabcheckbox'), { '--mobileModalCheckBoxOpacity': 1 }, { '--mobileModalCheckBoxOpacity': 0, duration: .1, ease: 'none' })
@@ -1619,7 +1619,7 @@ const burgerLine = document.querySelector('.burger__line'),
         .addPause()
         .addLabel('sellModalPause')
         .fromTo(sellModal, { autoAlpha: 1 }, { autoAlpha: 0, delay: .2, duration: .15, ease: 'al_out'})
-        sellMadalAnimation.tweenTo(0)
+        sellMadalAnimation.play('sellModalPause')
 
         sellChangeCountButton.addEventListener('click', () => {
             sellMadalAnimation.restart()
@@ -1645,8 +1645,6 @@ const burgerLine = document.querySelector('.burger__line'),
         }
 
         function createSellModalTabAnimation(element, i) {
-
-            sellMadalAnimation.tweenTo(0)
 
             const tl = gsap.timeline()
             .fromTo(element, { '--sellModalTabChackedOpacity': 1 }, { '--sellModalTabChackedOpacity': 0, duration: .1, ease: 'none' })
@@ -1928,63 +1926,112 @@ qaSection = document.querySelector('.qa')
 
 const navigationSection = [beneffitSection, aboutUsSection, shopReviewsSection, qaSection],
 navigationSectiontoSnap = [beneffitSection.offsetTop, dryTextBeneffit.offsetTop + dryTextBeneffit.offsetHeight, shopReviewsSection.offsetTop, qaSection.offsetTop - qaSection.offsetHeight],
+navLinksMobile = gsap.utils.toArray('.nav__link_mobile'),
 linksScrollAnimationArray = navLink.map(createLinksScrolltoSectionAnimation),
-linksChangeInOutAnimationArray = navLink.map(createLinksChangeInOutSectionAnimation)
+linksChangeInOutAnimationArray = navLink.map(createLinksChangeInOutSectionAnimation),
+linksMobileScrollAnimationArray = navLinksMobile.map(createLinksMobileScrolltoSectionAnimation),
+linksMobileChangeInOutAnimationArray = navLinksMobile.map(createLinksMobileChangeInOutSectionAnimation)
 
-function createLinksChangeInOutSectionAnimation(link) {
-    const tl = gsap.timeline()
-    .fromTo(link, { color: '#8B70F6', pointerEvents: 'none', }, { color: '#1D1D1F', pointerEvents: 'auto', duration: .1, ease: 'none' })
 
-    return tl
-}
 
-navLink.forEach((link, i) => {
-    link.addEventListener('click', () => conectSectionScrollToAnimation(link))
-    link.addEventListener("click", () => {
-        gsap.to(window, { duration: 1, ease: 'al_slide', scrollTo: { y: navigationSection[i], offsetY: 42 + (60 - 42) * ((window.innerWidth - 960) / (1360 - 960)) }})
-      })
-})
 
-function conectSectionScrollToAnimation(link) { 
-    linksScrollAnimationArray.forEach((fn) => fn(link))
-}
-
-function createLinksScrolltoSectionAnimation(element, i) { 
-
-    return function(link) {
-
-        if (link === element) {
-            linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
-          } else {
-            linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
-          }
+    function createLinksMobileChangeInOutSectionAnimation(link) {
+        const tl = gsap.timeline()
+        .fromTo(link, { color: '#8B70F6', pointerEvents: 'none', }, { color: '#1D1D1F', pointerEvents: 'auto', duration: .1, ease: 'none' })
+    
+        return tl
     }
-}
-
-navigationSectiontoSnap.forEach((section, i) => {
-
-    ScrollTrigger.create({
-        start: `top+=${ section } center-=20%`,
-        end: `+=${ navigationSectiontoSnap[i + 1] - navigationSectiontoSnap[i] }`,
-        onEnter: (self) => {
-            linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
-        },
-        onEnterBack: () => {
-            linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
-        },
-        onLeave: () => {
-            linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
-        },
-        onLeaveBack: () => {
-            linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+    
+    navLinksMobile.forEach((link, i) => {
+        link.addEventListener('click', () => conectSectionScrollToAnimation(link))
+        link.addEventListener("click", () => {
+            gsap.to(window, { duration: 1, ease: 'al_slide', scrollTo: { y: navigationSection[i], offsetY:  45 + (136 - 45) * ((window.innerWidth - 320) / (960 - 320)) }})
+          })
+    })
+    
+    function conectSectionScrollToAnimation(link) { 
+        linksMobileScrollAnimationArray.forEach((fn) => fn(link))
+    }
+    
+    function createLinksMobileScrolltoSectionAnimation(element, i) { 
+    
+        return function(link) {
+    
+            if (link === element) {
+                linksMobileChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+              } else {
+                linksMobileChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+              }
         }
+    }
+
+
+
+
+
+    function createLinksChangeInOutSectionAnimation(link) {
+        const tl = gsap.timeline()
+        .fromTo(link, { color: '#8B70F6', pointerEvents: 'none', }, { color: '#1D1D1F', pointerEvents: 'auto', duration: .1, ease: 'none' })
+    
+        return tl
+    }
+    
+    navLink.forEach((link, i) => {
+        link.addEventListener('click', () => conectSectionScrollToAnimation(link))
+        link.addEventListener("click", () => {
+            gsap.to(window, { duration: 1, ease: 'al_slide', scrollTo: { y: navigationSection[i], offsetY: 42 + (60 - 42) * ((window.innerWidth - 960) / (1360 - 960)) }})
+          })
+    })
+    
+    function conectSectionScrollToAnimation(link) { 
+        linksScrollAnimationArray.forEach((fn) => fn(link))
+    }
+    
+    function createLinksScrolltoSectionAnimation(element, i) { 
+    
+        return function(link) {
+    
+            if (link === element) {
+                linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+              } else {
+                linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+              }
+        }
+    }
+    
+    navigationSectiontoSnap.forEach((section, i) => {
+    
+        ScrollTrigger.create({
+            start: `top+=${ section } center-=20%`,
+            end: `+=${ navigationSectiontoSnap[i + 1] - navigationSectiontoSnap[i] }`,
+            onEnter: (self) => {
+                linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+                linksMobileChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+            },
+            onEnterBack: () => {
+                linksChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+                linksMobileChangeInOutAnimationArray[i].tweenTo('0', { ease: 'none' })
+            },
+            onLeave: () => {
+                linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+                linksMobileChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+            },
+            onLeaveBack: () => {
+                linksChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+                linksMobileChangeInOutAnimationArray[i].tweenTo('.1', { ease: 'none' })
+            }
+        })
+    
     })
 
-})
+
+
+
 
 
 const cardCart = document.querySelector('.cardcart'),
-navButton = document.querySelector('.nav__button')
+navButton = document.querySelector('.nav__button'), 
+navButtonMobile = document.querySelector('.nav__button_mobile')
 
 mm.add('(min-width: 960px)', () => {
 
@@ -1993,6 +2040,11 @@ mm.add('(min-width: 960px)', () => {
     })
 
 })
+mm.add('(max-width: 959px)', () => { 
+    navButtonMobile.addEventListener("click", () => {
+        gsap.to(window, { duration: 1, ease: 'al_slide', scrollTo: { y: cardCart, offsetY: 45 + (136 - 45) * ((window.innerWidth - 320) / (960 - 320)) }})  
+    })
+})     
 
 
 

@@ -162,6 +162,8 @@ body {
                 z-index: 999;
                 width: 100%;
                 background: #FBFBFD;
+                opacity: 0;
+                visibility: 0;
             }
                 .nav__footer {
                     display: flex;
@@ -210,7 +212,9 @@ body {
                     width: 100vw;
                     height: 100vh;
                     z-index: 900;
-                    background: rgba(0,0,0,0.4);;
+                    background: rgba(0,0,0,0.4);
+                    opacity: 0;
+                    visibility: 0;
                 }
 
 @media screen and (min-width: 1360px) {
@@ -2013,7 +2017,7 @@ body {
                     letter-spacing: 0.1px;
                 }
             .cardcart__slider {
-                margin: 88px 0 200px 0;
+                margin: 88px 0 0 0;
                 gap: 26px;
             }
                 .slidertabs {
@@ -2198,7 +2202,7 @@ body {
                     flex: 1 0 auto;
                 }
             .cardcart__slider {
-                margin: calc(54px + (88 - 54) * ((100vW - 960px) / (1360 - 960))) 0 calc(140px + (200 - 140) * ((100vW - 960px) / (1360 - 960))) 0;
+                margin: calc(54px + (88 - 54) * ((100vW - 960px) / (1360 - 960))) 0 0 0;
                 gap: calc(19px + (26 - 19) * ((100vW - 960px) / (1360 - 960)));
             }
                 .slidertabs {
@@ -2329,6 +2333,8 @@ body {
                     display: none;
                 }
                 .changecountmodalmobile {
+                    visibility: hidden;
+                    opacity: 0;
                     z-index: 100;
                     width: calc(244px + (732 - 244) * ((100vW - 320px) / (960 - 320)));
                     height: calc(300px + (900 - 300) * ((100vW - 320px) / (960 - 320)));
