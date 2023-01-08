@@ -1009,7 +1009,7 @@ const burgerLine = document.querySelector('.burger__line'),
                     this.startOffset = scrub.vars.position; 
                 }, 
                 onDrag(self) { 
-                    scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.003) )
+                    scrub.vars.position = gsap.utils.clamp(0, 1, (this.startOffset + (this.startX -  this.x ) * 0.001) )
                     scrub.invalidate().restart()
                 }, 
                 onDragEnd() { 
