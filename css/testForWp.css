@@ -1586,7 +1586,7 @@ body {
                 .mkreview {
                     height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
                     width: calc(229px + (689 - 229) * ((100vW - 320px) / (960 - 320)));
-                    background: #FFFFFF;
+                    background: #FBFBFD;
                 }
                     .mkreviewcontent {
                         height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
@@ -1595,7 +1595,7 @@ body {
                         .mkreviewimage {
                             width: calc(211px + (633 - 211) * ((100vW - 320px) / (960 - 320)));
                             height: calc(429px + (1287 - 429) * ((100vW - 320px) / (960 - 320)));
-                            /* border-radius: calc(16px + (48 - 16) * ((100vW - 320px) / (960 - 320))); */
+                            border: calc(1px + (3 - 1) * ((100vW - 320px) / (960 - 320))) solid #E5E5E5;
                         }
         .dotsnav {
             position: relative;
