@@ -1,855 +1,294 @@
-<!DOCTYPE html>
-<html lang='en'>
-
+<!doctype html>
+<html lang="ru">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link href="css/testForWp.css" rel="stylesheet" type="text/css">
-    <script type='text/javascript' defer src='js/gsap.min.js'></script>
-    <script type='text/javascript' defer src='js/ScrollTrigger.min.js'></script>
-    <script type='text/javascript' defer src='js/CustomEase.min.js'></script>
-    <script type='text/javascript' defer src='js/Draggable.min.js'></script>
-    <script type='text/javascript' defer src='js/ScrollToPlugin.min.js'></script>
-    <script type='text/javascript' defer src='js/TextPlugin.min.js'></script>
-    <title>Macaron_ingradient</title>
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Главная — Мой сайт</title>
 
+  <style>
+    /* --- БАЗОВАЯ СБОРКА --- */
+    :root{
+      --bg:#f7f7f8;
+      --card:#ffffff;
+      --accent:#2b6cb0;
+      --muted:#6b7280;
+      --gap:18px;
+      --radius:10px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111827;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px;
+    }
+
+    /* --- HEADER --- */
+    header{
+      background: transparent;
+      padding:12px 0;
+    }
+    .header-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap);
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:700;
+      font-size:18px;
+    }
+    .logo .mark{
+      width:40px;
+      height:40px;
+      background:var(--accent);
+      color:#fff;
+      display:inline-grid;
+      place-items:center;
+      border-radius:8px;
+      font-weight:700;
+    }
+    nav a{
+      margin-left:16px;
+      text-decoration:none;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .cta{
+      margin-left:16px;
+      text-decoration:none;
+      background:var(--accent);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+    }
+
+    /* --- HERO --- */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      align-items:center;
+      padding:40px 0;
+    }
+    .hero-left h1{
+      margin:0 0 12px 0;
+      font-size:36px;
+      line-height:1.05;
+    }
+    .hero-left p{ margin:0 0 16px 0; color:var(--muted) }
+    .hero-actions{ display:flex; gap:12px; }
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(43,108,176,0.12);
+    }
+
+    .hero-right{
+      display:flex;
+      justify-content:center;
+    }
+    .hero-card{
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
+      width:320px;
+      text-align:center;
+    }
+
+    /* --- FEATURES --- */
+    .features{
+      display:flex;
+      gap:16px;
+      margin:28px 0;
+      flex-wrap:wrap;
+    }
+    .feature{
+      background:var(--card);
+      padding:14px;
+      border-radius:12px;
+      flex:1 1 200px;
+      min-width:180px;
+      box-shadow:0 4px 12px rgba(16,24,40,0.04);
+    }
+    .feature h4{ margin:0 0 6px 0 }
+    .feature p{ margin:0; color:var(--muted); font-size:14px }
+
+    /* --- PRODUCTS GRID --- */
+    .products{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .product{
+      background:var(--card);
+      padding:12px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 6px 16px rgba(16,24,40,0.04);
+    }
+    .product img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:8px;
+      background:#eee;
+    }
+    .product h5{ margin:10px 0 6px 0; font-size:15px }
+    .product p{ margin:0; color:var(--muted); font-size:13px }
+    .product .price{ margin-top:8px; font-weight:700 }
+
+    /* --- FOOTER --- */
+    footer{
+      margin-top:34px;
+      padding:20px 0;
+      color:var(--muted);
+      font-size:14px;
+      text-align:center;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width:900px){
+      .products{ grid-template-columns:repeat(2,1fr) }
+      .hero{ grid-template-columns:1fr; }
+    }
+    @media (max-width:600px){
+      .header-row{ flex-direction:column; align-items:flex-start; gap:12px }
+      nav a{ margin-left:8px }
+      .products{ grid-template-columns:1fr }
+      .hero-left h1{ font-size:28px }
+      .hero-card{ width:100% }
+    }
+  </style>
+</head>
 <body>
 
- <!----- local-nav -----> 
+  <header>
+    <div class="container header-row">
+      <a class="logo" href="#">
+        <span class="mark">M</span>
+        <span>МойСайт</span>
+      </a>
 
-    <nav class='local-nav'>
-        <div class="nav__content">
-            <p class="logo_text"><span>@</span>macaron_ingridient</p>
-            <div class="nav__actions">
-                <div class="nav__links">
-                    <div class="nav__link">
-                        <span>переваги</span>
-                        <span>переваги</span>
-                    </div>
-                    <div class="nav__link">
-                        <span>головне</span>
-                        <span>головне</span>
-                    </div>
-                    <div class="nav__link">
-                        <span>відгуки</span>
-                        <span>відгуки</span>
-                    </div>
-                    <div class="nav__link">
-                        <span>питання/ відповіді</span>
-                        <span>питання/ відповіді</span>
-                    </div>
-                </div>
-                <div class="nav__button button">Придбати борошно</div>
-                <div class="nav__actions_mobile">
-                    <div class="nav__button_mobile button">Придбати борошно</div>
-                    <div class="nav__burger">
-                        <div class="burger__line"></div>
-                        <div class="burger__line"></div>
-                        <div class="burger__line"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="dropdown">
-            <div class="nav__links_mobile">
-                <div><span class="nav__link_mobile">досягнення</span></div>
-                <div><span class="nav__link_mobile">специфікація</span></div>
-                <div><span class="nav__link_mobile">відгуки</span></div>
-                <div><span class="nav__link_mobile">питання/ відповіді</span></div> 
-            </div>
-            <div class="nav__footer">
-                <p>©macaron_ingridient</p>
-                <p>|</p>
-                <p>2022</p>
-            </div>
-        </div>
-        <div class="nav__curtain"></div>
-    </nav>
+      <div style="display:flex; align-items:center;">
+        <nav>
+          <a href="#">Главная</a>
+          <a href="#">Каталог</a>
+          <a href="#">О нас</a>
+          <a href="#">Контакты</a>
+        </nav>
+        <a class="cta" href="#">Заказать</a>
+      </div>
+    </div>
+  </header>
 
-<!----- local-nav -----> 
-
-<!----- first screen -----> 
-
-    <section class="first-screen__title">
-        <div class="maintitle">
-            <h1>Мигдалеве<br>борошно<br>
-                <span class="h1_toggles">
-                    <span class="h1_toggle">спеціально</span>
-                    <span class="h1_toggle">найкраще</span>
-                    <span class="h1_toggle">ідеальне</span>
-                </span>
-                для&nbsp;макарон
-            </h1>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Простой аккуратный сайт<br>для твоего проекта</h1>
+        <p>Короткое пояснение: что ты делаешь, кому помогаешь и какое главное преимущество. Одно предложение — и готово.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#">Начать</a>
+          <a class="btn secondary" href="#">Узнать больше</a>
         </div>
-        <div class="mainimage">
-            <img src="img/firstScreenFoto.jpg" alt="">
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Популярный товар</h3>
+          <img src="https://via.placeholder.com/300x120" alt="item" style="border-radius:8px; margin-top:10px;">
+          <p style="color:var(--muted); margin:10px 0 0 0;">Небольшое описание товара</p>
+          <div style="margin-top:10px; font-weight:700">₴ 499</div>
         </div>
+      </div>
     </section>
 
-    <section class="first-screen__beneffit">
-        <div class="mainbeneffit">
-            <div class="mainbeneffit__icon">
-                <img src="img/Almond.svg" alt="">
-            </div>
-            <p class="mainbeneffit__text">
-                <span>Очищений</span>
-                мигдаль висшої якості, сорту Nonpareil (США), супер дрібного помолу
-            </p>
-        </div>
-        <div class="mainbeneffit">
-            <div class="mainbeneffit__icon">
-                <img src="img/Ease.svg" alt="">
-            </div>
-            <p class="mainbeneffit__text">
-                <span>Можна</span>
-                використовувати одразу без просіювання та сушки
-            </p>
-        </div>
-        <div class="mainbeneffit">
-            <div class="mainbeneffit__icon">
-                <img src="img/Like.svg" alt="">
-            </div>
-            <p class="mainbeneffit__text">
-                <span>Борошно</span>
-                рекомендують більше 1000 кондитерів
-            </p>
-        </div>
+    <section class="features" aria-label="Преимущества">
+      <div class="feature">
+        <h4>Простой старт</h4>
+        <p>Лёгкая интеграция и простая настройка.</p>
+      </div>
+      <div class="feature">
+        <h4>Адаптивный дизайн</h4>
+        <p>Работает на телефоне, планшете и десктопе.</p>
+      </div>
+      <div class="feature">
+        <h4>Поддержка</h4>
+        <p>Быстрая помощь и понятные инструкции.</p>
+      </div>
     </section>
 
-<!----- first screen -----> 
+    <section aria-label="Каталог">
+      <h2 style="margin:0 0 12px 0;">Популярные товары</h2>
 
-
-<!----- beneffits ----->
-
-    <section class="dryflour flourbeneffit">
-        <div class="dryflour__media beneffit__media"><div></div></div>
-        <div class="dryflour__description beneffit__description">
-            <div class="dryflour__points beneffit__points">
-                <p class="dryflour__point beneffit__point">4% вологості</p>
-                <p class="dryflour__point beneffit__point">50 - 53% жирності</p>
-                <div class="sheercurtain"></div>
-                <div class="sheercurtain2"></div>
-            </div>
-            <h3 class="dryflour__title beneffit__title">Сухе борошно ідеальної жирності</h3>
-            <p class="dryflour__text beneffit__text">Борошно не потребує сушки, забезпечує чудовий зовнішній вигляд та текстуру кришечек, бо зроблене з дотриманням температурного режиму, з мигдаю сорту Nonpareil (найкращого для приготування макарон) </p>
+      <div class="products">
+        <div class="product">
+          <img src="https://via.placeholder.com/400x300" alt="">
+          <h5>Товар №1</h5>
+          <p>Краткое описание</p>
+          <div class="price">₴ 199</div>
         </div>
+
+        <div class="product">
+          <img src="https://via.placeholder.com/400x300" alt="">
+          <h5>Товар №2</h5>
+          <p>Краткое описание</p>
+          <div class="price">₴ 299</div>
+        </div>
+
+        <div class="product">
+          <img src="https://via.placeholder.com/400x300" alt="">
+          <h5>Товар №3</h5>
+          <p>Краткое описание</p>
+          <div class="price">₴ 399</div>
+        </div>
+
+        <div class="product">
+          <img src="https://via.placeholder.com/400x300" alt="">
+          <h5>Товар №4</h5>
+          <p>Краткое описание</p>
+          <div class="price">₴ 499</div>
+        </div>
+      </div>
     </section>
 
-    <section class="fineflour flourbeneffit">
-        <div class="fineflour__description beneffit__description">
-            <div class="fineflour__points beneffit__points">
-                <p class="fineflour__point beneffit__point">розмір фракції 0.3 - 0.5мм</p>
-            </div>
-            <h3 class="fineflour__title beneffit__title">Супер дрібний помол борошна</h3>
-            <p class="fineflour__text beneffit__text">Борошно не потребує просіювання та забезпечує гладенькі кришечки, бо виготовлене на сучасному обладднанні з найкращого каліфорнійського мигдалю</p>
-        </div>
-        <div class="fineflour__media beneffit__media"><div></div></div>
-    </section>
+  </main>
 
-    <section class="drytextbeneffitBox">
-        <div class="drytextbeneffit">
-            <h3 class="drytextbeneffit__title">Можна використовувати одразу без просіювання та сушки.</h3>
-            <h3 class="drytextbeneffit__title">Сухе, неймовірно дрібне та ніжне відразу з упаковки</h3>
-        </div>
-    </section>
+  <footer>
+    <div class="container">
+      © <span id="year"></span> МойСайт — Все права защищены
+    </div>
+  </footer>
 
-<!----- beneffits ----->
-
-
-<!----- about us ----->
-
-    <section class="aboutus">
-        <h3 class="aboutus__title"><span>Ідеально</span> для макарон</h3>
-        <div class="aboutus__subtitles">
-            <div class="aboutus__subtitles_small">Вихід для кондитерів, які втрачають час на просіювання та/або сушку борошна , отримують непривабливий зовнішній вигляд макарон, через жирність, вологість або помол борошна</div>
-            <div class="aboutus__subtitles_large">Використовуйте борошно відразу з упаковки для ваших кришечек, а ми подбаємо про все інше: доставимо для вас борошно, яке не потрібно сушити або просіювати, яке не має проблем з вологістю та жирністю</div>
-        </div>
-    </section>
-
-<!----- about us ----->
-
-
-<!----- reviews ----->
-
-    <section class="shopreviews">
-        <div class="shopreviewscontent">
-            <div class="shopreviews__description">
-                <h2 class="shopreview__title">Відгуки покупців</h2>
-                <p class="shopreview__text review__text">Борошном задоволені більше 1000 кондітерів</p>
-            </div>
-            <div class="shopreviewactions">
-                <div class="shopreviewcontrolls">
-                    <div class="controllleftarrow">
-                        <div></div>
-                    </div>
-                    <div class="controllrightarrow">
-                        <div></div>
-                    </div>
-                </div>
-                <div class="volumetogglebutton">
-                    <div class="volumetoggleOnbutton"><div></div></div>
-                    <div class="volumetoggleOffbutton"><div></div></div>
-                </div>
-            </div>
-        </div>
-        <div class="shopreviewmediaBox">
-            <div class="shopreviewmedia">
-                <div class="shopreviewslist">
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 1.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 2.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 4.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 5.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 6.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 7.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 8.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 9.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 10.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 11.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 12.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 13.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 14.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 15.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 16.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 17.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 18.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 19.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 20.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 21.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 22.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 23.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <img class="shopreview__review" src="video/videorshopreview 24.jpg" type="video/mp4">
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 25.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 26.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-
-                    <div class="shopreview">
-                        <div class="shopreviewcontent">
-                            <div class="screendisplay"></div>
-                            <video class="shopreview__review" loop muted>
-                                <source src="video/videorshopreview 27.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-            
-                </div>
-            </div>
-        </div>
-        <div class="shopreviewactions_mobile">
-            <div class="volumetogglebutton">
-                <div class="volumetoggleOnbutton"><div></div></div>
-                <div class="volumetoggleOffbutton"><div></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mkreviews">
-        <div class="mkreviewscontent">
-            <div class="mkreviews__description review__text">
-                <p class="mkreview__text">Більше 200 участників живих майстер-класів від Kate&Cake вперше успішно приготували макарон на нашому борошні</p>
-            </div>
-            <div class="mkreviewactions">
-                <div class="mkreviewcontrolls">
-                    <div class="mkcontrollleftarrow">
-                        <div></div>
-                    </div>
-                    <div class="mkcontrollrightarrow">
-                        <div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mkreviewmediaBox">
-            <div class="mkreviewmedia">
-                <div class="mkreviewslist">
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 1.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 2.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 3.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 4.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 5.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 6.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 7.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 8.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 9.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 10.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 11.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 12.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 13.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                    <div class="mkreview">
-                        <div class="mkreviewcontent">
-                            <img src="img/Mk photos 14.jpg" class="mkreviewimage">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="dotsnav">
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-            <div class="dotnav"></div>
-        </div>
-    </section>
-
-<!----- reviews ----->
-
-
-<!----- card cart ----->
-
-    <section class="cardcart">
-        <div class="cardcartcontent">
-            <div class="cardcart__discription">
-                <h2 class="cardcart__title">Мигдалеве борошно</h2>
-                <div class="cardcart__points">
-                    <p class="cardcart__point">100% мигдалю Nonpareil (США)</p>
-                    <p class="cardcart__point">з бланшированого мигдалю</p>
-                    <p class="cardcart__point">супер дрібний помол</p>
-                    <p class="cardcart__point">не потребує сушки та просіювання</p>
-                    <p class="cardcart__point">розмір фракції борошна 0.3 - 0.5 мм</p>
-                    <p class="cardcart__point">50 -53% жирності</p>
-                    <p class="cardcart__point">4% вологості</p>
-                </div>
-            </div>
-            <div class="cardcart__price">
-                    <p class="cardcartdisplay">1 кг - 410 грн</p>
-                    <div class="changecountbutton">
-                        <p class="counter">1</p>
-                    </div>
-                    <div class="changecountmodal">
-                        <ul class="countmodallist">
-                            <li class="modaltab"><span class="modaltabvalue" data-value="1">1</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="2">2</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="3">3</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="4">4</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="5">5</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="6">6</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="7">7</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="8">8</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="9">9</span></li>
-                            <li class="modaltab"><span class="modaltabvalue" data-value="10+">10+</span></li>
-                        </ul>
-                    </div>
-                    <div class="changecountmodalmobile">
-                        <ul class="countmodallistmobile">
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="1">1</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="2">2</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="3">3</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="4">4</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="5">5</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="6">6</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="7">7</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="8">8</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="9">9</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="10">10</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="11">11</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="12">12</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="13">13</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="14">14</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="15">15</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="16">16</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="17">17</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="18">18</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="19">19</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="10">20</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="21">21</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="22">22</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="23">23</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="24">24</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="25">25</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="26">26</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="27">27</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="28">28</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="29">29</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="30">30</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="31">31</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="32">32</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="33">33</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="34">34</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="35">35</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="36">36</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="37">37</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="38">38</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="39">39</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="40">40</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="41">41</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="42">42</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="43">43</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="44">44</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="45">45</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="46">46</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="47">47</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="48">48</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="49">49</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="50">50</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="51">51</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="52">52</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="53">53</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="54">54</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="55">55</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="56">56</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="57">57</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="58">58</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="59">59</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="60">60</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="61">61</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="62">62</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="63">63</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="64">64</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="65">65</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="66">66</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="67">67</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="68">68</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="69">69</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="70">70</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="71">71</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="72">72</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="73">73</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="74">74</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="75">75</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="76">76</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="77">77</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="78">78</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="79">79</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="80">80</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="81">81</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="82">82</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="83">83</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="84">84</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="85">85</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="86">86</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="87">87</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="88">88</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="89">89</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="90">90</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="91">91</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="92">92</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="93">93</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="94">94</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="95">95</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="96">96</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="97">97</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="98">98</span> <div class="modaltabcheckbox"></div></li>
-                            <li class="modaltabmobile"><span class="modaltabvaluemobile" data-value="99">99</span> <div class="modaltabcheckbox"></div></li>
-                        </ul>
-                    </div>
-                    <div class="inputcountbox">
-                        <input type="tel" maxlength="2" class="inputcount">
-                        <label for="tel" class="lableforinputcount">10</label>
-                    </div>
-                    <form action="sendTelegram.php" method="POST" class="tgrequest"> 
-                        <input type="text" name="quantity" class="inputquantity" value='1'>
-                        <input type="text" name="price" class="inputprice" value='495 грн'>
-                        <button class="submit cardcart__buton button" type="submit">Отпримати реквізити в мессенджер</button>
-                    </form>
-                    
-            </div>
-            <div class="cardcart__slider">
-                <div class="slidertabs">
-                    <div class="slidertab" data-value="Доставка">Доставка</div>
-                    <div class="slidertab" data-value="Оплата">Оплата</div>
-                    <div class="slidertab" data-value="Сертифікат">Сертифікат</div>
-                    <div class="slidertab" data-value="Оформлення замовлення">Оформлення замовлення</div>
-                </div>
-                <div class="slidertexts">
-                    <div class="slidertext">
-                        <p>Відправляємо замовлення на наступний день після оплати, з понеділка по пятницю</p>
-                        <p>Відправляємо “Новою Поштою”</p>
-                    </div>
-                    <div class="slidertext">
-                        <p>Ви можете отримати реквізити для оплати на картку Приват Банку у WhatsApp, Viber, Telegram, після підтвердження замовлення</p>
-                        <p>Мінімальне замовлення - 1кг борошна</p>
-                    </div>
-                    <div class="slidertext">
-                        <img src="img/Certificate Almond Flour 1:2.jpg" class="slidersertificate">
-                        <img src="img/Certificate Almond Flour 2:2.jpg" class="slidersertificate">
-                    </div>
-                    <div class="slidertext">
-                        <p>1. Виберіть бажану кількість товару ( вибрати за <span class="bluelink">посиланням</span>)</p>
-                        <p>2.Для відправки товару новою поштою ( єдиний спосіб на данний момент ) введіть ваші прізвище та імя для формування замовлення у додатку Нової Пошти ( можна зробити за <span class="bluelink">посиланням</span> ) та виберіть номер відділення на карти на яке отримуватимете ваше замовлення ( можна зробити за <span class="bluelink">посиланням</span> )</p>
-                        <p>3.Введіть свій номер телефону, щоб ми відправили вам всю інформацію про ваше замолення в одному повідомленні разом з реквізитами для оплати</p>
-                        <p>4.Оплатіть замовлення через додаток приват банку, банкомат або в інший зручний спосіб за отриманими реквізитами</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="cardcartgallery">
-            <div class="cardcartimagelist">
-                <img src="img/Фото муки.png" class="cardcartimage" style="background-size: cover;">
-                <img src="img/Фото муки.png" class="cardcartimage" style="background-size: cover;">
-                <img src="img/Фото муки.png" class="cardcartimage" style="background-size: cover;">
-            </div>
-            <div class="imagepreviewlist">
-                <img src="img/Фото муки.png" class="cardcartimagepreview">
-                <img src="img/Фото муки.png" class="cardcartimagepreview">
-                <img src="img/Фото муки.png" class="cardcartimagepreview">
-            </div>
-        </div>
-    </section>
-
-<!----- card cart ----->
-
-
-<!----- qa section ----->
-
-    <section class="qa">
-        <div class="qablock">
-            <div class="qa__texts">
-                <h4 class="qa__title">Термін придатності та правила зберігання</h4>
-                <div class="qa_text">
-                    <p>Зберігати борошно у прохолодному, темному, сухому місці в щільно закритій упаковці</p>
-                    <p>Від надмірної температури виділяєтся жир, який псує як якість, так і смак борошна</p>
-                </div>
-            </div>
-            <div class="qa__action">
-                <span>Детальніше</span>
-                <span>Детальніше</span>
-            </div>
-        </div>
-        <div class="qablock">
-            <div class="qa__texts">
-                <h4 class="qa__title">Термін придатності та правила зберігання</h4>
-                <div class="qa_text">
-                    <p>Зберігати борошно у прохолодному, темному, сухому місці в щільно закритій упаковці</p>
-                    <p>Від надмірної температури виділяєтся жир, який псує як якість, так і смак борошна</p>
-                </div>
-            </div>
-            <div class="qa__action">
-                <span>Детальніше</span>
-                <span>Детальніше</span>
-            </div>
-        </div>
-        <div class="qablock">
-            <div class="qa__texts">
-                <h4 class="qa__title">Термін придатності та правила зберігання</h4>
-                <div class="qa_text">
-                    <p>Зберігати борошно у прохолодному, темному, сухому місці в щільно закритій упаковці</p>
-                    <p>Від надмірної температури виділяєтся жир, який псує як якість, так і смак борошна</p>
-                </div>
-            </div>
-            <div class="qa__action">
-                <span>Детальніше</span>
-                <span>Детальніше</span>
-            </div>
-        </div>
-        <div class="qablock">
-            <div class="qa__texts">
-                <h4 class="qa__title">Термін придатності та правила зберігання</h4>
-                <div class="qa_text">
-                    <p>Зберігати борошно у прохолодному, темному, сухому місці в щільно закритій упаковці</p>
-                    <p>Від надмірної температури виділяєтся жир, який псує як якість, так і смак борошна</p>
-                </div>
-            </div>
-            <div class="qa__action">
-                <span>Детальніше</span>
-                <span>Детальніше</span>
-            </div>
-        </div>
-    </section>
-
-<!----- qa section ----->
-
-
-<!----- qa section ----->
-
-    <section class="footer">
-        <div class="footercontent">
-            <h3 class="footerlogo"><span>@</span>macaron_ingridient</h3>
-            <div class="footer__actions">
-                <p class="copyright">©Kate&Cake | 2022</p>
-                <div class="footer__links">
-                    <div class="linkssocial">
-                        <div class="foterlink">
-                            <div class="footerlinckcontent">
-                                <span>Instagram</span>
-                                <span>Instagram</span>
-                            </div>
-                        </div>
-                        <div class="foterlink">
-                            <div class="footerlinckcontent">
-                                <span>Facebook</span>
-                                <span>Facebook</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="linkmessegers">
-                        <div class="foterlink">
-                            <div class="footerlinckcontent">
-                                <span>Whatsapp</span>
-                                <span>Whatsapp</span>
-                            </div>
-                        </div>
-                        <div class="foterlink">
-                            <div class="footerlinckcontent">
-                                <span>Telegram</span>
-                                <span>Telegram</span>
-                            </div>
-                        </div>
-                        <div class="foterlink">
-                            <div class="footerlinckcontent">
-                                <span>Viber</span>
-                                <span>Viber</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-  
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript" defer src="js/telegram.js"></script> -->
-    <script type='text/javascript' defer src='js/testForWp.js'></script>
+  <script>
+    // динамический год в футере
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
+
